@@ -147,6 +147,20 @@ a {
 .logo-icon {
     color: var(--primary-color);
     margin-left: 2px;
+    display: inline-block;
+    animation: semicolon-blink 1.5s infinite step-end;
+}
+
+@keyframes semicolon-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .tagline {
