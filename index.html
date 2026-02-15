@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semicolon | Code Through Stories</title>
+    <meta name="description"
+        content="Learn Data Structures and Algorithms through interactive stories. Where every line of code tells a story.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header class="glass-nav">
+        <div class="container">
+            <div class="brand-container">
+                <h1 class="logo-title">Semicolon<span class="logo-icon">;</span></h1>
+                <p class="tagline">Where every line of code tells a story</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <a href="#demo" class="btn btn-primary">Start Reading</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="fade-in-up">Where every line of code<br> <span class="text-gradient">tells a story.</span>
+                </h1>
+                <p class="subtitle fade-in-up delay-1">Forget boring lectures. Master Data Structures & Algorithms by
+                    living through them.</p>
+                <div class="cta-group fade-in-up delay-2">
+                    <a href="#demo" class="btn btn-primary pulse">Try the Demo</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Why Learn with Semicolon?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card glass-card">
+                        <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+                        <h3>Story-Driven</h3>
+                        <p>Complex concepts wrapped in engaging narratives. Remember the story, remember the code.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Interactive</h3>
+                        <p>Don't just read. Interact with the story elements to see how data structures change in
+                            real-time.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Visual Learning</h3>
+                        <p>Visualize memory, pointers, and algorithms with beautiful, animated diagrams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Chapter 1: The Street of Arrays</h2>
+                <p class="section-desc">You arrive at "Memory Lane". It's a straight street where every house looks the
+                    same, but each has a unique address.</p>
+
+                <div class="interactive-demo glass-card">
+                    <div class="demo-controls">
+                        <label for="house-index">Visit House Number (Index):</label>
+                        <input type="number" id="house-index" min="0" max="4" value="0">
+                        <button id="visit-btn" class="btn btn-small">Knock</button>
+                    </div>
+
+                    <div class="visualization-area">
+                        <div class="array-street" id="array-street">
+                            <!-- Array elements will be generated here -->
+                        </div>
+                    </div>
+
+                    <div class="output-log" id="output-log">
+                        <p>> Welcome to Memory Lane. Select a house to visit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="brand-container" style="align-items: center;">
+                    <div class="logo-title" style="font-size: 1.5rem;">Semicolon<span class="logo-icon">;</span></div>
+                </div>
+                <p>&copy; 2026 Semicolon. Built for learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
