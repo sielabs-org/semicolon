@@ -41,12 +41,11 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <h1 class="fade-in-up">Where every line of code<br> <span class="text-gradient">tells a story.</span>
-                </h1>
-                <p class="subtitle fade-in-up delay-1">Forget boring lectures. Master Data Structures & Algorithms by
-                    living through them.</p>
+                <h1 class="fade-in-up">Don't just code.<br> <span class="text-gradient">Engineer Solutions.</span></h1>
+                <p class="subtitle fade-in-up delay-1">Move beyond LeetCode. Master System Design, Scaling, and
+                    Real-World Debugging.</p>
                 <div class="cta-group fade-in-up delay-2">
-                    <a href="#demo" class="btn btn-primary pulse">Try the Demo</a>
+                    <a href="#demo" class="btn btn-primary pulse">Try Challenges</a>
                     <a href="#features" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -54,23 +53,24 @@
 
         <section id="features" class="features">
             <div class="container">
-                <h2 class="section-title">Why Learn with Semicolon?</h2>
+                <h2 class="section-title">Beyond Standard DSA</h2>
                 <div class="feature-grid">
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
-                        <h3>Story-Driven</h3>
-                        <p>Complex concepts wrapped in engaging narratives. Remember the story, remember the code.</p>
+                        <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                        <h3>System Design</h3>
+                        <p>Learn how to build scalable systems. Load balancers, rate limiters, and distributed caches.
+                        </p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
-                        <h3>Interactive</h3>
-                        <p>Don't just read. Interact with the story elements to see how data structures change in
-                            real-time.</p>
+                        <div class="icon-box"><i class="fa-solid fa-bug"></i></div>
+                        <h3>Real-World Debugging</h3>
+                        <p>Fix production outages, memory leaks, and race conditions in a safe, simulated environment.
+                        </p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
-                        <h3>Visual Learning</h3>
-                        <p>Visualize memory, pointers, and algorithms with beautiful, animated diagrams.</p>
+                        <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Performance Engineering</h3>
+                        <p>Optimize database queries, reduce latency, and handle massive traffic spikes.</p>
                     </div>
                 </div>
             </div>
@@ -78,25 +78,151 @@
 
         <section id="demo" class="demo-section">
             <div class="container">
-                <h2 class="section-title">Chapter 1: The Street of Arrays</h2>
-                <p class="section-desc">You arrive at "Memory Lane". It's a straight street where every house looks the
-                    same, but each has a unique address.</p>
+                <h2 class="section-title">Engineering Challenges</h2>
+                <p class="section-desc">Solve real problems faced by engineering teams at scale.</p>
+
+                <div class="challenge-selector">
+                    <button class="challenge-btn active" data-scenario="rate-limiter">Rate Limiter</button>
+                    <button class="challenge-btn" data-scenario="load-balancer">Load Balancer</button>
+                    <button class="challenge-btn" data-scenario="db-optimize">DB Optimization</button>
+                    <button class="challenge-btn" data-scenario="disk-defrag">Disk Defrag</button>
+                </div>
 
                 <div class="interactive-demo glass-card">
-                    <div class="demo-controls">
-                        <label for="house-index">Visit House Number (Index):</label>
-                        <input type="number" id="house-index" min="0" max="4" value="0">
-                        <button id="visit-btn" class="btn btn-small">Knock</button>
+                    <!-- Rate Limiter Demo -->
+                    <div id="demo-rate-limiter" class="demo-scenario active">
+                        <h3>Scenario: API Abuse</h3>
+                        <p>Your API is getting hammered. Implement a rate limiter to block excess requests.</p>
+                        <div class="control-panel">
+                            <button id="rl-send-btn" class="btn btn-small">Send Request</button>
+                            <div class="status-indicator">Status: <span id="rl-status">OK</span></div>
+                        </div>
+                        <div class="visual-bucket" id="rl-bucket">
+                            <!-- Visual tokens/requests go here -->
+                        </div>
+                        <div class="stats-panel">
+                            <p>Requests: <span id="rl-count">0</span> / 5 per 10s</p>
+                        </div>
                     </div>
 
-                    <div class="visualization-area">
-                        <div class="array-street" id="array-street">
-                            <!-- Array elements will be generated here -->
+                    <!-- Load Balancer Demo -->
+                    <div id="demo-load-balancer" class="demo-scenario" style="display: none;">
+                        <h3>Scenario: Black Friday Traffic</h3>
+                        <p>Traffic is spiking. Visualize how a Round-Robin load balancer distributes requests.</p>
+                        <div class="control-panel">
+                            <button id="lb-t-spike-btn" class="btn btn-small">Simulate Spike</button>
+                        </div>
+                        <div class="lb-visual">
+                            <div class="load-balancer-icon"><i class="fa-solid fa-network-wired"></i> LB</div>
+                            <div class="servers-container" id="lb-servers">
+                                <div class="server" id="server-1"><i class="fa-solid fa-server"></i> <span>S1</span>
+                                </div>
+                                <div class="server" id="server-2"><i class="fa-solid fa-server"></i> <span>S2</span>
+                                </div>
+                                <div class="server" id="server-3"><i class="fa-solid fa-server"></i> <span>S3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DB Optimization Demo -->
+                    <div id="demo-db-optimize" class="demo-scenario" style="display: none;">
+                        <h3>Scenario: The Slow Query</h3>
+                        <p>A query is taking 5 seconds. Add an index to speed it up.</p>
+                        <div class="control-panel">
+                            <button id="db-scan-btn" class="btn btn-small">Run Scan</button>
+                            <button id="db-index-btn" class="btn btn-small btn-secondary">Add Index & Run</button>
+                        </div>
+                        <div class="db-visual">
+                            <div class="db-table" id="db-table-visual">
+                                <!-- Squares representing rows -->
+                            </div>
+                        </div>
+                        <div class="stats-panel">
+                            <p>Time Taken: <span id="db-time">0ms</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Disk Defragmentation Demo -->
+                    <div id="demo-disk-defrag" class="demo-scenario" style="display: none;">
+                        <h3>Scenario: Disk Fragmentation</h3>
+                        <p>Optimize storage by moving all data blocks (1s) to the beginning. Free blocks (0s) should be
+                            at the end.</p>
+                        <div class="control-panel">
+                            <button id="defrag-run-btn" class="btn btn-small">Run Defrag</button>
+                            <button id="defrag-reset-btn" class="btn btn-small btn-secondary">Reset</button>
+                        </div>
+                        <div class="disk-visual" id="disk-visual">
+                            <!-- Disk blocks will be generated here -->
+                        </div>
+                        <div class="code-editor-container">
+                            <label for="defrag-code">Your Solution (JavaScript):</label>
+                            <textarea id="defrag-code" class="code-editor" spellcheck="false">
+function defrag(disk) {
+  // 'disk' is an array of 0s and 1s.
+  // Move all 1s to the left.
+  // Example: [0, 1, 0, 1] -> [1, 1, 0, 0]
+  
+  let writePtr = 0;
+  for (let readPtr = 0; readPtr < disk.length; readPtr++) {
+    if (disk[readPtr] === 1) {
+      // Swap using a temporary variable
+      let temp = disk[writePtr];
+      disk[writePtr] = disk[readPtr];
+      disk[readPtr] = temp;
+      writePtr++;
+    }
+  }
+}
+</textarea>
+                        </div>
+                        <div class="stats-panel">
+                            <p>Operations: <span id="defrag-ops">0</span></p>
+                            <p>Status: <span id="defrag-status">Ready</span></p>
                         </div>
                     </div>
 
                     <div class="output-log" id="output-log">
-                        <p>> Welcome to Memory Lane. Select a house to visit.</p>
+                        <p>> System initialized. Select a challenge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">How Semicolon Helps You</h2>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <h3><span class="highlight">1.</span> Bridge the Gap</h3>
+                            <p>Traditional CS education jumps straight into syntax. We build the <strong>mental
+                                    model</strong> first. By turning abstract concepts into concrete characters and
+                                scenarios, we bridge the gap between confusion and clarity.</p>
+
+                            <h3><span class="highlight">2.</span> Retain More</h3>
+                            <p>Humans are wired for stories, not raw data. You might forget how a
+                                <code>LinkedList</code> pointer update works, but you won't forget the story of the
+                                "Train that lost its carriage."
+                            </p>
+
+                            <h3><span class="highlight">3.</span> Visualize the Invisible</h3>
+                            <p>Code runs in the background. Semicolon brings it to the foreground. See memory
+                                allocation, garbage collection, and pointer arithmetic happen right before your eyes.
+                            </p>
+                        </div>
+                        <div class="about-visual">
+                            <div class="code-block-card glass-card">
+                                <pre><code>// The Old Way
+int[] arr = new int[5];
+arr[0] = 10;</code></pre>
+                                <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                                <div class="story-snippet">
+                                    <p>"You approach the first house on Memory Lane. The resident, Mr. Ten, waves from
+                                        the window."</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

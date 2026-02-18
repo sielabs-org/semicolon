@@ -1,68 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Demo Initialization
-    const memoryLane = [10, 20, 30, 40, 50]; // Initial values
-    const streetContainer = document.getElementById('array-street');
-    const outputLog = document.getElementById('output-log');
-    const visitBtn = document.getElementById('visit-btn');
-    const houseIndexInput = document.getElementById('house-index');
+    // --- Tabs Logic ---
+    const buttons = document.querySelectorAll('.challenge-btn');
+    const scenarios = document.querySelectorAll('.demo-scenario');
 
-    // Function to render the street
-    function renderStreet() {
-        streetContainer.innerHTML = '';
-        memoryLane.forEach((resident, index) => {
-            const house = document.createElement('div');
-            house.classList.add('house');
-            house.dataset.index = index;
-            house.style.animation = `popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards`;
-            house.style.animationDelay = `${index * 0.1}s`;
-            house.style.opacity = '0'; // Start invisible
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from buttons and scenarios
+            buttons.forEach(b => b.classList.remove('active'));
+            scenarios.forEach(s => {
+                s.style.display = 'none';
+                s.classList.remove('active');
+            });
 
-            // Roof element for styling
-            const roof = document.createElement('div');
-            roof.classList.add('house-roof');
-            house.appendChild(roof);
+            // Add active to clicked button and target scenario
+            btn.classList.add('active');
+            const targetId = `demo-${btn.dataset.scenario}`;
+            const target = document.getElementById(targetId);
+            target.style.display = 'block';
+            setTimeout(() => target.classList.add('active'), 10); // Fade in
 
-            // House content
-            const number = document.createElement('div');
-            number.classList.add('house-number');
-            number.textContent = `Index ${index}`;
-
-            const residentDisplay = document.createElement('div');
-            residentDisplay.classList.add('house-resident');
-            residentDisplay.textContent = resident;
-
-            house.appendChild(residentDisplay);
-            house.appendChild(number);
-
-            // Add click event
-            house.addEventListener('click', () => visitHouse(index));
-
-            streetContainer.appendChild(house);
+            logMessage(`Switched to scenario: ${btn.textContent}`);
         });
-    }
+    });
 
-    // Function to handle visiting a house
-    function visitHouse(index) {
-        // Validate index
-        if (index < 0 || index >= memoryLane.length) {
-            logMessage(`Error: House at index ${index} does not exist! (Array Index Out of Bounds)`);
-            return;
-        }
-
-        // Highlight the house
-        const houses = document.querySelectorAll('.house');
-        houses.forEach(h => h.classList.remove('active'));
-        houses[index].classList.add('active');
-
-        // Update input
-        houseIndexInput.value = index;
-
-        // Log the event
-        const value = memoryLane[index];
-        logMessage(`Privet! You visited house #${index}. The resident is number ${value}.`);
-    }
-
-    // Helper to log messages
+    const outputLog = document.getElementById('output-log');
     function logMessage(msg) {
         const p = document.createElement('p');
         p.textContent = `> ${msg}`;
@@ -70,23 +31,338 @@ document.addEventListener('DOMContentLoaded', () => {
         outputLog.scrollTop = outputLog.scrollHeight;
     }
 
-    // Event Listeners
-    visitBtn.addEventListener('click', () => {
-        const index = parseInt(houseIndexInput.value);
-        visitHouse(index);
+    // --- Scenario 1: Rate Limiter ---
+    const rlSendBtn = document.getElementById('rl-send-btn');
+    const rlStatus = document.getElementById('rl-status');
+    const rlBucket = document.getElementById('rl-bucket');
+    const rlCountSpan = document.getElementById('rl-count');
+
+    let requestCount = 0;
+    const MAX_REQUESTS = 5;
+    const TIME_WINDOW = 10000; // 10s
+    let resetTimer = null;
+
+    rlSendBtn.addEventListener('click', () => {
+        if (requestCount >= MAX_REQUESTS) {
+            logMessage("Error: 429 Too Many Requests");
+            rlStatus.textContent = "BLOCKED";
+            rlStatus.className = "status-indicator blocked";
+            rlBucket.classList.add('shake');
+            setTimeout(() => rlBucket.classList.remove('shake'), 500);
+            return;
+        }
+
+        requestCount++;
+        updateRlViz();
+
+        // Visual Request Token
+        const token = document.createElement('div');
+        token.className = 'bucket-item';
+        rlBucket.appendChild(token);
+
+        logMessage(`Request ${requestCount} accepted. 200 OK.`);
+
+        // Start reset timer if first request
+        if (!resetTimer) {
+            resetTimer = setTimeout(() => {
+                requestCount = 0;
+                rlBucket.innerHTML = '';
+                rlStatus.textContent = "OK";
+                rlStatus.className = "status-indicator ok";
+                updateRlViz();
+                logMessage("Rate limit window reset. Bucket empty.");
+                resetTimer = null;
+            }, TIME_WINDOW);
+        }
     });
 
-    // Initial render
-    renderStreet();
+    function updateRlViz() {
+        rlCountSpan.textContent = requestCount;
+    }
 
-    // Scroll Animation Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
+    // --- Scenario 2: Load Balancer ---
+    const lbSpikeBtn = document.getElementById('lb-t-spike-btn');
+    const servers = [
+        document.getElementById('server-1'),
+        document.getElementById('server-2'),
+        document.getElementById('server-3')
+    ];
+    let currentServerIndex = 0;
+
+    lbSpikeBtn.addEventListener('click', () => {
+        logMessage("Traffic Spike! Distributing 10 requests...");
+        distributeTraffic(10);
+    });
+
+    function distributeTraffic(amount) {
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i >= amount) {
+                clearInterval(interval);
+                return;
             }
-        });
+
+            // Round Robin
+            const server = servers[currentServerIndex];
+            server.classList.add('active-server');
+
+            // Simulate processing
+            setTimeout(() => server.classList.remove('active-server'), 300);
+
+            currentServerIndex = (currentServerIndex + 1) % servers.length;
+            i++;
+        }, 200);
+    }
+
+    // --- Scenario 3: DB Optimization ---
+    const dbScanBtn = document.getElementById('db-scan-btn');
+    const dbIndexBtn = document.getElementById('db-index-btn');
+    const dbTable = document.getElementById('db-table-visual');
+    const dbTime = document.getElementById('db-time');
+
+    // Create DB Grid
+    for (let i = 0; i < 50; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'db-cell';
+        dbTable.appendChild(cell);
+    }
+    const cells = document.querySelectorAll('.db-cell');
+    const TARGET_INDEX = 42; // arbitrary
+
+    dbScanBtn.addEventListener('click', () => {
+        logMessage("Running Full Table Scan...");
+        runQuery(false);
     });
 
-    // Add scroll animations if needed (simple fade-ins handled by CSS for now)
+    dbIndexBtn.addEventListener('click', () => {
+        logMessage("Running Index Lookup...");
+        runQuery(true);
+    });
+
+    function runQuery(isIndexed) {
+        // Reset
+        cells.forEach(c => {
+            c.className = 'db-cell';
+        });
+
+        if (isIndexed) {
+            // Instant lookup
+            setTimeout(() => {
+                cells[TARGET_INDEX].classList.add('found');
+                dbTime.textContent = "0.4ms (O(log n))";
+                logMessage("Query finished instantly using Index.");
+            }, 500);
+        } else {
+            // Linear scan animation
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i > TARGET_INDEX) {
+                    clearInterval(interval);
+                    cells[TARGET_INDEX].classList.add('found');
+                    dbTime.textContent = "520ms (O(n))";
+                    logMessage("Query finished after full scan.");
+                    return;
+                }
+                cells[i].classList.add('scanned');
+                i++;
+            }, 30); // Slow scan
+        }
+    }
+
+    // --- Scenario 4: Disk Defragmentation ---
+    const defragRunBtn = document.getElementById('defrag-run-btn');
+    const defragResetBtn = document.getElementById('defrag-reset-btn');
+    const diskVisual = document.getElementById('disk-visual');
+    const defragCode = document.getElementById('defrag-code');
+    const defragOps = document.getElementById('defrag-ops');
+    const defragStatus = document.getElementById('defrag-status');
+
+    let diskState = [];
+    const DISK_SIZE = 50;
+    let operationCount = 0;
+    let isDefragRunning = false;
+
+    function initDisk() {
+        diskState = [];
+        diskVisual.innerHTML = '';
+        operationCount = 0;
+        defragOps.textContent = '0';
+        defragStatus.textContent = 'Ready';
+        defragStatus.style.color = '#e0e0e0';
+
+        for (let i = 0; i < DISK_SIZE; i++) {
+            // Random 0 or 1, biased slightly towards 0 for more fragmentation
+            const val = Math.random() > 0.6 ? 1 : 0;
+            diskState.push(val);
+
+            const block = document.createElement('div');
+            block.className = `disk-block ${val === 1 ? 'occupied' : 'free'}`;
+            block.dataset.index = i;
+            block.textContent = val;
+            diskVisual.appendChild(block);
+        }
+    }
+
+    // Initialize on load
+    initDisk();
+
+    defragResetBtn.addEventListener('click', () => {
+        if (isDefragRunning) return;
+        initDisk();
+        logMessage("Disk reset with new random fragmentation.");
+    });
+
+    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+    defragRunBtn.addEventListener('click', async () => {
+        if (isDefragRunning) return;
+        isDefragRunning = true;
+        defragRunBtn.disabled = true;
+        defragResetBtn.disabled = true;
+        defragCode.disabled = true;
+        defragStatus.textContent = "Running...";
+        defragStatus.style.color = "#fbbf24";
+        logMessage("Starting Disk Defragmentation...");
+
+        try {
+            // Create a proxy to intercept array operations
+            const trackedDisk = new Proxy(diskState, {
+                get(target, prop, receiver) {
+                    const val = Reflect.get(target, prop, receiver);
+                    if (!isNaN(prop)) { // Index access
+                        highlightBlock(prop, 'read');
+                    }
+                    return val;
+                },
+                set(target, prop, value, receiver) {
+                    if (!isNaN(prop)) {
+                        operationCount++;
+                        defragOps.textContent = operationCount;
+
+                        // Update visual
+                        const block = diskVisual.children[prop];
+                        if (block) {
+                            block.className = `disk-block ${value === 1 ? 'occupied' : 'free'} write`;
+                            block.textContent = value;
+                            setTimeout(() => {
+                                block.classList.remove('write');
+                            }, 300);
+                        }
+                    }
+                    return Reflect.set(target, prop, value, receiver);
+                }
+            });
+
+            // highlight function to be used inside the loop for visualization delay
+            // We need to inject a pause mechanism. 
+            // Since the user code is synchronous, we can't easily pause it without
+            // rewriting it or running it in a worker with SharedArrayBuffer (too complex).
+            // ALTERNATIVE: We interpret the user's code? No, too hard.
+            // ALTERNATIVE: We use a generator? No, users won't write generators.
+            // REALISTIC APPROACH for Demo:
+            // We can't easily visualize "during" a synchronous loop in the main thread without
+            // blocking the UI.
+            // However, we can use 'Async Function' constructor if we modify the user code
+            // to await a 'tick' function.
+
+            // Let's try to inject 'await tick()' into the user's loop?
+            // Or simpler: We just visualize the result? No, that's boring.
+
+            // Better approach for visualization:
+            // We can record the operations and then play them back?
+            // Yes! That's much safer and allows smooth animation.
+
+            const operations = [];
+            const recordingProxy = new Proxy([...diskState], {
+                get(target, prop) {
+                    if (!isNaN(prop)) {
+                        operations.push({ type: 'read', index: prop });
+                    }
+                    return target[prop];
+                },
+                set(target, prop, value) {
+                    if (!isNaN(prop)) {
+                        operations.push({ type: 'write', index: prop, value: value });
+                        target[prop] = value;
+                    }
+                    return true;
+                }
+            });
+
+            // Execute user code on the recording proxy
+            const userCode = defragCode.value;
+            // distinct scope
+            const f = new Function('disk', userCode + '\nif (typeof defrag === "function") defrag(disk);');
+            f(recordingProxy);
+
+            // Now playback operations
+            logMessage(`Simulation complete. Replaying ${operations.length} operations...`);
+
+            for (const op of operations) {
+                if (op.type === 'read') {
+                    highlightBlock(op.index, 'read');
+                    // Fast read, no sleep needed usually, or very short
+                    await sleep(5);
+                } else if (op.type === 'write') {
+                    highlightBlock(op.index, 'write');
+                    updateBlock(op.index, op.value);
+                    operationCount++;
+                    defragOps.textContent = operationCount;
+                    await sleep(50); // Visible write
+                }
+            }
+
+            // Validate result
+            const isSorted = checkSorted(diskState);
+            if (isSorted) {
+                defragStatus.textContent = "Success!";
+                defragStatus.style.color = "#22c55e";
+                logMessage("Defragmentation successful! Blocks compacted.");
+            } else {
+                defragStatus.textContent = "Failed";
+                defragStatus.style.color = "#ef4444";
+                logMessage("Defragmentation failed. Blocks are not compacted.");
+            }
+
+        } catch (e) {
+            logMessage(`Error: ${e.message}`);
+            defragStatus.textContent = "Error";
+            defragStatus.style.color = "#ef4444";
+        } finally {
+            isDefragRunning = false;
+            defragRunBtn.disabled = false;
+            defragResetBtn.disabled = false;
+            defragCode.disabled = false;
+        }
+    });
+
+    function highlightBlock(index, type) {
+        const block = diskVisual.children[index];
+        if (block) {
+            block.classList.add(type);
+            setTimeout(() => block.classList.remove(type), 200);
+        }
+    }
+
+    function updateBlock(index, value) {
+        const block = diskVisual.children[index];
+        if (block) {
+            block.className = `disk-block ${value === 1 ? 'occupied' : 'free'} write`;
+            block.textContent = value;
+            setTimeout(() => block.classList.remove('write'), 200);
+
+            // Update actual state for consistency
+            diskState[index] = value;
+        }
+    }
+
+    function checkSorted(arr) {
+        // Should be all 1s then all 0s
+        let seenZero = false;
+        for (let x of arr) {
+            if (x === 0) seenZero = true;
+            if (seenZero && x === 1) return false;
+        }
+        return true;
+    }
 });
