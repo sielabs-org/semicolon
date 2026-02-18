@@ -365,4 +365,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return true;
     }
+
+    // --- GitHub Star Count ---
+    async function fetchGitHubStars() {
+        const starCountElement = document.getElementById('github-stars');
+        if (!starCountElement) return;
+
+        try {
+            const response = await fetch('https://api.github.com/repos/sielabs-org/semicolon');
+            if (response.ok) {
+                const data = await response.json();
+                const stars = data.stargazers_count;
+                // Format: 1.2k if > 1000
+                const formattedStars = stars >= 1000 ? (stars / 1000).toFixed(1) + 'k' : stars;
+                starCountElement.textContent = ` ${formattedStars}`;
+            }
+        } catch (e) {
+            console.error('Failed to fetch GitHub stars:', e);
+            // Fallback or leave empty
+        }
+    }
+    fetchGitHubStars();
 });
