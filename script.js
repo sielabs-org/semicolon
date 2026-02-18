@@ -371,18 +371,48 @@ document.addEventListener('DOMContentLoaded', () => {
         const starCountElement = document.getElementById('github-stars');
         if (!starCountElement) return;
 
+        const CACHE_KEY = 'github_stars';
+        const CACHE_EXPIRY_KEY = 'github_stars_expiry';
+        const CACHE_DURATION = 3600 * 1000; // 1 hour
+
+        // 1. Check Cache
+        const cachedStars = localStorage.getItem(CACHE_KEY);
+        const cacheExpiry = localStorage.getItem(CACHE_EXPIRY_KEY);
+
+        if (cachedStars && cacheExpiry && Date.now() < parseInt(cacheExpiry)) {
+            starCountElement.textContent = ` ${cachedStars}`;
+            // console.log("Loaded GitHub stars from cache."); // Optional debug
+            return;
+        }
+
+        // 2. Fetch from API if cache expired or missing
         try {
             const response = await fetch('https://api.github.com/repos/sielabs-org/semicolon');
+
             if (response.ok) {
                 const data = await response.json();
                 const stars = data.stargazers_count;
                 // Format: 1.2k if > 1000
                 const formattedStars = stars >= 1000 ? (stars / 1000).toFixed(1) + 'k' : stars;
+
                 starCountElement.textContent = ` ${formattedStars}`;
+
+                // Update Cache
+                localStorage.setItem(CACHE_KEY, formattedStars);
+                localStorage.setItem(CACHE_EXPIRY_KEY, Date.now() + CACHE_DURATION);
+            } else {
+                console.warn(`GitHub API Rate Limit might be exceeded. Status: ${response.status}`);
+                // Fallback: If we have a stale cache, show it anyway?
+                if (cachedStars) {
+                    starCountElement.textContent = ` ${cachedStars}`;
+                }
             }
         } catch (e) {
             console.error('Failed to fetch GitHub stars:', e);
-            // Fallback or leave empty
+            // Fallback to cache on error
+            if (cachedStars) {
+                starCountElement.textContent = ` ${cachedStars}`;
+            }
         }
     }
     fetchGitHubStars();
