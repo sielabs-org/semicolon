@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const problemsDir = path.join(__dirname, '../data/problems');
-const outputFile = path.join(__dirname, '../problems-data.js');
+const outputFile = path.join(__dirname, '../js/problems-data.js');
 
 function build() {
     console.log('Building problems data...');
@@ -30,7 +30,7 @@ function build() {
 const PROBLEMS = ${JSON.stringify(problems, null, 4)};\n`;
 
     fs.writeFileSync(outputFile, jsContent, 'utf-8');
-    console.log(`Successfully built problems-data.js with ${problems.length} problems.`);
+    console.log(`Successfully built js/problems-data.js with ${problems.length} problems.`);
 }
 
 build();

@@ -45,10 +45,10 @@ Our problem database is modular to make contributing as easy as possible. Instea
    ```bash
    node scripts/build.js
    ```
-   This will automatically generate the `problems-data.js` file used by the frontend.
+   This will automatically generate the `js/problems-data.js` file used by the frontend.
 
 4. **Verify Locally**
-   Open `problems.html` in your browser (or run a local server) to ensure your problem appears, the category filter works, and the 'Solve on Leetcode/Codeforces' button is rendering properly.
+   Open `pages/problems.html` in your browser (or run a local server) to ensure your problem appears, the category filter works, and the 'Solve on Leetcode/Codeforces' button is rendering properly.
 
 5. **Submit a Pull Request**
-   Commit both your new JSON file and the rebuilt `problems-data.js` file, then open a PR!
+   Commit both your new JSON file and the rebuilt `js/problems-data.js` file, then open a PR!
