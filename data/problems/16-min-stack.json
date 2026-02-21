@@ -1,0 +1,60 @@
+{
+  "id": 16,
+  "title": "Min Stack",
+  "tagline": "Track min latency in monitoring",
+  "category": "stack-queue",
+  "difficulty": "medium",
+  "realWorld": "Monitoring — Grafana tracks running min/max metrics",
+  "icon": "fa-solid fa-gauge",
+  "description": "Design a stack that supports getMin in O(1). Monitoring dashboards use similar structures for real-time metrics.",
+  "statement": "Design a stack that supports push, pop, top, and retrieving the minimum element in O(1).",
+  "examples": [
+    {
+      "input": "push(-2), push(0), push(-3), getMin()",
+      "output": "-3"
+    }
+  ],
+  "template": "class MinStack {\n  constructor() {\n    // Your code here\n  }\n}",
+  "animType": "array",
+  "animData": [
+    -2,
+    0,
+    -3
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Two stacks: main + min tracker"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Push -2. Min stack: [-2]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "Push 0. Min stack: [-2] (0 > -2)"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "Push -3. Min stack: [-2, -3]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        2
+      ],
+      "msg": "getMin() → -3 in O(1)!"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/min-stack/",
+  "externalPlatform": "leetcode"
+}

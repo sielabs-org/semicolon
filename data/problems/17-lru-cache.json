@@ -1,0 +1,64 @@
+{
+  "id": 17,
+  "title": "LRU Cache",
+  "tagline": "Build a Redis-like cache",
+  "category": "hashmap",
+  "difficulty": "hard",
+  "realWorld": "Redis — LRU eviction policy for in-memory cache",
+  "icon": "fa-solid fa-memory",
+  "description": "Implement a Least Recently Used cache with O(1) get/put. Redis uses this exact eviction strategy.",
+  "statement": "Implement an LRU cache with <strong>get(key)</strong> and <strong>put(key, value)</strong>, both in O(1).",
+  "examples": [
+    {
+      "input": "capacity=2, put(1,1), put(2,2), get(1), put(3,3)",
+      "output": "get(2) returns -1 (evicted)"
+    }
+  ],
+  "template": "class LRUCache {\n  constructor(capacity) {\n    // Your code here\n  }\n}",
+  "animType": "array",
+  "animData": [
+    "1:A",
+    "2:B"
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "HashMap + Doubly Linked List"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "put(1,A) → Cache: [1:A]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "put(2,B) → Cache: [1:A, 2:B]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        0
+      ],
+      "msg": "get(1) → move to front: [2:B, 1:A]"
+    },
+    {
+      "type": "swap",
+      "indices": [
+        0,
+        1
+      ],
+      "values": [
+        "3:C",
+        "1:A"
+      ],
+      "msg": "put(3,C) → evict 2:B (LRU)"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/lru-cache/",
+  "externalPlatform": "leetcode"
+}

@@ -1,0 +1,73 @@
+{
+  "id": 13,
+  "title": "Course Schedule",
+  "tagline": "Resolve package dependencies",
+  "category": "graph",
+  "difficulty": "medium",
+  "realWorld": "npm/pip — topological sort for dependency resolution",
+  "icon": "fa-brands fa-npm",
+  "description": "Detect cycles in a directed graph. Package managers use topological sort to resolve install order.",
+  "statement": "Given <strong>numCourses</strong> and prerequisites, determine if you can finish all courses (no cycles).",
+  "examples": [
+    {
+      "input": "numCourses=2, prereqs=[[1,0]]",
+      "output": "true"
+    }
+  ],
+  "template": "function canFinish(numCourses, prerequisites) {\n  // Your code here\n}",
+  "animType": "graph",
+  "animData": {
+    "nodes": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "C"
+      ],
+      [
+        "C",
+        "D"
+      ]
+    ]
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Topological sort — detect cycles"
+    },
+    {
+      "type": "visit",
+      "node": "A",
+      "msg": "Process A (no deps)"
+    },
+    {
+      "type": "visit",
+      "node": "B",
+      "msg": "Process B (depends on A ✓)"
+    },
+    {
+      "type": "visit",
+      "node": "C",
+      "msg": "Process C (depends on B ✓)"
+    },
+    {
+      "type": "visit",
+      "node": "D",
+      "msg": "Process D (depends on C ✓)"
+    },
+    {
+      "type": "msg",
+      "text": "No cycle found. Order: A→B→C→D"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/course-schedule/",
+  "externalPlatform": "leetcode"
+}

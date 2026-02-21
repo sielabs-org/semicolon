@@ -1,0 +1,62 @@
+{
+  "id": 20,
+  "title": "Merge Intervals",
+  "tagline": "Merge overlapping calendar events",
+  "category": "array",
+  "difficulty": "medium",
+  "realWorld": "Google Calendar — merges overlapping meetings",
+  "icon": "fa-solid fa-calendar",
+  "description": "Merge overlapping intervals. Calendar apps use this to consolidate back-to-back meetings.",
+  "statement": "Merge all overlapping intervals and return non-overlapping intervals.",
+  "examples": [
+    {
+      "input": "[[1,3],[2,6],[8,10],[15,18]]",
+      "output": "[[1,6],[8,10],[15,18]]"
+    }
+  ],
+  "template": "function merge(intervals) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    "1-3",
+    "2-6",
+    "8-10",
+    "15-18"
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Sort by start, merge overlapping"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "[1,3] — start new interval"
+    },
+    {
+      "type": "found",
+      "indices": [
+        0,
+        1
+      ],
+      "msg": "[2,6] overlaps [1,3] → merge to [1,6]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "[8,10] — no overlap, new interval"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        3
+      ],
+      "msg": "[15,18] — no overlap. Done: 3 intervals"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/merge-intervals/",
+  "externalPlatform": "leetcode"
+}

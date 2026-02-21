@@ -1,0 +1,65 @@
+{
+  "id": 21,
+  "title": "Implement Queue using Stacks",
+  "tagline": "Message queue from LIFO storage",
+  "category": "stack-queue",
+  "difficulty": "easy",
+  "realWorld": "Message queues — building FIFO from LIFO primitives",
+  "icon": "fa-solid fa-envelope",
+  "description": "Implement a first-in-first-out queue using two stacks.",
+  "statement": "Implement a FIFO queue using only two stacks.",
+  "examples": [
+    {
+      "input": "push(1), push(2), peek(), pop()",
+      "output": "peek=1, pop=1"
+    }
+  ],
+  "template": "class MyQueue {\n  constructor() {\n    // Your code here\n  }\n}",
+  "animType": "array",
+  "animData": [
+    1,
+    2,
+    3
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Two stacks: inbox and outbox"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Push 1 to inbox: [1]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "Push 2 to inbox: [1,2]"
+    },
+    {
+      "type": "swap",
+      "indices": [
+        0,
+        1
+      ],
+      "values": [
+        2,
+        1
+      ],
+      "msg": "Pop → flip to outbox: [2,1]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        1
+      ],
+      "msg": "Pop from outbox → returns 1 (FIFO)"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/implement-queue-using-stacks/",
+  "externalPlatform": "leetcode"
+}

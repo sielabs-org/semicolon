@@ -1,0 +1,71 @@
+{
+  "id": 11,
+  "title": "BFS — Level Order Traversal",
+  "tagline": "Crawl web pages level by level",
+  "category": "tree",
+  "difficulty": "medium",
+  "realWorld": "Web crawlers — Googlebot uses BFS to crawl links",
+  "icon": "fa-brands fa-google",
+  "description": "Traverse tree level by level using a queue. Search engines crawl the web using BFS from seed URLs.",
+  "statement": "Return the level order traversal of a binary tree (values grouped by level).",
+  "examples": [
+    {
+      "input": "[3,9,20,null,null,15,7]",
+      "output": "[[3],[9,20],[15,7]]"
+    }
+  ],
+  "template": "function levelOrder(root) {\n  // Your code here\n}",
+  "animType": "tree",
+  "animData": {
+    "val": 3,
+    "left": {
+      "val": 9
+    },
+    "right": {
+      "val": 20,
+      "left": {
+        "val": 15
+      },
+      "right": {
+        "val": 7
+      }
+    }
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "BFS using a queue"
+    },
+    {
+      "type": "visit",
+      "node": 3,
+      "msg": "Level 0: [3]"
+    },
+    {
+      "type": "visit",
+      "node": 9,
+      "msg": "Level 1: processing 9"
+    },
+    {
+      "type": "visit",
+      "node": 20,
+      "msg": "Level 1: [9, 20]"
+    },
+    {
+      "type": "visit",
+      "node": 15,
+      "msg": "Level 2: processing 15"
+    },
+    {
+      "type": "visit",
+      "node": 7,
+      "msg": "Level 2: [15, 7]"
+    },
+    {
+      "type": "msg",
+      "text": "Result: [[3],[9,20],[15,7]]"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/bfs-level-order-traversal/",
+  "externalPlatform": "leetcode"
+}

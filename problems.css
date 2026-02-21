@@ -258,8 +258,15 @@
 }
 
 @keyframes rowSlideIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to   { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .problems-table tbody tr:hover {
@@ -273,13 +280,36 @@
 }
 
 /* Column widths */
-.col-status { width: 40px; }
-.col-num    { width: 55px; color: #475569; font-size: 0.85rem; }
-.col-title  { min-width: 220px; }
-.col-category { width: 140px; }
-.col-real-world { min-width: 180px; }
-.col-diff   { width: 110px; }
-.col-action { width: 100px; text-align: right; }
+.col-status {
+    width: 40px;
+}
+
+.col-num {
+    width: 55px;
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+.col-title {
+    min-width: 220px;
+}
+
+.col-category {
+    width: 140px;
+}
+
+.col-real-world {
+    min-width: 180px;
+}
+
+.col-diff {
+    width: 110px;
+}
+
+.col-action {
+    width: 100px;
+    text-align: right;
+}
 
 /* Status icon */
 .status-icon {
@@ -340,12 +370,41 @@ tr:hover .problem-name {
     border: 1px solid;
 }
 
-.cat-array      { color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08); }
-.cat-linked-list { color: #a78bfa; border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.08); }
-.cat-tree       { color: #4ade80; border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.08); }
-.cat-graph      { color: #fb923c; border-color: rgba(251, 146, 60, 0.3); background: rgba(251, 146, 60, 0.08); }
-.cat-hashmap    { color: #f472b6; border-color: rgba(244, 114, 182, 0.3); background: rgba(244, 114, 182, 0.08); }
-.cat-stack-queue { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.08); }
+.cat-array {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.08);
+}
+
+.cat-linked-list {
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.3);
+    background: rgba(167, 139, 250, 0.08);
+}
+
+.cat-tree {
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.3);
+    background: rgba(74, 222, 128, 0.08);
+}
+
+.cat-graph {
+    color: #fb923c;
+    border-color: rgba(251, 146, 60, 0.3);
+    background: rgba(251, 146, 60, 0.08);
+}
+
+.cat-hashmap {
+    color: #f472b6;
+    border-color: rgba(244, 114, 182, 0.3);
+    background: rgba(244, 114, 182, 0.08);
+}
+
+.cat-stack-queue {
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.3);
+    background: rgba(251, 191, 36, 0.08);
+}
 
 /* Real-world badge */
 .real-world-cell {
@@ -364,8 +423,8 @@ tr:hover .problem-name {
     align-items: center;
     justify-content: center;
     font-size: 0.7rem;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     flex-shrink: 0;
 }
 
@@ -378,9 +437,23 @@ tr:hover .problem-name {
     font-weight: 600;
 }
 
-.diff-easy   { color: #22c55e; background: rgba(34,197,94,0.1);  border: 1px solid rgba(34,197,94,0.25); }
-.diff-medium { color: #f59e0b; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); }
-.diff-hard   { color: #ef4444; background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.25); }
+.diff-easy {
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.diff-medium {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.diff-hard {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
 
 /* Solve button */
 .solve-btn {
@@ -403,6 +476,34 @@ tr:hover .problem-name {
     background: rgba(231, 111, 81, 0.2);
     border-color: var(--primary-color);
     transform: translateX(2px);
+}
+
+/* External Link Button */
+.external-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: linear-gradient(135deg, rgba(231, 111, 81, 0.15), rgba(244, 162, 97, 0.05));
+    border: 1px solid rgba(231, 111, 81, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.external-link-btn i {
+    color: var(--primary-color);
+}
+
+.external-link-btn:hover {
+    background: linear-gradient(135deg, rgba(231, 111, 81, 0.25), rgba(244, 162, 97, 0.15));
+    border-color: rgba(231, 111, 81, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 111, 81, 0.2);
 }
 
 /* No results */
@@ -494,8 +595,8 @@ tr:hover .problem-name {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #94a3b8;
     cursor: pointer;
     display: flex;
@@ -506,8 +607,8 @@ tr:hover .problem-name {
 }
 
 .drawer-close:hover {
-    background: rgba(239,68,68,0.1);
-    border-color: rgba(239,68,68,0.3);
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
     color: #ef4444;
 }
 
@@ -541,8 +642,8 @@ tr:hover .problem-name {
     gap: 0.6rem;
     color: #94a3b8;
     font-size: 0.88rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 0.6rem;
     padding: 0.6rem 1rem;
 }
@@ -559,8 +660,8 @@ tr:hover .problem-name {
 
 /* ---- Animation Section ---- */
 .animation-section {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 1rem;
     overflow: hidden;
 }
@@ -570,8 +671,8 @@ tr:hover .problem-name {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    background: rgba(255,255,255,0.03);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     flex-wrap: wrap;
     gap: 0.8rem;
 }
@@ -600,8 +701,8 @@ tr:hover .problem-name {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
     color: #e2e8f0;
     cursor: pointer;
     display: flex;
@@ -659,8 +760,8 @@ tr:hover .problem-name {
     font-family: 'Fira Code', monospace;
     font-weight: 600;
     font-size: 1.1rem;
-    border: 2px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
     color: #94a3b8;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
@@ -722,8 +823,8 @@ tr:hover .problem-name {
     width: 52px;
     height: 52px;
     border-radius: 8px;
-    border: 2px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -793,8 +894,8 @@ tr:hover .problem-name {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -830,7 +931,7 @@ tr:hover .problem-name {
     position: absolute;
     top: 0;
     width: 2px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     height: 32px;
     transition: background 0.3s;
 }
@@ -888,7 +989,7 @@ tr:hover .problem-name {
 }
 
 .graph-edge {
-    stroke: rgba(255,255,255,0.08);
+    stroke: rgba(255, 255, 255, 0.08);
     stroke-width: 2;
     transition: stroke 0.3s;
 }
@@ -900,7 +1001,7 @@ tr:hover .problem-name {
 
 /* Anim log */
 .anim-log {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     padding: 0.8rem 1.2rem;
     font-family: 'Fira Code', monospace;
     font-size: 0.78rem;
@@ -908,7 +1009,7 @@ tr:hover .problem-name {
     min-height: 60px;
     max-height: 90px;
     overflow-y: auto;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .anim-log p {
@@ -930,8 +1031,8 @@ tr:hover .problem-name {
 }
 
 .statement-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 0.75rem;
     padding: 1.2rem;
     color: #94a3b8;
@@ -951,7 +1052,7 @@ tr:hover .problem-name {
 }
 
 .example-block {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
     border-left: 3px solid var(--primary-color);
     border-radius: 0 0.5rem 0.5rem 0;
     padding: 0.8rem 1rem;
@@ -985,8 +1086,8 @@ tr:hover .problem-name {
 .lang-selector {
     display: flex;
     gap: 0.3rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 0.5rem;
     padding: 3px;
 }
@@ -1013,21 +1114,21 @@ tr:hover .problem-name {
     display: flex;
     border-radius: 0.75rem;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     background: #0a0f1e;
     margin-bottom: 1rem;
 }
 
 .line-numbers {
     padding: 1rem 0.75rem;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     color: #334155;
     font-family: 'Fira Code', monospace;
     font-size: 0.82rem;
     line-height: 1.6;
     text-align: right;
     min-width: 38px;
-    border-right: 1px solid rgba(255,255,255,0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
     user-select: none;
 }
 
@@ -1096,7 +1197,7 @@ tr:hover .problem-name {
     .problems-table tr {
         display: block;
         padding: 0.5rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .problems-table td {
@@ -1121,7 +1222,7 @@ tr:hover .problem-name {
 /* Progress bar at top */
 .progress-bar-wrapper {
     height: 3px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     position: fixed;
     top: 80px;
     left: 0;

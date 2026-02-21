@@ -1,0 +1,57 @@
+{
+  "id": 24,
+  "title": "Product of Array Except Self",
+  "tagline": "Calculate feature importance scores",
+  "category": "array",
+  "difficulty": "medium",
+  "realWorld": "ML pipelines — computing feature importance without self-bias",
+  "icon": "fa-solid fa-brain",
+  "description": "For each element, calculate the product of all other elements without using division.",
+  "statement": "Given integer array <strong>nums</strong>, return array where answer[i] is the product of all elements except nums[i].",
+  "examples": [
+    {
+      "input": "[1,2,3,4]",
+      "output": "[24,12,8,6]"
+    }
+  ],
+  "template": "function productExceptSelf(nums) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Left pass then right pass"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Left prefix: [1, 1, 2, 6]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        3
+      ],
+      "msg": "Right suffix: [24,12,4,1]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "msg": "Multiply: [24,12,8,6]"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/product-of-array-except-self/",
+  "externalPlatform": "leetcode"
+}

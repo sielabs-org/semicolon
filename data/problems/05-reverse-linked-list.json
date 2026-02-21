@@ -1,0 +1,80 @@
+{
+  "id": 5,
+  "title": "Reverse Linked List",
+  "tagline": "Undo browser history chain",
+  "category": "linked-list",
+  "difficulty": "easy",
+  "realWorld": "Browser back button — Chrome reverses navigation history",
+  "icon": "fa-brands fa-chrome",
+  "description": "Reverse a singly linked list in-place. This is how browser navigation history gets reversed for the back button.",
+  "statement": "Given the <strong>head</strong> of a singly linked list, reverse the list and return the reversed list.",
+  "examples": [
+    {
+      "input": "1→2→3→4→5",
+      "output": "5→4→3→2→1"
+    }
+  ],
+  "template": "function reverseList(head) {\n  // Your code here\n}",
+  "animType": "linked-list",
+  "animData": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "prev=null, curr=1"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Detach 1, point it to null"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "Detach 2, point it to 1"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "Detach 3, point it to 2"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        3
+      ],
+      "msg": "Detach 4, point it to 3"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        4
+      ],
+      "msg": "Detach 5, point it to 4"
+    },
+    {
+      "type": "found",
+      "indices": [
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "msg": "Done: 5→4→3→2→1"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
+  "externalPlatform": "leetcode"
+}

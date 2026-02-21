@@ -1,0 +1,83 @@
+{
+  "id": 14,
+  "title": "Shortest Path (Dijkstra)",
+  "tagline": "Find fastest network route",
+  "category": "graph",
+  "difficulty": "hard",
+  "realWorld": "Google Maps — Dijkstra's for navigation routing",
+  "icon": "fa-solid fa-route",
+  "description": "Find shortest paths from a source — the core algorithm behind GPS navigation.",
+  "statement": "Find the shortest path from source to all nodes in a weighted graph.",
+  "examples": [
+    {
+      "input": "Graph with weighted edges from node 0",
+      "output": "Shortest distances array"
+    }
+  ],
+  "template": "function dijkstra(graph, source) {\n  // Your code here\n}",
+  "animType": "graph",
+  "animData": {
+    "nodes": [
+      "S",
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "edges": [
+      [
+        "S",
+        "A"
+      ],
+      [
+        "S",
+        "B"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "B",
+        "C"
+      ],
+      [
+        "C",
+        "D"
+      ]
+    ]
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Dijkstra's algorithm from S"
+    },
+    {
+      "type": "visit",
+      "node": "S",
+      "msg": "Start: dist[S]=0"
+    },
+    {
+      "type": "visit",
+      "node": "A",
+      "msg": "Relax S→A, dist=4"
+    },
+    {
+      "type": "visit",
+      "node": "B",
+      "msg": "Relax S→B, dist=2"
+    },
+    {
+      "type": "visit",
+      "node": "C",
+      "msg": "Relax B→C, dist=5"
+    },
+    {
+      "type": "visit",
+      "node": "D",
+      "msg": "Relax C→D, dist=7. Done!"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/shortest-path-dijkstra/",
+  "externalPlatform": "leetcode"
+}

@@ -24,6 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
         'stack-queue': { label: 'Stack/Queue', icon: 'fa-layer-group', cls: 'cat-stack-queue' }
     };
 
+    function getCategoryMeta(cat) {
+        if (CAT_META[cat]) return CAT_META[cat];
+        // Handle arbitrary dynamic categories like 'fragmentation'
+        return {
+            label: cat.charAt(0).toUpperCase() + cat.slice(1).replace(/-/g, ' '),
+            icon: 'fa-star',
+            cls: 'cat-custom'
+        };
+    }
+
     // ---- Render table ----
     function renderTable() {
         const filtered = PROBLEMS.filter(p => {
@@ -49,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         noResults.style.display = 'none';
 
         tbody.innerHTML = filtered.map((p, i) => {
-            const cat = CAT_META[p.category];
+            const cat = getCategoryMeta(p.category);
             const isSolved = solved.has(p.id);
             return `<tr data-id="${p.id}" style="animation-delay:${i * 0.04}s">
         <td class="col-status">
@@ -95,14 +105,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---- Filters ----
-    filterChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            filterChips.forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            activeFilter = chip.dataset.filter;
-            renderTable();
+    function initFilters() {
+        const categories = new Set(PROBLEMS.map(p => p.category));
+
+        const filterContainer = document.getElementById('filter-chips');
+        filterContainer.innerHTML = `
+            <button class="chip active" data-filter="all">
+                <i class="fa-solid fa-layer-group"></i> All
+            </button>
+        ` + Array.from(categories).map(cat => {
+            const meta = getCategoryMeta(cat);
+            return `
+            <button class="chip" data-filter="${cat}">
+                <i class="fa-solid ${meta.icon}"></i> ${meta.label}
+            </button>`;
+        }).join('');
+
+        const newChips = document.querySelectorAll('.chip');
+        newChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                newChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeFilter = chip.dataset.filter;
+                renderTable();
+            });
         });
-    });
+    }
+
+    initFilters();
 
     diffSelect.addEventListener('change', () => {
         activeDifficulty = diffSelect.value;
@@ -122,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentProblem = PROBLEMS.find(p => p.id === id);
         if (!currentProblem) return;
         const p = currentProblem;
-        const cat = CAT_META[p.category];
+        const cat = getCategoryMeta(p.category);
 
         document.getElementById('drawer-num').textContent = `#${p.id}`;
         document.getElementById('drawer-difficulty').className = `diff-badge diff-${p.difficulty}`;
@@ -134,6 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Tags
         const tagsEl = document.getElementById('drawer-tags');
         tagsEl.innerHTML = `<span class="cat-tag ${cat.cls}"><i class="fa-solid ${cat.icon}"></i> ${cat.label}</span>`;
+
+        // External Link
+        const extBtn = document.getElementById('external-link-btn');
+        if (p.externalLink && p.externalPlatform) {
+            extBtn.style.display = 'inline-flex';
+            extBtn.href = p.externalLink;
+            document.getElementById('external-platform-name').textContent =
+                p.externalPlatform.charAt(0).toUpperCase() + p.externalPlatform.slice(1);
+        } else {
+            extBtn.style.display = 'none';
+        }
 
         // Statement
         document.getElementById('statement-box').innerHTML = p.statement;

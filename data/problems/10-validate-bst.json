@@ -1,0 +1,61 @@
+{
+  "id": 10,
+  "title": "Validate BST",
+  "tagline": "Validate database index ordering",
+  "category": "tree",
+  "difficulty": "medium",
+  "realWorld": "MySQL — validates B-Tree index integrity",
+  "icon": "fa-solid fa-database",
+  "description": "Check if a binary tree satisfies BST property. Databases validate their B-Tree indexes the same way.",
+  "statement": "Determine if a binary tree is a valid <strong>binary search tree</strong>.",
+  "examples": [
+    {
+      "input": "root = [5,1,4,null,null,3,6]",
+      "output": "false (4 < 5 but is right child)"
+    }
+  ],
+  "template": "function isValidBST(root) {\n  // Your code here\n}",
+  "animType": "tree",
+  "animData": {
+    "val": 5,
+    "left": {
+      "val": 1
+    },
+    "right": {
+      "val": 4,
+      "left": {
+        "val": 3
+      },
+      "right": {
+        "val": 6
+      }
+    }
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Check: left < node < right for all nodes"
+    },
+    {
+      "type": "visit",
+      "node": 5,
+      "msg": "Root=5, range: (-∞, ∞)"
+    },
+    {
+      "type": "visit",
+      "node": 1,
+      "msg": "Left=1, range: (-∞, 5) ✓"
+    },
+    {
+      "type": "visit",
+      "node": 4,
+      "msg": "Right=4, range: (5, ∞) — 4 < 5 ✗!"
+    },
+    {
+      "type": "msg",
+      "text": "INVALID BST! Node 4 violates constraint."
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/validate-bst/",
+  "externalPlatform": "leetcode"
+}

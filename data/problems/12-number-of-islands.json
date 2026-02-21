@@ -1,0 +1,85 @@
+{
+  "id": 12,
+  "title": "Number of Islands",
+  "tagline": "Detect clusters in a network",
+  "category": "graph",
+  "difficulty": "medium",
+  "realWorld": "AWS — detect isolated VPC network clusters",
+  "icon": "fa-brands fa-aws",
+  "description": "Count connected components in a 2D grid using DFS/BFS — same as detecting isolated network segments.",
+  "statement": "Given a 2D grid of '1' (land) and '0' (water), count the number of islands.",
+  "examples": [
+    {
+      "input": "[\"11110\",\"11010\",\"11000\",\"00000\"]",
+      "output": "1"
+    }
+  ],
+  "template": "function numIslands(grid) {\n  // Your code here\n}",
+  "animType": "graph",
+  "animData": {
+    "nodes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+    ],
+    "edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "B",
+        "C"
+      ],
+      [
+        "D",
+        "E"
+      ]
+    ]
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "DFS from each unvisited node"
+    },
+    {
+      "type": "visit",
+      "node": "A",
+      "msg": "Start DFS from A"
+    },
+    {
+      "type": "visit",
+      "node": "B",
+      "msg": "Visit B (connected to A)"
+    },
+    {
+      "type": "visit",
+      "node": "C",
+      "msg": "Visit C → Island 1 complete"
+    },
+    {
+      "type": "visit",
+      "node": "D",
+      "msg": "New DFS from D"
+    },
+    {
+      "type": "visit",
+      "node": "E",
+      "msg": "Visit E → Island 2 complete"
+    },
+    {
+      "type": "visit",
+      "node": "F",
+      "msg": "F is alone → Island 3. Total: 3"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/number-of-islands/",
+  "externalPlatform": "leetcode"
+}

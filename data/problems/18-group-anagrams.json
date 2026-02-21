@@ -1,0 +1,77 @@
+{
+  "id": 18,
+  "title": "Group Anagrams",
+  "tagline": "Cluster similar search queries",
+  "category": "hashmap",
+  "difficulty": "medium",
+  "realWorld": "Search engines — Google clusters similar queries together",
+  "icon": "fa-brands fa-google",
+  "description": "Group strings that are anagrams of each other using a hash map.",
+  "statement": "Given an array of strings, group anagrams together.",
+  "examples": [
+    {
+      "input": "[\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "output": "[[\"eat\",\"tea\",\"ate\"],[\"tan\",\"nat\"],[\"bat\"]]"
+    }
+  ],
+  "template": "function groupAnagrams(strs) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    "eat",
+    "tea",
+    "tan",
+    "ate",
+    "nat",
+    "bat"
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Sort each word as key, group by key"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "\"eat\" → key \"aet\""
+    },
+    {
+      "type": "found",
+      "indices": [
+        1
+      ],
+      "msg": "\"tea\" → key \"aet\" → same group!"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "\"tan\" → key \"ant\""
+    },
+    {
+      "type": "found",
+      "indices": [
+        3
+      ],
+      "msg": "\"ate\" → key \"aet\" → group 1"
+    },
+    {
+      "type": "found",
+      "indices": [
+        4
+      ],
+      "msg": "\"nat\" → key \"ant\" → group 2"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        5
+      ],
+      "msg": "\"bat\" → key \"abt\" → group 3"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/group-anagrams/",
+  "externalPlatform": "leetcode"
+}

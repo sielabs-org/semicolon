@@ -1,0 +1,60 @@
+{
+  "id": 1,
+  "title": "Two Sum",
+  "tagline": "Find checkout pair totaling a target",
+  "category": "hashmap",
+  "difficulty": "easy",
+  "realWorld": "Payment gateways — Stripe validates cart totals",
+  "icon": "fa-solid fa-cart-shopping",
+  "description": "Given an array of prices and a target total, find the two items whose prices add up to the target. This mirrors how payment processors validate itemized receipts.",
+  "statement": "Given an array <strong>nums</strong> and an integer <strong>target</strong>, return indices of the two numbers that add up to <strong>target</strong>.",
+  "examples": [
+    {
+      "input": "nums = [2,7,11,15], target = 9",
+      "output": "[0, 1]"
+    },
+    {
+      "input": "nums = [3,2,4], target = 6",
+      "output": "[1, 2]"
+    }
+  ],
+  "template": "function twoSum(nums, target) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    2,
+    7,
+    11,
+    15
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Target = 9. Checking pairs..."
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Look at nums[0]=2, need 7"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0,
+        1
+      ],
+      "msg": "nums[0]+nums[1] = 2+7 = 9 ✓"
+    },
+    {
+      "type": "found",
+      "indices": [
+        0,
+        1
+      ],
+      "msg": "Found! Return [0, 1]"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/two-sum/",
+  "externalPlatform": "leetcode"
+}

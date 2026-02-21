@@ -1,0 +1,71 @@
+{
+  "id": 22,
+  "title": "Lowest Common Ancestor",
+  "tagline": "Find nearest shared directory",
+  "category": "tree",
+  "difficulty": "medium",
+  "realWorld": "File systems — find nearest shared parent directory",
+  "icon": "fa-solid fa-folder-tree",
+  "description": "Find the LCA of two nodes in a BST — like finding the closest shared parent folder.",
+  "statement": "Find the lowest common ancestor of two given nodes in a BST.",
+  "examples": [
+    {
+      "input": "root=[6,2,8,0,4,7,9], p=2, q=8",
+      "output": "6"
+    }
+  ],
+  "template": "function lowestCommonAncestor(root, p, q) {\n  // Your code here\n}",
+  "animType": "tree",
+  "animData": {
+    "val": 6,
+    "left": {
+      "val": 2,
+      "left": {
+        "val": 0
+      },
+      "right": {
+        "val": 4
+      }
+    },
+    "right": {
+      "val": 8,
+      "left": {
+        "val": 7
+      },
+      "right": {
+        "val": 9
+      }
+    }
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Find LCA of 2 and 8"
+    },
+    {
+      "type": "visit",
+      "node": 6,
+      "msg": "Root=6. p=2 is left, q=8 is right"
+    },
+    {
+      "type": "msg",
+      "text": "Split! 6 is the LCA since they diverge here"
+    },
+    {
+      "type": "visit",
+      "node": 2,
+      "msg": "2 is in left subtree"
+    },
+    {
+      "type": "visit",
+      "node": 8,
+      "msg": "8 is in right subtree"
+    },
+    {
+      "type": "msg",
+      "text": "Lowest Common Ancestor = 6"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/lowest-common-ancestor/",
+  "externalPlatform": "leetcode"
+}

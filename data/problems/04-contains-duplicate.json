@@ -1,0 +1,65 @@
+{
+  "id": 4,
+  "title": "Contains Duplicate",
+  "tagline": "Detect duplicate log entries",
+  "category": "hashmap",
+  "difficulty": "easy",
+  "realWorld": "Log aggregation — Datadog deduplicates log entries",
+  "icon": "fa-solid fa-database",
+  "description": "Use a HashSet to detect if any value appears twice — exactly how log deduplication works.",
+  "statement": "Return <strong>true</strong> if any value appears at least twice in the array.",
+  "examples": [
+    {
+      "input": "[1,2,3,1]",
+      "output": "true"
+    },
+    {
+      "input": "[1,2,3,4]",
+      "output": "false"
+    }
+  ],
+  "template": "function containsDuplicate(nums) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    1,
+    2,
+    3,
+    1
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "HashSet approach: track seen values"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "1 → not in set, add it. Set: {1}"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "2 → not in set, add it. Set: {1,2}"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "3 → not in set. Set: {1,2,3}"
+    },
+    {
+      "type": "found",
+      "indices": [
+        3
+      ],
+      "msg": "1 → ALREADY IN SET! Return true"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/contains-duplicate/",
+  "externalPlatform": "leetcode"
+}

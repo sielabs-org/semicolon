@@ -1,0 +1,71 @@
+{
+  "id": 3,
+  "title": "Best Time to Buy and Sell Stock",
+  "tagline": "Maximize trading profit",
+  "category": "array",
+  "difficulty": "easy",
+  "realWorld": "Stock exchanges — Robinhood calculates max profit windows",
+  "icon": "fa-solid fa-chart-line",
+  "description": "Find the maximum profit from buying low and selling high — the core of any trading algorithm.",
+  "statement": "Given <strong>prices[i]</strong> is the price on day i, find the max profit from one buy and one sell.",
+  "examples": [
+    {
+      "input": "[7,1,5,3,6,4]",
+      "output": "5 (buy at 1, sell at 6)"
+    }
+  ],
+  "template": "function maxProfit(prices) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    7,
+    1,
+    5,
+    3,
+    6,
+    4
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Track min price and max profit"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Day 0: price=7, min=7, profit=0"
+    },
+    {
+      "type": "found",
+      "indices": [
+        1
+      ],
+      "msg": "Day 1: price=1, new min! min=1"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "Day 2: price=5, profit=4"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        4
+      ],
+      "msg": "Day 4: price=6, profit=5 ← MAX"
+    },
+    {
+      "type": "found",
+      "indices": [
+        1,
+        4
+      ],
+      "msg": "Buy day 1, sell day 4 → profit=5"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+  "externalPlatform": "leetcode"
+}

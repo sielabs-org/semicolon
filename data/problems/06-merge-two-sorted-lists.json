@@ -1,0 +1,69 @@
+{
+  "id": 6,
+  "title": "Merge Two Sorted Lists",
+  "tagline": "Merge sorted DB result sets",
+  "category": "linked-list",
+  "difficulty": "easy",
+  "realWorld": "Databases — PostgreSQL merges sorted index scans",
+  "icon": "fa-solid fa-database",
+  "description": "Merge two sorted linked lists into one sorted list — the merge step in merge sort, used in DB query execution.",
+  "statement": "Merge two sorted linked lists and return a sorted merged list.",
+  "examples": [
+    {
+      "input": "1→2→4, 1→3→4",
+      "output": "1→1→2→3→4→4"
+    }
+  ],
+  "template": "function mergeTwoLists(l1, l2) {\n  // Your code here\n}",
+  "animType": "linked-list",
+  "animData": [
+    1,
+    2,
+    4
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Compare heads of both lists"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "L1:1 vs L2:1 → take L1:1"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "L2:1 → append"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "L1:2 vs L2:3 → take 2"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "L2:3 → append, then L1:4, L2:4"
+    },
+    {
+      "type": "found",
+      "indices": [
+        0,
+        1,
+        2
+      ],
+      "msg": "Merged: 1→1→2→3→4→4"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/merge-two-sorted-lists/",
+  "externalPlatform": "leetcode"
+}

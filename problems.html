@@ -85,27 +85,7 @@
                         <input type="text" id="search-input" class="search-input" placeholder="Search problems...">
                     </div>
                     <div class="filter-chips" id="filter-chips">
-                        <button class="chip active" data-filter="all">
-                            <i class="fa-solid fa-layer-group"></i> All
-                        </button>
-                        <button class="chip" data-filter="array">
-                            <i class="fa-solid fa-table-cells"></i> Arrays
-                        </button>
-                        <button class="chip" data-filter="linked-list">
-                            <i class="fa-solid fa-link"></i> Linked List
-                        </button>
-                        <button class="chip" data-filter="tree">
-                            <i class="fa-solid fa-sitemap"></i> Trees
-                        </button>
-                        <button class="chip" data-filter="graph">
-                            <i class="fa-solid fa-circle-nodes"></i> Graphs
-                        </button>
-                        <button class="chip" data-filter="hashmap">
-                            <i class="fa-solid fa-hashtag"></i> HashMap
-                        </button>
-                        <button class="chip" data-filter="stack-queue">
-                            <i class="fa-solid fa-layer-group"></i> Stack/Queue
-                        </button>
+                        <!-- Chips injected by JS -->
                     </div>
                     <div class="difficulty-filter">
                         <select id="difficulty-select" class="difficulty-select">
@@ -220,6 +200,11 @@
                         <button class="btn btn-primary run-btn" id="run-btn">
                             <i class="fa-solid fa-play"></i> Run & Visualize
                         </button>
+                        <a href="#" target="_blank" class="btn btn-secondary external-link-btn" id="external-link-btn"
+                            style="display: none;">
+                            <i class="fa-solid fa-external-link-alt"></i> Solve on <span
+                                id="external-platform-name">Platform</span>
+                        </a>
                         <div class="run-result" id="run-result"></div>
                     </div>
                 </div>

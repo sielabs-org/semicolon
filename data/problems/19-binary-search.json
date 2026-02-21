@@ -1,0 +1,56 @@
+{
+  "id": 19,
+  "title": "Binary Search",
+  "tagline": "Git bisect to find the bad commit",
+  "category": "array",
+  "difficulty": "easy",
+  "realWorld": "Git — 'git bisect' uses binary search to find bugs",
+  "icon": "fa-brands fa-git-alt",
+  "description": "Search a sorted array in O(log n). Git bisect uses binary search to pinpoint the exact commit that introduced a bug.",
+  "statement": "Given a sorted array and a target, return the index or -1.",
+  "examples": [
+    {
+      "input": "[-1,0,3,5,9,12], target=9",
+      "output": "4"
+    }
+  ],
+  "template": "function search(nums, target) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    -1,
+    0,
+    3,
+    5,
+    9,
+    12
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Binary search for target=9"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "mid=3, 3<9 → search right"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        4
+      ],
+      "msg": "mid=9, 9==9 → FOUND!"
+    },
+    {
+      "type": "found",
+      "indices": [
+        4
+      ],
+      "msg": "Return index 4"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/binary-search/",
+  "externalPlatform": "leetcode"
+}

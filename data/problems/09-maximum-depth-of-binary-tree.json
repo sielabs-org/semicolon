@@ -1,0 +1,71 @@
+{
+  "id": 9,
+  "title": "Maximum Depth of Binary Tree",
+  "tagline": "Calculate DOM depth",
+  "category": "tree",
+  "difficulty": "easy",
+  "realWorld": "Browsers — Chromium checks DOM nesting depth limits",
+  "icon": "fa-brands fa-chrome",
+  "description": "Find the maximum depth of a tree — browsers use this to limit deeply nested HTML elements.",
+  "statement": "Given a binary tree <strong>root</strong>, return its maximum depth.",
+  "examples": [
+    {
+      "input": "root = [3,9,20,null,null,15,7]",
+      "output": "3"
+    }
+  ],
+  "template": "function maxDepth(root) {\n  // Your code here\n}",
+  "animType": "tree",
+  "animData": {
+    "val": 3,
+    "left": {
+      "val": 9
+    },
+    "right": {
+      "val": 20,
+      "left": {
+        "val": 15
+      },
+      "right": {
+        "val": 7
+      }
+    }
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "DFS to find max depth"
+    },
+    {
+      "type": "visit",
+      "node": 3,
+      "msg": "Root depth=1"
+    },
+    {
+      "type": "visit",
+      "node": 9,
+      "msg": "Left leaf depth=2"
+    },
+    {
+      "type": "visit",
+      "node": 20,
+      "msg": "Right child depth=2"
+    },
+    {
+      "type": "visit",
+      "node": 15,
+      "msg": "Depth=3"
+    },
+    {
+      "type": "visit",
+      "node": 7,
+      "msg": "Depth=3 → max depth = 3"
+    },
+    {
+      "type": "msg",
+      "text": "Maximum depth: 3"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+  "externalPlatform": "leetcode"
+}

@@ -1,0 +1,81 @@
+{
+  "id": 15,
+  "title": "Valid Parentheses",
+  "tagline": "Validate code syntax brackets",
+  "category": "stack-queue",
+  "difficulty": "easy",
+  "realWorld": "IDEs — VS Code validates bracket matching",
+  "icon": "fa-solid fa-code",
+  "description": "Use a stack to match opening and closing brackets — exactly how code editors highlight mismatched braces.",
+  "statement": "Given a string with '(', ')', '{', '}', '[', ']', determine if the input is valid.",
+  "examples": [
+    {
+      "input": "\"([{}])\"",
+      "output": "true"
+    },
+    {
+      "input": "\"(]\"",
+      "output": "false"
+    }
+  ],
+  "template": "function isValid(s) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    "(",
+    "[",
+    "{",
+    "}",
+    "]",
+    ")"
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Stack-based bracket matching"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Push \"(\" → Stack: [\"(\"]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        1
+      ],
+      "msg": "Push \"[\" → Stack: [\"(\",\"[\"]"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        2
+      ],
+      "msg": "Push \"{\" → Stack: [\"(\",\"[\",\"{\"]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        3
+      ],
+      "msg": "\"}\" matches \"{\" → pop. Stack: [\"(\",\"[\"]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        4
+      ],
+      "msg": "\"]\" matches \"[\" → pop. Stack: [\"(\"]"
+    },
+    {
+      "type": "found",
+      "indices": [
+        5
+      ],
+      "msg": "\")\" matches \"(\" → pop. Stack empty ✓"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/valid-parentheses/",
+  "externalPlatform": "leetcode"
+}

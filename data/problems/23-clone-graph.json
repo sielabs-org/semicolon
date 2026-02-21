@@ -1,0 +1,77 @@
+{
+  "id": 23,
+  "title": "Clone Graph",
+  "tagline": "Deep copy a microservice network",
+  "category": "graph",
+  "difficulty": "medium",
+  "realWorld": "Infrastructure — cloning service dependency graphs for staging",
+  "icon": "fa-solid fa-clone",
+  "description": "Deep copy a graph — like cloning an entire microservice architecture for a staging environment.",
+  "statement": "Given a reference to a node in a connected undirected graph, return a deep copy.",
+  "examples": [
+    {
+      "input": "adjList = [[2,4],[1,3],[2,4],[1,3]]",
+      "output": "Deep copy of graph"
+    }
+  ],
+  "template": "function cloneGraph(node) {\n  // Your code here\n}",
+  "animType": "graph",
+  "animData": {
+    "nodes": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "edges": [
+      [
+        "1",
+        "2"
+      ],
+      [
+        "2",
+        "3"
+      ],
+      [
+        "3",
+        "4"
+      ],
+      [
+        "4",
+        "1"
+      ]
+    ]
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "BFS + HashMap to track clones"
+    },
+    {
+      "type": "visit",
+      "node": "1",
+      "msg": "Clone node 1, add to map"
+    },
+    {
+      "type": "visit",
+      "node": "2",
+      "msg": "Clone node 2, link to clone-1"
+    },
+    {
+      "type": "visit",
+      "node": "3",
+      "msg": "Clone node 3, link to clone-2"
+    },
+    {
+      "type": "visit",
+      "node": "4",
+      "msg": "Clone node 4, link clone-3 & clone-1"
+    },
+    {
+      "type": "msg",
+      "text": "Graph fully cloned!"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/clone-graph/",
+  "externalPlatform": "leetcode"
+}
