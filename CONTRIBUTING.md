@@ -6,7 +6,7 @@ Our problem database is modular to make contributing as easy as possible. Instea
 
 ## How to Add a New Problem
 
-1. **Create a JSON file** inside `data/problems/`.
+1. **Create a JSON file** inside `problems/`.
    - Name it chronologically and descriptively (e.g., `25-lfu-cache.json`).
    - If you are adding the 25th problem, make sure the `id` field inside the file is `25`.
 

@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
-const problemsDir = path.join(__dirname, '../data/problems');
+const problemsDir = path.join(__dirname, '../problems');
 const outputFile = path.join(__dirname, '../js/problems-data.js');
 
 function build() {
@@ -24,7 +23,7 @@ function build() {
 
     // Generate JS content
     const jsContent = `// AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY.
-// Update the JSON files in data/problems/ instead and run:
+// Update the JSON files in problems/ instead and run:
 // node scripts/build.js
 
 const PROBLEMS = ${JSON.stringify(problems, null, 4)};\n`;
