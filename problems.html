@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems | Semicolon — Real-World Engineering Challenges</title>
+    <meta name="description"
+        content="Practice data structures and algorithms through real-world software engineering problems. Filter by Arrays, Linked Lists, Trees, Graphs and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="problems.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="container">
+            <div class="brand-container">
+                <a href="index.html" style="text-decoration:none">
+                    <h1 class="logo-title">Semicolon<span class="logo-icon">;</span></h1>
+                </a>
+                <p class="tagline">Where every line of code tells a story</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="problems.html" class="nav-active">Problems</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+                <a href="https://github.com/sielabs-org/semicolon" target="_blank" class="btn btn-secondary btn-icon">
+                    <i class="fa-brands fa-github"></i> Star us
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Problems List Page -->
+    <main class="problems-main">
+
+        <!-- Page Header -->
+        <section class="problems-header">
+            <div class="container">
+                <div class="problems-header-content">
+                    <div class="header-badge">
+                        <i class="fa-solid fa-code"></i> Engineering Problems
+                    </div>
+                    <h1 class="problems-title">Solve <span class="text-gradient">Real Engineering</span><br>Problems
+                    </h1>
+                    <p class="problems-subtitle">Not just algorithmic puzzles — learn how data structures power real
+                        systems like Redis, Kubernetes, and Netflix.</p>
+                    <div class="problems-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-count">24</span>
+                            <span class="stat-label">Total Problems</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number solved-count" id="solved-count">0</span>
+                            <span class="stat-label">Solved</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Categories</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter & Search Bar -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-search search-icon"></i>
+                        <input type="text" id="search-input" class="search-input" placeholder="Search problems...">
+                    </div>
+                    <div class="filter-chips" id="filter-chips">
+                        <button class="chip active" data-filter="all">
+                            <i class="fa-solid fa-layer-group"></i> All
+                        </button>
+                        <button class="chip" data-filter="array">
+                            <i class="fa-solid fa-table-cells"></i> Arrays
+                        </button>
+                        <button class="chip" data-filter="linked-list">
+                            <i class="fa-solid fa-link"></i> Linked List
+                        </button>
+                        <button class="chip" data-filter="tree">
+                            <i class="fa-solid fa-sitemap"></i> Trees
+                        </button>
+                        <button class="chip" data-filter="graph">
+                            <i class="fa-solid fa-circle-nodes"></i> Graphs
+                        </button>
+                        <button class="chip" data-filter="hashmap">
+                            <i class="fa-solid fa-hashtag"></i> HashMap
+                        </button>
+                        <button class="chip" data-filter="stack-queue">
+                            <i class="fa-solid fa-layer-group"></i> Stack/Queue
+                        </button>
+                    </div>
+                    <div class="difficulty-filter">
+                        <select id="difficulty-select" class="difficulty-select">
+                            <option value="all">All Levels</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problems List -->
+        <section class="problems-list-section">
+            <div class="container">
+                <div class="problems-table-wrapper">
+                    <table class="problems-table" id="problems-table">
+                        <thead>
+                            <tr>
+                                <th class="col-status"></th>
+                                <th class="col-num">#</th>
+                                <th class="col-title">Problem</th>
+                                <th class="col-category">Category</th>
+                                <th class="col-real-world">Real-World Use</th>
+                                <th class="col-diff">Difficulty</th>
+                                <th class="col-action"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="problems-tbody">
+                            <!-- Problems injected by JS -->
+                        </tbody>
+                    </table>
+                    <div class="no-results" id="no-results" style="display:none;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <p>No problems match your filters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Problem Detail Modal / Drawer -->
+    <div class="problem-drawer" id="problem-drawer">
+        <div class="drawer-overlay" id="drawer-overlay"></div>
+        <div class="drawer-panel" id="drawer-panel">
+            <div class="drawer-header">
+                <div class="drawer-meta">
+                    <span class="drawer-num" id="drawer-num">#1</span>
+                    <span class="drawer-difficulty" id="drawer-difficulty">Easy</span>
+                    <div class="drawer-tags" id="drawer-tags"></div>
+                </div>
+                <button class="drawer-close" id="drawer-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="drawer-body">
+                <h2 class="drawer-title" id="drawer-title">Problem Title</h2>
+                <div class="drawer-real-world" id="drawer-real-world">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span id="drawer-real-world-text">Used by: —</span>
+                </div>
+                <p class="drawer-description" id="drawer-description"></p>
+
+                <!-- Animation Canvas -->
+                <div class="animation-section">
+                    <div class="animation-header">
+                        <h3><i class="fa-solid fa-play-circle"></i> Visual Explanation</h3>
+                        <div class="anim-controls">
+                            <button class="anim-btn" id="anim-play">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            <button class="anim-btn" id="anim-reset">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                            <div class="anim-speed">
+                                <label>Speed</label>
+                                <input type="range" id="anim-speed-slider" min="1" max="3" value="2" step="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animation-canvas" id="animation-canvas">
+                        <!-- Animation rendered by JS -->
+                    </div>
+                    <div class="anim-log" id="anim-log">
+                        <p>> Ready. Press Play to start the animation.</p>
+                    </div>
+                </div>
+
+                <!-- Problem Statement -->
+                <div class="problem-statement">
+                    <h3>Problem Statement</h3>
+                    <div class="statement-box" id="statement-box"></div>
+                    <div class="examples-section" id="examples-section"></div>
+                </div>
+
+                <!-- Code Editor -->
+                <div class="code-section">
+                    <div class="code-header">
+                        <h3><i class="fa-solid fa-code"></i> Your Solution</h3>
+                        <div class="lang-selector">
+                            <button class="lang-btn active" data-lang="js">JS</button>
+                            <button class="lang-btn" data-lang="python">Python</button>
+                        </div>
+                    </div>
+                    <div class="editor-container">
+                        <div class="line-numbers" id="line-numbers"></div>
+                        <textarea class="code-editor-main" id="code-editor" spellcheck="false"></textarea>
+                    </div>
+                    <div class="run-panel">
+                        <button class="btn btn-primary run-btn" id="run-btn">
+                            <i class="fa-solid fa-play"></i> Run & Visualize
+                        </button>
+                        <div class="run-result" id="run-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="brand-container" style="align-items: center;">
+                    <div class="logo-title" style="font-size: 1.5rem;">Semicolon<span class="logo-icon">;</span></div>
+                </div>
+                <p>&copy; 2026 Semicolon. Built for learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="problems-data.js"></script>
+    <script src="problems.js"></script>
+</body>
+
+</html>
