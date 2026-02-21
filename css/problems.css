@@ -1241,7 +1241,7 @@ tr:hover .problem-name {
    ========================================= */
 
 .split-layout {
-    padding-top: 100px;
+    padding-top: 120px;
     padding-bottom: 4rem;
 }
 
@@ -1249,6 +1249,8 @@ tr:hover .problem-name {
     display: flex;
     gap: 3rem;
     align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 /* Sidebar Styling */
@@ -1257,9 +1259,6 @@ tr:hover .problem-name {
     flex-shrink: 0;
     position: sticky;
     top: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     height: calc(100vh - 140px);
     overflow-y: auto;
     padding-right: 0.5rem;
@@ -1285,42 +1284,44 @@ tr:hover .problem-name {
     min-width: 0;
 }
 
-/* Header Adjustments for Sidebar */
-.problems-sidebar .problems-header-content {
+/* Header Adjustments */
+.problems-header {
+    margin-bottom: -1rem;
+}
+
+.problems-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.problems-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
     text-align: left;
 }
 
-.problems-sidebar .problems-title {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin-bottom: 0.8rem;
-}
-
-.problems-sidebar .problems-subtitle {
-    font-size: 0.95rem;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.6;
-}
-
-.problems-sidebar .problems-stats {
-    padding: 1rem 1.5rem;
-    gap: 1.5rem;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.problems-sidebar .stat-number {
-    font-size: 1.5rem;
+.problems-subtitle {
+    font-size: 1.1rem;
+    margin: 0 0 2.5rem 0;
+    line-height: 1.7;
+    text-align: left;
+    max-width: 580px;
 }
 
 /* Filter Panel Styling */
+.custom-sidebar-panel {
+    background: rgba(15, 23, 42, 0.6);
+    /* Darker background to match ref */
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
 .filter-panel {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 1rem;
 }
 

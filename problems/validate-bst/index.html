@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- These handle the problem specific meta replacements -->
+    <title>Validate BST | Semicolon</title>
+    <meta name="description" content="Validate database index ordering">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/problems.css">
+    <link rel="stylesheet" href="../../css/single-problem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="single-problem-layout">
+    <div class="background-glow"></div>
+
+    <!-- Navigation (matches main site but paths adjusted for /problems/[slug]/) -->
+    <header class="glass-nav">
+        <div class="container">
+            <div class="brand-container">
+                <a href="../../index.html" style="text-decoration:none">
+                    <h1 class="logo-title">Semicolon<span class="logo-icon">;</span></h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../pages/problems.html"><i class="fa-solid fa-arrow-left"></i> Back to Problems</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="single-problem-main container">
+        <div class="problem-content-split">
+            <!-- Left Side: Problem Statement & Details -->
+            <div class="problem-details-panel glass-card">
+                <div class="problem-header-row">
+                    <span class="diff-badge diff-medium">Medium</span>
+                    <span class="cat-tag"><i class="fa-solid fa-network-wired"></i> Tree</span>
+                </div>
+
+                <h1 class="problem-main-title">Validate BST</h1>
+
+                <div class="real-world-context">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>MySQL — validates B-Tree index integrity</span>
+                </div>
+
+                <p class="problem-description">Check if a binary tree satisfies BST property. Databases validate their B-Tree indexes the same way.</p>
+
+                <div class="problem-statement-box">
+                    Determine if a binary tree is a valid <strong>binary search tree</strong>.
+                </div>
+
+                <div class="problem-examples">
+                    <div class="example-block">
+            <div class="example-label">Example 1</div>
+            <code>Input: root = [5,1,4,null,null,3,6]
+Output: false (4 < 5 but is right child)</code>
+        </div>
+                </div>
+
+                
+            <div class="drawer-actions" style="margin-top: 2rem;">
+                <a href="https://leetcode.com/problems/validate-bst/" target="_blank" class="btn btn-secondary external-link-btn" style="display:inline-flex;">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Solve on Leetcode
+                </a>
+            </div>
+        
+            </div>
+
+            <!-- Right Side: Animation & Editor -->
+            <div class="problem-interactive-panel">
+                <!-- Animation Canvas -->
+                <div class="animation-section glass-card">
+                    <div class="animation-header">
+                        <h3><i class="fa-solid fa-play-circle"></i> Visual Explanation</h3>
+                        <div class="anim-controls">
+                            <button class="anim-btn" id="anim-play" title="Play Animation">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            <button class="anim-btn" id="anim-reset" title="Reset Animation">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                            <div class="anim-speed">
+                                <label>Speed</label>
+                                <input type="range" id="anim-speed-slider" min="1" max="3" value="2" step="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animation-canvas" id="animation-canvas">
+                        <!-- JS injected animation -->
+                    </div>
+                    <div class="anim-log" id="anim-log">
+                        <p>> Ready. Press Play to start the animation.</p>
+                    </div>
+                </div>
+
+                <!-- Code Editor -->
+                <div class="editor-section glass-card">
+                    <div class="editor-header">
+                        <h3><i class="fa-solid fa-code"></i> Workspace</h3>
+                        <div class="editor-actions">
+                            <button class="btn btn-primary btn-small" id="run-code-btn">
+                                <i class="fa-solid fa-play"></i> Run Code
+                            </button>
+                        </div>
+                    </div>
+                    <div class="editor-container">
+                        <div class="line-numbers" id="line-numbers">1</div>
+                        <textarea class="code-editor" id="code-editor" spellcheck="false">function isValidBST(root) {
+  // Your code here
+}</textarea>
+                    </div>
+                    <div class="run-result" id="run-result"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Inject Problem Data for JS parsing -->
+    <script>
+        window.PROBLEM_DATA = {{ problemJson }};
+    </script>
+    <script src="../../js/single-problem.js"></script>
+</body>
+
+</html>

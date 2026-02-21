@@ -44,33 +44,12 @@
 
     <!-- Problems List Page -->
     <main class="problems-main split-layout">
+
         <div class="container split-container">
 
             <!-- Left Sidebar -->
             <aside class="problems-sidebar">
-                <div class="problems-header-content">
-                    <div class="header-badge">
-                        <i class="fa-solid fa-code"></i> Engineering Problems
-                    </div>
-                    <h1 class="problems-title">Solve <span class="text-gradient">Real Engineering</span><br>Problems
-                    </h1>
-                    <p class="problems-subtitle">Not just algorithmic puzzles — learn how data structures power real
-                        systems like Redis, Kubernetes, and Netflix.</p>
-
-                    <div class="problems-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" id="total-count">24</span>
-                            <span class="stat-label">Total</span>
-                        </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <span class="stat-number solved-count" id="solved-count">0</span>
-                            <span class="stat-label">Solved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter-panel glass-card">
+                <div class="filter-panel glass-card custom-sidebar-panel">
                     <h3 class="filter-heading">Filters</h3>
                     <div class="search-wrapper">
                         <i class="fa-solid fa-search search-icon"></i>
@@ -78,7 +57,7 @@
                     </div>
 
                     <div class="difficulty-filter">
-                        <select id="difficulty-select" class="difficulty-select">
+                        <select id="difficulty-select" class="difficulty-select w-100">
                             <option value="all">All Levels</option>
                             <option value="easy">Easy</option>
                             <option value="medium">Medium</option>
@@ -86,7 +65,7 @@
                         </select>
                     </div>
 
-                    <h4 class="category-heading">Categories</h4>
+                    <h4 class="category-heading mt-2">Categories</h4>
                     <div class="filter-chips" id="filter-chips">
                         <!-- Chips injected by JS -->
                     </div>
@@ -119,89 +98,6 @@
 
         </div>
     </main>
-
-    <!-- Problem Detail Modal / Drawer -->
-    <div class="problem-drawer" id="problem-drawer">
-        <div class="drawer-overlay" id="drawer-overlay"></div>
-        <div class="drawer-panel" id="drawer-panel">
-            <div class="drawer-header">
-                <div class="drawer-meta">
-                    <span class="drawer-num" id="drawer-num">#1</span>
-                    <span class="drawer-difficulty" id="drawer-difficulty">Easy</span>
-                    <div class="drawer-tags" id="drawer-tags"></div>
-                </div>
-                <button class="drawer-close" id="drawer-close">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="drawer-body">
-                <h2 class="drawer-title" id="drawer-title">Problem Title</h2>
-                <div class="drawer-real-world" id="drawer-real-world">
-                    <i class="fa-solid fa-building-columns"></i>
-                    <span id="drawer-real-world-text">Used by: —</span>
-                </div>
-                <p class="drawer-description" id="drawer-description"></p>
-
-                <!-- Animation Canvas -->
-                <div class="animation-section">
-                    <div class="animation-header">
-                        <h3><i class="fa-solid fa-play-circle"></i> Visual Explanation</h3>
-                        <div class="anim-controls">
-                            <button class="anim-btn" id="anim-play">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                            <button class="anim-btn" id="anim-reset">
-                                <i class="fa-solid fa-rotate-left"></i>
-                            </button>
-                            <div class="anim-speed">
-                                <label>Speed</label>
-                                <input type="range" id="anim-speed-slider" min="1" max="3" value="2" step="1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="animation-canvas" id="animation-canvas">
-                        <!-- Animation rendered by JS -->
-                    </div>
-                    <div class="anim-log" id="anim-log">
-                        <p>> Ready. Press Play to start the animation.</p>
-                    </div>
-                </div>
-
-                <!-- Problem Statement -->
-                <div class="problem-statement">
-                    <h3>Problem Statement</h3>
-                    <div class="statement-box" id="statement-box"></div>
-                    <div class="examples-section" id="examples-section"></div>
-                </div>
-
-                <!-- Code Editor -->
-                <div class="code-section">
-                    <div class="code-header">
-                        <h3><i class="fa-solid fa-code"></i> Your Solution</h3>
-                        <div class="lang-selector">
-                            <button class="lang-btn active" data-lang="js">JS</button>
-                            <button class="lang-btn" data-lang="python">Python</button>
-                        </div>
-                    </div>
-                    <div class="editor-container">
-                        <div class="line-numbers" id="line-numbers"></div>
-                        <textarea class="code-editor-main" id="code-editor" spellcheck="false"></textarea>
-                    </div>
-                    <div class="run-panel">
-                        <button class="btn btn-primary run-btn" id="run-btn">
-                            <i class="fa-solid fa-play"></i> Run & Visualize
-                        </button>
-                        <a href="#" target="_blank" class="btn btn-secondary external-link-btn" id="external-link-btn"
-                            style="display: none;">
-                            <i class="fa-solid fa-external-link-alt"></i> Solve on <span
-                                id="external-platform-name">Platform</span>
-                        </a>
-                        <div class="run-result" id="run-result"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="glass-footer">
         <div class="container">

@@ -12,7 +12,6 @@
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Playfair Display', serif;
     --primary-rgb: 231, 111, 81;
-    /* Updated font */
 }
 
 * {
@@ -128,12 +127,16 @@ a {
     }
 }
 
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .glass-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .brand-container {

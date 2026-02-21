@@ -61,7 +61,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/two-sum/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "two-sum"
     },
     {
         "id": 2,
@@ -162,7 +163,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/move-zeroes/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "move-zeroes"
     },
     {
         "id": 3,
@@ -233,7 +235,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "best-time-to-buy-and-sell-stock"
     },
     {
         "id": 4,
@@ -298,7 +301,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/contains-duplicate/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "contains-duplicate"
     },
     {
         "id": 5,
@@ -378,7 +382,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "reverse-linked-list"
     },
     {
         "id": 6,
@@ -447,7 +452,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/merge-two-sorted-lists/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "merge-two-sorted-lists"
     },
     {
         "id": 7,
@@ -509,7 +515,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/detect-cycle-in-linked-list/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "detect-cycle-in-linked-list"
     },
     {
         "id": 8,
@@ -596,7 +603,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "binary-tree-inorder-traversal"
     },
     {
         "id": 9,
@@ -667,7 +675,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "maximum-depth-of-binary-tree"
     },
     {
         "id": 10,
@@ -728,7 +737,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/validate-bst/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "validate-bst"
     },
     {
         "id": 11,
@@ -799,7 +809,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/bfs-level-order-traversal/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "bfs-level-order-traversal"
     },
     {
         "id": 12,
@@ -884,7 +895,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/number-of-islands/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "number-of-islands"
     },
     {
         "id": 13,
@@ -957,7 +969,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/course-schedule/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "course-schedule"
     },
     {
         "id": 14,
@@ -1040,7 +1053,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/shortest-path-dijkstra/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "shortest-path-dijkstra"
     },
     {
         "id": 15,
@@ -1121,7 +1135,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/valid-parentheses/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "valid-parentheses"
     },
     {
         "id": 16,
@@ -1181,7 +1196,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/min-stack/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "min-stack"
     },
     {
         "id": 17,
@@ -1245,7 +1261,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/lru-cache/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "lru-cache"
     },
     {
         "id": 18,
@@ -1322,7 +1339,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/group-anagrams/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "group-anagrams"
     },
     {
         "id": 19,
@@ -1378,7 +1396,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/binary-search/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "binary-search"
     },
     {
         "id": 20,
@@ -1440,7 +1459,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/merge-intervals/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "merge-intervals"
     },
     {
         "id": 21,
@@ -1505,7 +1525,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/implement-queue-using-stacks/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "implement-queue-using-stacks"
     },
     {
         "id": 22,
@@ -1576,7 +1597,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/lowest-common-ancestor/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "lowest-common-ancestor"
     },
     {
         "id": 23,
@@ -1653,7 +1675,8 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/clone-graph/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "clone-graph"
     },
     {
         "id": 24,
@@ -1710,6 +1733,7 @@ const PROBLEMS = [
             }
         ],
         "externalLink": "https://leetcode.com/problems/product-of-array-except-self/",
-        "externalPlatform": "leetcode"
+        "externalPlatform": "leetcode",
+        "slug": "product-of-array-except-self"
     }
 ];
