@@ -59,48 +59,39 @@ document.addEventListener('DOMContentLoaded', () => {
         noResults.style.display = 'none';
 
         tbody.innerHTML = filtered.map((p, i) => {
-            const cat = getCategoryMeta(p.category);
+            const catMeta = getCategoryMeta(p.category);
             const isSolved = solved.has(p.id);
-            return `<tr data-id="${p.id}" style="animation-delay:${i * 0.04}s">
-        <td class="col-status">
-          <div class="status-icon ${isSolved ? 'solved' : 'unsolved'}">
-            ${isSolved ? '<i class="fa-solid fa-check"></i>' : ''}
-          </div>
-        </td>
-        <td class="col-num">${p.id}</td>
-        <td class="col-title">
-          <div class="problem-title-cell">
-            <span class="problem-name">${p.title}</span>
-            <span class="problem-tagline">${p.tagline}</span>
-          </div>
-        </td>
-        <td class="col-category">
-          <span class="cat-tag ${cat.cls}"><i class="fa-solid ${cat.icon}"></i> ${cat.label}</span>
-        </td>
-        <td class="col-real-world">
-          <div class="real-world-cell">
-            <span class="company-icon"><i class="${p.icon}"></i></span>
-            <span>${p.realWorld.split('—')[0].trim()}</span>
-          </div>
-        </td>
-        <td class="col-diff">
-          <span class="diff-badge diff-${p.difficulty}">${p.difficulty.charAt(0).toUpperCase() + p.difficulty.slice(1)}</span>
-        </td>
-        <td class="col-action">
-          <button class="solve-btn" data-id="${p.id}">Solve <i class="fa-solid fa-arrow-right"></i></button>
-        </td>
-      </tr>`;
+            return `
+            <tr data-id="${p.id}" onclick="openDrawer(${p.id})">
+                <td class="col-status">
+                    <div class="status-icon ${isSolved ? 'solved' : 'unsolved'}">
+                        <i class="fa-solid fa-${isSolved ? 'check' : 'minus'}"></i>
+                    </div>
+                </td>
+                <td class="col-num">${p.id}</td>
+                <td class="col-title">
+                    <div class="problem-title-cell">
+                        <span class="problem-name">${p.title}</span>
+                        <span class="problem-tagline">${p.tagline}</span>
+                    </div>
+                </td>
+                <td class="col-category">
+                    <span class="cat-tag" style="color: ${catMeta.color}; border-color: ${catMeta.color}; background: ${catMeta.color}20">
+                        <i class="${catMeta.icon}"></i> ${catMeta.label}
+                    </span>
+                </td>
+                <td class="col-diff">
+                    <span class="diff-badge diff-${p.difficulty}">${p.difficulty.charAt(0).toUpperCase() + p.difficulty.slice(1)}</span>
+                </td>
+            </tr>
+        `;
         }).join('');
 
         // Attach row click handlers
         tbody.querySelectorAll('tr').forEach(row => {
             row.addEventListener('click', e => {
-                if (e.target.closest('.solve-btn')) return;
                 openDrawer(parseInt(row.dataset.id));
             });
-        });
-        tbody.querySelectorAll('.solve-btn').forEach(btn => {
-            btn.addEventListener('click', () => openDrawer(parseInt(btn.dataset.id)));
         });
     }
 

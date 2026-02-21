@@ -1235,3 +1235,157 @@ tr:hover .problem-name {
     background: linear-gradient(to right, var(--primary-color), #f4a261);
     transition: width 0.5s ease;
 }
+
+/* =========================================
+   SPLIT LAYOUT OVERRIDES 
+   ========================================= */
+
+.split-layout {
+    padding-top: 100px;
+    padding-bottom: 4rem;
+}
+
+.split-container {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* Sidebar Styling */
+.problems-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Custom scrollbar for sidebar */
+.problems-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.problems-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.problems-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Content Panel */
+.problems-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Header Adjustments for Sidebar */
+.problems-sidebar .problems-header-content {
+    text-align: left;
+}
+
+.problems-sidebar .problems-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+}
+
+.problems-sidebar .problems-subtitle {
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+}
+
+.problems-sidebar .problems-stats {
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.problems-sidebar .stat-number {
+    font-size: 1.5rem;
+}
+
+/* Filter Panel Styling */
+.filter-panel {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+}
+
+.filter-heading,
+.category-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.category-heading {
+    margin-top: 0.5rem;
+}
+
+/* Reset original section padding if unused */
+.problems-header,
+.filter-section,
+.problems-list-section {
+    padding: 0;
+}
+
+.filter-section {
+    position: static;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+}
+
+/* Adjust Chips for Sidebar */
+.problems-sidebar .filter-chips {
+    gap: 0.4rem;
+}
+
+.problems-sidebar .chip {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .split-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .problems-sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        overflow: visible;
+        padding-right: 0;
+    }
+
+    .problems-sidebar .problems-header-content {
+        text-align: center;
+    }
+
+    .problems-sidebar .problems-subtitle {
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .problems-sidebar .problems-stats {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}

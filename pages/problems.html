@@ -43,11 +43,11 @@
     </header>
 
     <!-- Problems List Page -->
-    <main class="problems-main">
+    <main class="problems-main split-layout">
+        <div class="container split-container">
 
-        <!-- Page Header -->
-        <section class="problems-header">
-            <div class="container">
+            <!-- Left Sidebar -->
+            <aside class="problems-sidebar">
                 <div class="problems-header-content">
                     <div class="header-badge">
                         <i class="fa-solid fa-code"></i> Engineering Problems
@@ -56,37 +56,27 @@
                     </h1>
                     <p class="problems-subtitle">Not just algorithmic puzzles — learn how data structures power real
                         systems like Redis, Kubernetes, and Netflix.</p>
+
                     <div class="problems-stats">
                         <div class="stat-item">
                             <span class="stat-number" id="total-count">24</span>
-                            <span class="stat-label">Total Problems</span>
+                            <span class="stat-label">Total</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
                             <span class="stat-number solved-count" id="solved-count">0</span>
                             <span class="stat-label">Solved</span>
                         </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <span class="stat-number">6</span>
-                            <span class="stat-label">Categories</span>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Filter & Search Bar -->
-        <section class="filter-section">
-            <div class="container">
-                <div class="filter-bar">
+                <div class="filter-panel glass-card">
+                    <h3 class="filter-heading">Filters</h3>
                     <div class="search-wrapper">
                         <i class="fa-solid fa-search search-icon"></i>
                         <input type="text" id="search-input" class="search-input" placeholder="Search problems...">
                     </div>
-                    <div class="filter-chips" id="filter-chips">
-                        <!-- Chips injected by JS -->
-                    </div>
+
                     <div class="difficulty-filter">
                         <select id="difficulty-select" class="difficulty-select">
                             <option value="all">All Levels</option>
@@ -95,14 +85,17 @@
                             <option value="hard">Hard</option>
                         </select>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Problems List -->
-        <section class="problems-list-section">
-            <div class="container">
-                <div class="problems-table-wrapper">
+                    <h4 class="category-heading">Categories</h4>
+                    <div class="filter-chips" id="filter-chips">
+                        <!-- Chips injected by JS -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Content (Problems List) -->
+            <div class="problems-content">
+                <div class="problems-table-wrapper glass-card">
                     <table class="problems-table" id="problems-table">
                         <thead>
                             <tr>
@@ -110,9 +103,7 @@
                                 <th class="col-num">#</th>
                                 <th class="col-title">Problem</th>
                                 <th class="col-category">Category</th>
-                                <th class="col-real-world">Real-World Use</th>
                                 <th class="col-diff">Difficulty</th>
-                                <th class="col-action"></th>
                             </tr>
                         </thead>
                         <tbody id="problems-tbody">
@@ -125,8 +116,8 @@
                     </div>
                 </div>
             </div>
-        </section>
 
+        </div>
     </main>
 
     <!-- Problem Detail Modal / Drawer -->
