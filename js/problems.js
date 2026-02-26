@@ -1,5 +1,24 @@
 // problems.js — Card-grid rendering and filtering
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Navigation ---
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
     const grid = document.getElementById('problems-grid');
     const searchInput = document.getElementById('search-input');
     const noResults = document.getElementById('no-results');
@@ -12,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Category meta ----
     const CAT_META = {
-        'array':       { label: 'Array',       icon: 'fa-table-cells',  cls: 'cat-array' },
-        'linked-list': { label: 'Linked List',  icon: 'fa-link',         cls: 'cat-linked-list' },
-        'tree':        { label: 'Tree',         icon: 'fa-sitemap',      cls: 'cat-tree' },
-        'graph':       { label: 'Graph',        icon: 'fa-circle-nodes', cls: 'cat-graph' },
-        'hashmap':     { label: 'HashMap',      icon: 'fa-hashtag',      cls: 'cat-hashmap' },
-        'stack-queue': { label: 'Stack/Queue',  icon: 'fa-layer-group',  cls: 'cat-stack-queue' }
+        'array': { label: 'Array', icon: 'fa-table-cells', cls: 'cat-array' },
+        'linked-list': { label: 'Linked List', icon: 'fa-link', cls: 'cat-linked-list' },
+        'tree': { label: 'Tree', icon: 'fa-sitemap', cls: 'cat-tree' },
+        'graph': { label: 'Graph', icon: 'fa-circle-nodes', cls: 'cat-graph' },
+        'hashmap': { label: 'HashMap', icon: 'fa-hashtag', cls: 'cat-hashmap' },
+        'stack-queue': { label: 'Stack/Queue', icon: 'fa-layer-group', cls: 'cat-stack-queue' }
     };
 
     function getCategoryMeta(cat) {

@@ -29,16 +29,24 @@
                 </a>
                 <p class="tagline">Where every line of code tells a story</p>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="problems.html" class="nav-active">Problems</a></li>
-                    <li><a href="../index.html#about">About</a></li>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="problems.html" class="nav-active nav-link">Problems</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
                 </ul>
-                <a href="https://github.com/sielabs-org/semicolon" target="_blank" class="btn btn-secondary btn-icon">
-                    <i class="fa-brands fa-github"></i> Star us
-                </a>
+                <div class="nav-actions">
+                    <a href="https://github.com/sielabs-org/semicolon" target="_blank"
+                        class="btn btn-secondary btn-icon">
+                        <i class="fa-brands fa-github"></i> Star us
+                    </a>
+                </div>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </header>
 
@@ -52,7 +60,8 @@
                     <div class="page-header-text">
                         <span class="page-eyebrow"><i class="fa-solid fa-code"></i> Engineering Problems</span>
                         <h1 class="page-title">Practice with Purpose</h1>
-                        <p class="page-subtitle">Real-world engineering challenges mapped to the platforms where they're solved.</p>
+                        <p class="page-subtitle">Real-world engineering challenges mapped to the platforms where they're
+                            solved.</p>
                     </div>
                     <div class="problems-stats-bar">
                         <div class="stat-pill">
@@ -108,7 +117,9 @@
                 <div class="no-results" id="no-results" style="display:none;">
                     <i class="fa-solid fa-face-frown-open"></i>
                     <p>No problems match your filters.</p>
-                    <button class="btn btn-secondary" onclick="document.getElementById('search-input').value=''; window.resetFilters();">Clear Filters</button>
+                    <button class="btn btn-secondary"
+                        onclick="document.getElementById('search-input').value=''; window.resetFilters();">Clear
+                        Filters</button>
                 </div>
             </div>
 
