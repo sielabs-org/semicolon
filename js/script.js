@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Navigation ---
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
     // --- Tabs Logic ---
     const buttons = document.querySelectorAll('.challenge-btn');
     const scenarios = document.querySelectorAll('.demo-scenario');
