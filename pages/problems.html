@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/problems.css">
@@ -42,57 +42,73 @@
         </div>
     </header>
 
-    <!-- Problems List Page -->
-    <main class="problems-main split-layout">
+    <!-- Problems Page -->
+    <main class="problems-main">
 
-        <div class="container split-container">
+        <!-- Page Header -->
+        <div class="problems-page-header">
+            <div class="container">
+                <div class="page-header-inner">
+                    <div class="page-header-text">
+                        <span class="page-eyebrow"><i class="fa-solid fa-code"></i> Engineering Problems</span>
+                        <h1 class="page-title">Practice with Purpose</h1>
+                        <p class="page-subtitle">Real-world engineering challenges mapped to the platforms where they're solved.</p>
+                    </div>
+                    <div class="problems-stats-bar">
+                        <div class="stat-pill">
+                            <span class="stat-num" id="total-count">24</span>
+                            <span class="stat-lbl">Problems</span>
+                        </div>
+                        <div class="stat-pill stat-pill-solved">
+                            <span class="stat-num" id="solved-count">0</span>
+                            <span class="stat-lbl">Solved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Left Sidebar -->
-            <aside class="problems-sidebar">
-                <div class="filter-panel glass-card custom-sidebar-panel">
-                    <h3 class="filter-heading">Filters</h3>
+        <div class="container problems-body">
+
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <div class="filter-block">
                     <div class="search-wrapper">
-                        <i class="fa-solid fa-search search-icon"></i>
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
                         <input type="text" id="search-input" class="search-input" placeholder="Search problems...">
                     </div>
+                </div>
 
-                    <div class="difficulty-filter">
-                        <select id="difficulty-select" class="difficulty-select w-100">
-                            <option value="all">All Levels</option>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
+                <div class="filter-block">
+                    <h4 class="filter-label">Difficulty</h4>
+                    <div class="diff-buttons" id="diff-filter">
+                        <button class="diff-btn active" data-diff="all">All</button>
+                        <button class="diff-btn diff-easy-btn" data-diff="easy">Easy</button>
+                        <button class="diff-btn diff-medium-btn" data-diff="medium">Medium</button>
+                        <button class="diff-btn diff-hard-btn" data-diff="hard">Hard</button>
                     </div>
+                </div>
 
-                    <h4 class="category-heading mt-2">Categories</h4>
+                <div class="filter-block">
+                    <h4 class="filter-label">Category</h4>
                     <div class="filter-chips" id="filter-chips">
                         <!-- Chips injected by JS -->
                     </div>
                 </div>
             </aside>
 
-            <!-- Right Content (Problems List) -->
-            <div class="problems-content">
-                <div class="problems-table-wrapper glass-card">
-                    <table class="problems-table" id="problems-table">
-                        <thead>
-                            <tr>
-                                <th class="col-status"></th>
-                                <th class="col-num">#</th>
-                                <th class="col-title">Problem</th>
-                                <th class="col-category">Category</th>
-                                <th class="col-diff">Difficulty</th>
-                            </tr>
-                        </thead>
-                        <tbody id="problems-tbody">
-                            <!-- Problems injected by JS -->
-                        </tbody>
-                    </table>
-                    <div class="no-results" id="no-results" style="display:none;">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <p>No problems match your filters.</p>
-                    </div>
+            <!-- Problems Grid -->
+            <div class="problems-grid-area">
+                <div class="results-bar">
+                    <span id="results-count" class="results-label"></span>
+                </div>
+                <div class="problems-grid" id="problems-grid">
+                    <!-- Problem cards injected by JS -->
+                </div>
+                <div class="no-results" id="no-results" style="display:none;">
+                    <i class="fa-solid fa-face-frown-open"></i>
+                    <p>No problems match your filters.</p>
+                    <button class="btn btn-secondary" onclick="document.getElementById('search-input').value=''; window.resetFilters();">Clear Filters</button>
                 </div>
             </div>
 

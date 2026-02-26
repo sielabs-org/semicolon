@@ -2,29 +2,81 @@ const fs = require('fs');
 const path = require('path');
 const problemsDir = path.join(__dirname, '../problems');
 const outputFile = path.join(__dirname, '../js/problems-data.js');
-
 const templatePath = path.join(__dirname, '../pages/problem-template.html');
 
 function slugify(text) {
     return text.toString().toLowerCase()
-        .replace(/\s+/g, '-')           // Replace spaces with -
-        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-        .replace(/^-+/, '')             // Trim - from start of text
-        .replace(/-+$/, '');            // Trim - from end of text
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
 }
 
 function getCategoryMeta(cat) {
     const metas = {
-        'array': { icon: 'fa-table-cells', label: 'Array' },
-        'linked-list': { icon: 'fa-link', label: 'Linked List' },
-        'tree': { icon: 'fa-network-wired', label: 'Tree' },
-        'graph': { icon: 'fa-chart-network', label: 'Graph' },
-        'hashmap': { icon: 'fa-hashtag', label: 'HashMap' },
-        'stack-queue': { icon: 'fa-layer-group', label: 'Stack/Queue' },
-        'fragmentation': { icon: 'fa-boxes-stacked', label: 'Fragmentation' }
+        'array': { icon: 'fa-table-cells', label: 'Array', cls: 'cat-array' },
+        'linked-list': { icon: 'fa-link', label: 'Linked List', cls: 'cat-linked-list' },
+        'tree': { icon: 'fa-sitemap', label: 'Tree', cls: 'cat-tree' },
+        'graph': { icon: 'fa-circle-nodes', label: 'Graph', cls: 'cat-graph' },
+        'hashmap': { icon: 'fa-hashtag', label: 'HashMap', cls: 'cat-hashmap' },
+        'stack-queue': { icon: 'fa-layer-group', label: 'Stack/Queue', cls: 'cat-stack-queue' },
+        'fragmentation': { icon: 'fa-boxes-stacked', label: 'Fragmentation', cls: 'cat-custom' }
     };
-    return metas[cat] || { icon: 'fa-code', label: cat.toUpperCase() };
+    return metas[cat] || { icon: 'fa-code', label: cat.toUpperCase(), cls: 'cat-custom' };
+}
+
+// Codeforces links for common problems (add more as needed)
+const CODEFORCES_LINKS = {
+    'two-sum': null,
+    'move-zeroes': null,
+    'binary-search': 'https://codeforces.com/problemset/problem/1/A',
+    'number-of-islands': null,
+    'course-schedule': null,
+};
+
+function buildPlatformLinksHtml(p) {
+    const links = [];
+
+    if (p.externalLink) {
+        const platform = p.externalPlatform || 'external';
+        let cls = 'platform-btn-external';
+        let icon = 'fa-arrow-up-right-from-square';
+        let label = 'Solve Problem';
+
+        if (platform === 'leetcode') {
+            cls = 'platform-btn-leetcode';
+            icon = 'fa-code';
+            label = 'Solve on LeetCode';
+        } else if (platform === 'codeforces') {
+            cls = 'platform-btn-codeforces';
+            icon = 'fa-trophy';
+            label = 'Solve on Codeforces';
+        }
+
+        links.push(`
+        <a href="${p.externalLink}" target="_blank" rel="noopener" class="platform-btn ${cls}">
+            <i class="fa-solid ${icon}"></i> ${label}
+        </a>`);
+    }
+
+    // Check for additional codeforces link
+    const cfLink = p.codeforcesLink || (CODEFORCES_LINKS[p.slug]);
+    if (cfLink && p.externalPlatform !== 'codeforces') {
+        links.push(`
+        <a href="${cfLink}" target="_blank" rel="noopener" class="platform-btn platform-btn-codeforces">
+            <i class="fa-solid fa-trophy"></i> Solve on Codeforces
+        </a>`);
+    }
+
+    if (links.length === 0) {
+        links.push(`
+        <span class="platform-btn platform-btn-external" style="opacity:0.5; cursor:default;">
+            <i class="fa-solid fa-circle-info"></i> No external link yet
+        </span>`);
+    }
+
+    return links.join('\n');
 }
 
 function build() {
@@ -44,31 +96,23 @@ function build() {
         try {
             const content = fs.readFileSync(path.join(problemsDir, file), 'utf-8');
             const data = JSON.parse(content);
-
-            // Assign a slug
             data.slug = slugify(data.title);
             problems.push(data);
-
-            // Generate Static Single Page
             generateProblemPage(data, templateHtml);
-
         } catch (e) {
             console.error(`Error parsing ${file}:`, e.message);
         }
     }
 
-    // Sort by ID
     problems.sort((a, b) => parseInt(a.id) - parseInt(b.id));
 
-    // Generate JS content
     const jsContent = `// AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY.
-// Update the JSON files in problems/ instead and run:
-// node scripts/build.js
+// Update JSON files in problems/ and run: node scripts/build.js
 
 const PROBLEMS = ${JSON.stringify(problems, null, 4)};\n`;
 
     fs.writeFileSync(outputFile, jsContent, 'utf-8');
-    console.log(`Successfully built js/problems-data.js and static HTML pages for ${problems.length} problems.`);
+    console.log(`Built js/problems-data.js and HTML pages for ${problems.length} problems.`);
 }
 
 function generateProblemPage(p, template) {
@@ -81,17 +125,7 @@ function generateProblemPage(p, template) {
         </div>`
     ).join('');
 
-    let extLinkHtml = '';
-    if (p.externalLink) {
-        const platform = p.externalPlatform ? p.externalPlatform.charAt(0).toUpperCase() + p.externalPlatform.slice(1) : 'External';
-        extLinkHtml = `
-            <div class="drawer-actions" style="margin-top: 2rem;">
-                <a href="${p.externalLink}" target="_blank" class="btn btn-secondary external-link-btn" style="display:inline-flex;">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Solve on ${platform}
-                </a>
-            </div>
-        `;
-    }
+    const platformLinksHtml = buildPlatformLinksHtml(p);
 
     let pageHtml = template
         .replace(/{{title}}/g, p.title)
@@ -99,14 +133,13 @@ function generateProblemPage(p, template) {
         .replace(/{{difficultyClass}}/g, p.difficulty)
         .replace(/{{difficulty}}/g, p.difficulty.charAt(0).toUpperCase() + p.difficulty.slice(1))
         .replace(/{{icon}}/g, cat.icon)
+        .replace(/{{catCls}}/g, cat.cls)
         .replace(/{{categoryLabel}}/g, cat.label)
-        .replace(/{{realWorld}}/g, p.realWorld)
-        .replace(/{{description}}/g, p.description)
-        .replace(/{{statement}}/g, p.statement)
+        .replace(/{{realWorld}}/g, p.realWorld || '')
+        .replace(/{{description}}/g, p.description || '')
+        .replace(/{{statement}}/g, p.statement || '')
         .replace(/{{examplesHtml}}/g, examplesHtml)
-        .replace(/{{externalLinkHtml}}/g, extLinkHtml)
-        .replace(/{{template}}/g, p.template || '')
-        .replace(/{{problemJson}}/g, JSON.stringify(p));
+        .replace(/{{platformLinksHtml}}/g, platformLinksHtml);
 
     const outDir = path.join(problemsDir, p.slug);
     if (!fs.existsSync(outDir)) {
@@ -114,6 +147,7 @@ function generateProblemPage(p, template) {
     }
 
     fs.writeFileSync(path.join(outDir, 'index.html'), pageHtml, 'utf-8');
+    console.log(`  → ${p.slug}/index.html`);
 }
 
 build();

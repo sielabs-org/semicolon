@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- These handle the problem specific meta replacements -->
     <title>Best Time to Buy and Sell Stock | Semicolon</title>
     <meta name="description" content="Maximize trading profit">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/problems.css">
@@ -22,7 +21,7 @@
 <body class="single-problem-layout">
     <div class="background-glow"></div>
 
-    <!-- Navigation (matches main site but paths adjusted for /problems/[slug]/) -->
+    <!-- Navigation -->
     <header class="glass-nav">
         <div class="container">
             <div class="brand-container">
@@ -39,99 +38,69 @@
         </div>
     </header>
 
-    <main class="single-problem-main container">
-        <div class="problem-content-split">
-            <!-- Left Side: Problem Statement & Details -->
-            <div class="problem-details-panel glass-card">
-                <div class="problem-header-row">
+    <main class="single-problem-main">
+        <div class="problem-focus-wrap">
+
+            <!-- Back link (mobile fallback) -->
+            <a href="../../pages/problems.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> All Problems
+            </a>
+
+            <!-- Problem hero -->
+            <div class="problem-hero">
+                <div class="problem-meta-row">
                     <span class="diff-badge diff-easy">Easy</span>
-                    <span class="cat-tag"><i class="fa-solid fa-table-cells"></i> Array</span>
+                    <span class="cat-tag cat-array">
+                        <i class="fa-solid fa-table-cells"></i> Array
+                    </span>
                 </div>
 
-                <h1 class="problem-main-title">Best Time to Buy and Sell Stock</h1>
+                <h1 class="problem-focus-title">Best Time to Buy and Sell Stock</h1>
 
-                <div class="real-world-context">
+                <div class="problem-real-world">
                     <i class="fa-solid fa-building-columns"></i>
                     <span>Stock exchanges — Robinhood calculates max profit windows</span>
                 </div>
+            </div>
 
-                <p class="problem-description">Find the maximum profit from buying low and selling high — the core of any trading algorithm.</p>
+            <div class="section-divider"></div>
 
-                <div class="problem-statement-box">
-                    Given <strong>prices[i]</strong> is the price on day i, find the max profit from one buy and one sell.
-                </div>
+            <!-- Description -->
+            <div class="problem-description-block">
+                <div class="section-label">Description</div>
+                <p class="problem-description-text">Find the maximum profit from buying low and selling high — the core of any trading algorithm.</p>
+            </div>
 
-                <div class="problem-examples">
-                    <div class="example-block">
+            <!-- Statement -->
+            <div class="problem-statement">
+                Given <strong>prices[i]</strong> is the price on day i, find the max profit from one buy and one sell.
+            </div>
+
+            <!-- Examples -->
+            <div class="problem-examples">
+                <div class="example-block">
             <div class="example-label">Example 1</div>
             <code>Input: [7,1,5,3,6,4]
 Output: 5 (buy at 1, sell at 6)</code>
         </div>
-                </div>
-
-                
-            <div class="drawer-actions" style="margin-top: 2rem;">
-                <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" class="btn btn-secondary external-link-btn" style="display:inline-flex;">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Solve on Leetcode
-                </a>
-            </div>
-        
             </div>
 
-            <!-- Right Side: Animation & Editor -->
-            <div class="problem-interactive-panel">
-                <!-- Animation Canvas -->
-                <div class="animation-section glass-card">
-                    <div class="animation-header">
-                        <h3><i class="fa-solid fa-play-circle"></i> Visual Explanation</h3>
-                        <div class="anim-controls">
-                            <button class="anim-btn" id="anim-play" title="Play Animation">
-                                <i class="fa-solid fa-play"></i>
-                            </button>
-                            <button class="anim-btn" id="anim-reset" title="Reset Animation">
-                                <i class="fa-solid fa-rotate-left"></i>
-                            </button>
-                            <div class="anim-speed">
-                                <label>Speed</label>
-                                <input type="range" id="anim-speed-slider" min="1" max="3" value="2" step="1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="animation-canvas" id="animation-canvas">
-                        <!-- JS injected animation -->
-                    </div>
-                    <div class="anim-log" id="anim-log">
-                        <p>> Ready. Press Play to start the animation.</p>
-                    </div>
-                </div>
+            <div class="section-divider"></div>
 
-                <!-- Code Editor -->
-                <div class="editor-section glass-card">
-                    <div class="editor-header">
-                        <h3><i class="fa-solid fa-code"></i> Workspace</h3>
-                        <div class="editor-actions">
-                            <button class="btn btn-primary btn-small" id="run-code-btn">
-                                <i class="fa-solid fa-play"></i> Run Code
-                            </button>
-                        </div>
-                    </div>
-                    <div class="editor-container">
-                        <div class="line-numbers" id="line-numbers">1</div>
-                        <textarea class="code-editor" id="code-editor" spellcheck="false">function maxProfit(prices) {
-  // Your code here
-}</textarea>
-                    </div>
-                    <div class="run-result" id="run-result"></div>
+            <!-- Platform Links -->
+            <div class="platform-links">
+                <div class="platform-link-section-title">Solve on</div>
+                <div class="platform-links-row">
+                    
+        <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener" class="platform-btn platform-btn-leetcode">
+            <i class="fa-solid fa-code"></i> Solve on LeetCode
+        </a>
                 </div>
             </div>
+
         </div>
     </main>
 
-    <!-- Inject Problem Data for JS parsing -->
-    <script>
-        window.PROBLEM_DATA = {{ problemJson }};
-    </script>
-    <script src="../../js/single-problem.js"></script>
 </body>
 
 </html>

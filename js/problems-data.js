@@ -1,6 +1,5 @@
 // AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY.
-// Update the JSON files in problems/ instead and run:
-// node scripts/build.js
+// Update JSON files in problems/ and run: node scripts/build.js
 
 const PROBLEMS = [
     {
