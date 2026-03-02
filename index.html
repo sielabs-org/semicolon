@@ -156,6 +156,43 @@
                         <h3>Scenario: Disk Fragmentation</h3>
                         <p>Optimize storage by moving all data blocks (1s) to the beginning. Free blocks (0s) should be
                             at the end.</p>
+                        <div class="defrag-theory glass-card">
+                            <h4>Fragmentation vs Defragmentation: Core Theory</h4>
+                            <p><strong>Fragmentation</strong> means related data is split into many scattered locations
+                                instead of one continuous region. This happens over time as files are created, resized,
+                                and deleted.</p>
+                            <p><strong>Defragmentation</strong> reorganizes storage so used blocks become contiguous
+                                and free space is grouped together. This reduces random seeks and improves access
+                                patterns.</p>
+                            <p><strong>Real Example:</strong> Suppose you have a 10GB hard disk. You delete two movies
+                                of 1GB each, so now you have two separate 1GB empty slots. Later, you download one 2GB
+                                movie. The OS may have to split that movie into two 1GB parts to fit both gaps. This is
+                                fragmentation. Defragmentation fixes it by moving used blocks so empty space becomes one
+                                single continuous region.</p>
+                            <div class="defrag-theory-grid">
+                                <div class="theory-block">
+                                    <h5>Why Fragmentation Hurts</h5>
+                                    <ul>
+                                        <li>Reads become slower because the disk head jumps across many positions.</li>
+                                        <li>Writes become less efficient due to broken free space.</li>
+                                        <li>Large files are harder to place continuously when free space is scattered.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="theory-block">
+                                    <h5>How Defragmentation Works</h5>
+                                    <ul>
+                                        <li>Scan from left to right and track where the next used block should go.</li>
+                                        <li>When a used block is found, swap it into the earliest free slot.</li>
+                                        <li>After one pass, all 1s are on the left and all 0s move right.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="theory-example"><strong>Example:</strong> <code>[0, 1, 0, 1, 1, 0]</code> becomes
+                                <code>[1, 1, 1, 0, 0, 0]</code>.</p>
+                            <p class="theory-complexity"><strong>Complexity:</strong> single pass, <code>O(n)</code>
+                                time and <code>O(1)</code> extra space with the two-pointer method shown below.</p>
+                        </div>
                         <div class="control-panel">
                             <button id="defrag-run-btn" class="btn btn-small">Run Defrag</button>
                             <button id="defrag-reset-btn" class="btn btn-small btn-secondary">Reset</button>

@@ -11,11 +11,7 @@ const CAT_META = {
 };
 
 const CODEFORCES_LINKS = {
-    'two-sum': null,
-    'move-zeroes': null,
-    'binary-search': 'https://codeforces.com/problemset/problem/1/A',
-    'number-of-islands': null,
-    'course-schedule': null,
+    'two-sum': null
 };
 
 function getCategoryMeta(cat) {

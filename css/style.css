@@ -960,6 +960,60 @@ a {
 }
 
 /* --- Disk Defragmentation Visuals --- */
+.defrag-theory {
+    margin: 1.25rem 0 1.5rem;
+    padding: 1.5rem;
+    text-align: left;
+    border-color: rgba(var(--primary-rgb), 0.45);
+    background: linear-gradient(160deg, rgba(231, 111, 81, 0.12), rgba(56, 189, 248, 0.06));
+}
+
+.defrag-theory h4 {
+    font-size: 1.45rem;
+    margin-bottom: 0.8rem;
+}
+
+.defrag-theory h5 {
+    font-size: 1.05rem;
+    margin-bottom: 0.45rem;
+}
+
+.defrag-theory p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.85rem;
+    color: rgba(255, 255, 255, 0.93);
+}
+
+.defrag-theory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.theory-block {
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    padding: 0.95rem 1rem;
+}
+
+.theory-block ul {
+    margin-left: 1.05rem;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.6;
+}
+
+.theory-example,
+.theory-complexity {
+    margin-bottom: 0.4rem;
+}
+
+.defrag-theory code {
+    color: #ffdca9;
+}
+
 .disk-visual {
     display: flex;
     flex-wrap: wrap;
@@ -1037,6 +1091,25 @@ a {
     font-size: 0.9rem;
     line-height: 1.5;
     resize: vertical;
+}
+
+@media (max-width: 700px) {
+    .defrag-theory {
+        padding: 1.1rem;
+    }
+
+    .defrag-theory h4 {
+        font-size: 1.25rem;
+    }
+
+    .defrag-theory p,
+    .theory-block ul {
+        font-size: 0.94rem;
+    }
+
+    .defrag-theory-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 
