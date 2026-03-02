@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const platformLabel = getPlatformLabel(p.externalPlatform);
 
             return `
-            <a class="problem-card" href="../problems/${p.slug}/index.html" style="animation-delay:${i * 0.03}s">
+            <a class="problem-card" href="../pages/problem.html?id=${p.slug}" style="animation-delay:${i * 0.03}s">
                 <div class="card-top-row">
                     <span class="card-num">#${String(p.id).padStart(2, '0')}</span>
                     <div class="card-badges">
