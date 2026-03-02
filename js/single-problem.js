@@ -11,7 +11,7 @@ const CAT_META = {
 };
 
 const CODEFORCES_LINKS = {
-    'two-sum': null
+    'move-zeroes': null
 };
 
 function getCategoryMeta(cat) {

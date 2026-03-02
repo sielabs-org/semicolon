@@ -4,63 +4,104 @@
 const PROBLEMS = [
     {
         "id": 1,
-        "title": "Two Sum",
-        "tagline": "Find checkout pair totaling a target",
-        "category": "hashmap",
+        "title": "Move Zeroes",
+        "tagline": "Defragment memory by moving empty slots",
+        "category": "fragmentation",
         "difficulty": "easy",
-        "realWorld": "Payment gateways — Stripe validates cart totals",
-        "icon": "fa-solid fa-cart-shopping",
-        "description": "Given an array of prices and a target total, find the two items whose prices add up to the target. This mirrors how payment processors validate itemized receipts.",
-        "statement": "Given an array <strong>nums</strong> and an integer <strong>target</strong>, return indices of the two numbers that add up to <strong>target</strong>.",
+        "realWorld": "Operating Systems — Memory defragmentation moves empty slots (0s) to the end",
+        "icon": "fa-solid fa-memory",
+        "description": "Imagine a 10GB disk: you delete two 1GB movies, creating two separate 1GB gaps. Now you download one 2GB movie, so the OS may split it across both gaps. That split storage is fragmentation. Defragmentation compacts active data (non-zeros) to the front so free space is grouped together at the end.",
+        "statement": "Move all <strong>0s</strong> to the end of the array in-place, keeping the relative order of non-zero elements.",
         "examples": [
             {
-                "input": "nums = [2,7,11,15], target = 9",
-                "output": "[0, 1]"
-            },
-            {
-                "input": "nums = [3,2,4], target = 6",
-                "output": "[1, 2]"
+                "input": "[0,1,0,3,12]",
+                "output": "[1,3,12,0,0]"
             }
         ],
-        "template": "function twoSum(nums, target) {\n  // Your code here\n}",
+        "template": "function moveZeroes(nums) {\n  // Your code here\n}",
         "animType": "array",
         "animData": [
-            2,
-            7,
-            11,
-            15
+            0,
+            1,
+            0,
+            3,
+            12
         ],
         "animSteps": [
             {
                 "type": "msg",
-                "text": "Target = 9. Checking pairs..."
+                "text": "Two-pointer approach: writePtr=0"
             },
             {
-                "type": "highlight",
+                "type": "pointer",
                 "indices": [
                     0
                 ],
-                "msg": "Look at nums[0]=2, need 7"
+                "labels": [
+                    "write"
+                ],
+                "msg": "writePtr at 0"
             },
             {
                 "type": "highlight",
                 "indices": [
-                    0,
                     1
                 ],
-                "msg": "nums[0]+nums[1] = 2+7 = 9 ✓"
+                "msg": "Read 1 -> swap with pos 0"
             },
             {
-                "type": "found",
+                "type": "swap",
                 "indices": [
                     0,
                     1
                 ],
-                "msg": "Found! Return [0, 1]"
+                "values": [
+                    1,
+                    0
+                ],
+                "msg": "Swap: [1,0,0,3,12]"
+            },
+            {
+                "type": "highlight",
+                "indices": [
+                    3
+                ],
+                "msg": "Read 3 -> swap with pos 1"
+            },
+            {
+                "type": "swap",
+                "indices": [
+                    1,
+                    3
+                ],
+                "values": [
+                    3,
+                    0
+                ],
+                "msg": "Swap: [1,3,0,0,12]"
+            },
+            {
+                "type": "highlight",
+                "indices": [
+                    4
+                ],
+                "msg": "Read 12 -> swap with pos 2"
+            },
+            {
+                "type": "swap",
+                "indices": [
+                    2,
+                    4
+                ],
+                "values": [
+                    12,
+                    0
+                ],
+                "msg": "Done: [1,3,12,0,0]"
             }
         ],
-        "externalLink": "https://leetcode.com/problems/two-sum/",
+        "externalLink": "https://leetcode.com/problems/move-zeroes/",
         "externalPlatform": "leetcode",
-        "slug": "two-sum"
+        "slug": "move-zeroes"
     }
 ];
