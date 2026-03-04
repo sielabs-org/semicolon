@@ -72,26 +72,42 @@
                 <p class="section-desc">Every lesson follows a fixed engineering-first flow so students build deep
                     understanding, not just interview muscle memory.</p>
                 <div class="method-grid">
-                    <article class="method-step glass-card">
-                        <span class="method-index">01</span>
+                    <article class="method-step method-step-start glass-card">
+                        <div class="method-head">
+                            <span class="method-index">01</span>
+                            <span class="method-icon"><i class="fa-solid fa-file-lines"></i></span>
+                        </div>
                         <h3>Start with the LeetCode prompt</h3>
                         <p>We begin with the exact problem statement and expected input-output behavior.</p>
+                        <div class="method-tag">Prompt &amp; constraints</div>
                     </article>
-                    <article class="method-step glass-card">
-                        <span class="method-index">02</span>
+                    <article class="method-step method-step-map glass-card">
+                        <div class="method-head">
+                            <span class="method-index">02</span>
+                            <span class="method-icon"><i class="fa-solid fa-diagram-project"></i></span>
+                        </div>
                         <h3>Attach an engineering concept</h3>
                         <p>Each problem is mapped to a real domain such as operating systems, databases, or backend
                             traffic handling.</p>
+                        <div class="method-tag">Context mapping</div>
                     </article>
-                    <article class="method-step glass-card">
-                        <span class="method-index">03</span>
+                    <article class="method-step method-step-explain glass-card">
+                        <div class="method-head">
+                            <span class="method-index">03</span>
+                            <span class="method-icon"><i class="fa-solid fa-gears"></i></span>
+                        </div>
                         <h3>Explain the algorithm as a system action</h3>
                         <p>Two pointers, hashing, queues, or trees are explained as concrete production behaviors.</p>
+                        <div class="method-tag">System behavior</div>
                     </article>
-                    <article class="method-step glass-card">
-                        <span class="method-index">04</span>
+                    <article class="method-step method-step-measure glass-card">
+                        <div class="method-head">
+                            <span class="method-index">04</span>
+                            <span class="method-icon"><i class="fa-solid fa-chart-line"></i></span>
+                        </div>
                         <h3>Measure complexity and trade-offs</h3>
                         <p>Students learn time-space complexity and when this solution is the right engineering choice.</p>
+                        <div class="method-tag">Performance decisions</div>
                     </article>
                 </div>
             </div>
@@ -103,35 +119,63 @@
                 <p class="section-desc">This is the core promise of Semicolon: every algorithm pattern is tied to a
                     practical engineering meaning.</p>
                 <div class="concept-map-grid">
-                    <article class="concept-card glass-card">
-                        <div class="concept-domain">Operating Systems</div>
+                    <article class="concept-card concept-os glass-card">
+                        <div class="concept-card-head">
+                            <div class="concept-icon"><i class="fa-solid fa-memory"></i></div>
+                            <div class="concept-domain">Operating Systems</div>
+                        </div>
                         <h3>Move Zeroes</h3>
-                        <p>Use two pointers to compact active values, just like memory defragmentation compacts used
+                        <p class="concept-text">Use two pointers to compact active values, just like memory defragmentation compacts used
                             blocks and pushes free slots to the end.</p>
+                        <div class="concept-meta">
+                            <span><i class="fa-solid fa-arrows-left-right"></i> Two pointers</span>
+                            <span><i class="fa-solid fa-gauge-simple-high"></i> In-place</span>
+                        </div>
                         <a href="pages/problem.html?id=move-zeroes" class="concept-link">Open Problem <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </article>
-                    <article class="concept-card glass-card">
-                        <div class="concept-domain">Backend APIs</div>
+                    <article class="concept-card concept-api glass-card">
+                        <div class="concept-card-head">
+                            <div class="concept-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="concept-domain">Backend APIs</div>
+                        </div>
                         <h3>Rate Limiter Patterns</h3>
-                        <p>Think in windows and counters to control burst traffic, protect reliability, and prevent
+                        <p class="concept-text">Think in windows and counters to control burst traffic, protect reliability, and prevent
                             abuse in public APIs.</p>
+                        <div class="concept-meta">
+                            <span><i class="fa-solid fa-clock"></i> Sliding window</span>
+                            <span><i class="fa-solid fa-shield"></i> Abuse control</span>
+                        </div>
                         <a href="pages/problems.html" class="concept-link">View Problems <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </article>
-                    <article class="concept-card glass-card">
-                        <div class="concept-domain">Distributed Systems</div>
+                    <article class="concept-card concept-dist glass-card">
+                        <div class="concept-card-head">
+                            <div class="concept-icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <div class="concept-domain">Distributed Systems</div>
+                        </div>
                         <h3>Load Balancing</h3>
-                        <p>Round-robin request routing maps queue and scheduling ideas to real traffic distribution
+                        <p class="concept-text">Round-robin request routing maps queue and scheduling ideas to real traffic distribution
                             across servers.</p>
+                        <div class="concept-meta">
+                            <span><i class="fa-solid fa-arrows-rotate"></i> Round robin</span>
+                            <span><i class="fa-solid fa-server"></i> Traffic split</span>
+                        </div>
                         <a href="pages/problems.html" class="concept-link">View Problems <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </article>
-                    <article class="concept-card glass-card">
-                        <div class="concept-domain">Database Engineering</div>
+                    <article class="concept-card concept-db glass-card">
+                        <div class="concept-card-head">
+                            <div class="concept-icon"><i class="fa-solid fa-database"></i></div>
+                            <div class="concept-domain">Database Engineering</div>
+                        </div>
                         <h3>Query Optimization</h3>
-                        <p>Indexing turns linear scans into targeted lookups, which is the same optimization mindset
+                        <p class="concept-text">Indexing turns linear scans into targeted lookups, which is the same optimization mindset
                             behind many search and tree problems.</p>
+                        <div class="concept-meta">
+                            <span><i class="fa-solid fa-magnifying-glass-chart"></i> Indexed lookup</span>
+                            <span><i class="fa-solid fa-bolt"></i> Lower latency</span>
+                        </div>
                         <a href="pages/problems.html" class="concept-link">View Problems <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </article>
@@ -146,25 +190,25 @@
                     problem means in engineering, how the algorithm works, and how to practice it outside the platform.</p>
                 <div class="feature-grid">
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-diagram-project"></i></div>
+                        <div class="feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
                         <h3>Engineering Context Banner</h3>
                         <p>At the top of each problem, students see the real-world domain first, for example "Operating
                             Systems -> Memory Defragmentation".</p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-book-open-reader"></i></div>
+                        <div class="feature-icon"><i class="fa-solid fa-book-open-reader"></i></div>
                         <h3>Concept-First Explanation</h3>
                         <p>Before code, students get the system story and analogy that explains why the algorithm is
                             useful in real engineering.</p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-film"></i></div>
+                        <div class="feature-icon"><i class="fa-solid fa-film"></i></div>
                         <h3>Step-by-Step Visual Walkthrough</h3>
                         <p>Animated moves show pointers, swaps, and state transitions so students can trace the exact
                             algorithm behavior.</p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                        <div class="feature-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
                         <h3>Direct Practice Link</h3>
                         <p>Each page includes a direct link to solve the original problem on LeetCode after concept
                             clarity is achieved.</p>
