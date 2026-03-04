@@ -55,6 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return platform.charAt(0).toUpperCase() + platform.slice(1);
     }
 
+    function attachCardInteractions() {
+        const cards = grid.querySelectorAll('.problem-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mx', `${x}px`);
+                card.style.setProperty('--my', `${y}px`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.removeProperty('--mx');
+                card.style.removeProperty('--my');
+            });
+        });
+    }
+
     // ---- Render card grid ----
     function renderGrid() {
         const filtered = PROBLEMS.filter(p => {
@@ -98,30 +116,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
             return `
             <a class="problem-card" href="../pages/problem.html?id=${p.slug}" style="animation-delay:${i * 0.03}s">
+                <div class="card-bg-pattern" aria-hidden="true"></div>
                 <div class="card-top-row">
-                    <span class="card-num">#${String(p.id).padStart(2, '0')}</span>
+                    <div class="card-meta-left">
+                        <span class="card-num">#${String(p.id).padStart(2, '0')}</span>
+                        <span class="status-chip ${isSolved ? 'solved' : 'unsolved'}">
+                            <span class="status-dot ${isSolved ? 'solved' : 'unsolved'}"></span>
+                            ${isSolved ? 'Solved' : 'Unsolved'}
+                        </span>
+                    </div>
                     <div class="card-badges">
-                        <span class="diff-badge diff-${p.difficulty}">${diff}</span>
                         <span class="cat-tag ${catMeta.cls}">
                             <i class="fa-solid ${catMeta.icon}"></i>${catMeta.label}
                         </span>
+                        <span class="diff-badge diff-${p.difficulty}">${diff}</span>
                     </div>
                 </div>
                 <div class="card-title">${p.title}</div>
-                <div class="card-tagline">${p.realWorld || p.tagline || ''}</div>
+                <div class="card-concept">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>${p.realWorld || p.tagline || ''}</span>
+                </div>
+                <div class="card-skill-track">
+                    <span class="track-fill track-${p.difficulty}"></span>
+                </div>
                 <div class="card-footer">
                     <span class="card-platform-hint">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         ${platformLabel}
                         ${p.codeforcesLink ? ' + Codeforces' : ''}
                     </span>
-                    <div class="card-arrow">
+                    <div class="card-arrow" aria-hidden="true">
                         <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             </a>
             `;
         }).join('');
+
+        attachCardInteractions();
     }
 
     // ---- Init category chips ----

@@ -93,10 +93,12 @@ h2 {
 
 .text-gradient {
     /* Gradient adapted to new primary orange */
-    background: linear-gradient(to right, var(--primary-color), #f4a261);
+    background: linear-gradient(110deg, var(--primary-color), #f4a261, #f8b37d, var(--primary-color));
+    background-size: 220% 220%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
 }
 
 a {
@@ -284,11 +286,42 @@ a {
     align-items: center;
     padding: 120px 2rem 4rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 420px;
+    height: 420px;
+    right: -120px;
+    top: 80px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0) 65%);
+    animation: orbFloatA 11s ease-in-out infinite;
+}
+
+.hero::after {
+    width: 360px;
+    height: 360px;
+    left: -110px;
+    bottom: 20px;
+    background: radial-gradient(circle, rgba(231, 111, 81, 0.2) 0%, rgba(231, 111, 81, 0) 68%);
+    animation: orbFloatB 13s ease-in-out infinite;
 }
 
 .hero-content {
     max-width: 980px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .subtitle {
@@ -320,12 +353,25 @@ a {
     color: #f8d8ce;
     font-size: 0.92rem;
     font-weight: 600;
+    animation: metricDrift 4s ease-in-out infinite;
+}
+
+.metric-pill:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.metric-pill:nth-child(3) {
+    animation-delay: 0.8s;
 }
 
 .cta-group {
     display: flex;
     justify-content: center;
     gap: 1rem;
+}
+
+.pulse {
+    animation: ctaPulse 2.8s ease-in-out infinite;
 }
 
 /* Shared Sections */
@@ -765,6 +811,17 @@ a {
     animation: fadeInUp 0.8s forwards;
 }
 
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
 .delay-1 {
     animation-delay: 0.2s;
 }
@@ -777,6 +834,66 @@ a {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes orbFloatA {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-28px, 20px) scale(1.08);
+    }
+}
+
+@keyframes orbFloatB {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(24px, -18px) scale(1.06);
+    }
+}
+
+@keyframes metricDrift {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes ctaPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 12px rgba(var(--primary-rgb), 0);
     }
 }
 
@@ -894,6 +1011,11 @@ a {
         align-items: center;
     }
 
+    .hero::before,
+    .hero::after {
+        opacity: 0.6;
+    }
+
     .metric-pill {
         width: 100%;
         justify-content: center;
@@ -928,6 +1050,21 @@ a {
     .footer-social-link {
         width: 2.45rem;
         height: 2.45rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .text-gradient,
+    .hero::before,
+    .hero::after,
+    .metric-pill,
+    .pulse,
+    .reveal-on-scroll,
+    .fade-in-up {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
     }
 }
 

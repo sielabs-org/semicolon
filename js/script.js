@@ -18,6 +18,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Landing page reveal animations ---
+    function initRevealAnimations() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) return;
+
+        const targets = document.querySelectorAll(
+            '.method-step, .concept-card, .feature-card, .step-card, .code-block-card'
+        );
+        if (!targets.length) return;
+
+        targets.forEach((el, idx) => {
+            el.classList.add('reveal-on-scroll');
+            el.style.transitionDelay = `${(idx % 4) * 70}ms`;
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            targets.forEach(el => el.classList.add('in-view'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('in-view');
+                obs.unobserve(entry.target);
+            });
+        }, { threshold: 0.18 });
+
+        targets.forEach(el => observer.observe(el));
+    }
+
+    initRevealAnimations();
+
     // --- GitHub Star Count ---
     async function fetchGitHubStars() {
         const starCountElement = document.getElementById('github-stars');

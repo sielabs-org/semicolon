@@ -311,12 +311,16 @@
 
 /* ---- Problem Card ---- */
 .problem-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    --mx: 50%;
+    --my: 50%;
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+        rgba(10, 16, 35, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 1rem;
     padding: 1.35rem;
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    transition: transform 0.24s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -325,6 +329,7 @@
     opacity: 0;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
 }
 
 @keyframes cardFadeIn {
@@ -345,67 +350,194 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary-color), transparent);
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #f4a261 60%, transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: scaleX(0.75);
+    transform-origin: left;
+}
+
+.problem-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(220px circle at var(--mx) var(--my),
+            rgba(255, 255, 255, 0.16),
+            rgba(255, 255, 255, 0));
     opacity: 0;
     transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.card-bg-pattern {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    right: -48px;
+    top: -48px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(231, 111, 81, 0.22), rgba(231, 111, 81, 0));
+    z-index: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    opacity: 0.78;
+}
+
+.problem-card>*:not(.card-bg-pattern) {
+    position: relative;
+    z-index: 1;
 }
 
 .problem-card:hover {
-    border-color: rgba(231, 111, 81, 0.25);
-    background: rgba(231, 111, 81, 0.04);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 0 0 transparent;
+    border-color: rgba(231, 111, 81, 0.45);
+    background: rgba(231, 111, 81, 0.06);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.48), 0 0 0 1px rgba(231, 111, 81, 0.12);
 }
 
 .problem-card:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.problem-card:hover::after {
+    opacity: 1;
+}
+
+.problem-card:hover .card-bg-pattern {
+    transform: scale(1.16);
     opacity: 1;
 }
 
 /* Card top row */
 .card-top-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.card-meta-left {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
 }
 
 .card-num {
     font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
-    color: #334155;
-    font-weight: 500;
+    font-size: 0.73rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    padding: 0.15rem 0.48rem;
+    border-radius: 999px;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+
+.status-chip.solved {
+    color: #86efac;
+    border-color: rgba(34, 197, 94, 0.25);
+    background: rgba(34, 197, 94, 0.11);
+}
+
+.status-chip.unsolved {
+    color: #94a3b8;
+    border-color: rgba(148, 163, 184, 0.2);
+    background: rgba(30, 41, 59, 0.42);
 }
 
 .card-badges {
     display: flex;
     gap: 0.4rem;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 /* Card title */
 .card-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: #e2e8f0;
     line-height: 1.3;
-    transition: color 0.2s;
-}
-
-.problem-card:hover .card-title {
-    color: #f8f8f8;
-}
-
-/* Card tagline */
-.card-tagline {
-    font-size: 0.8rem;
-    color: #475569;
-    line-height: 1.5;
+    transition: color 0.2s, transform 0.2s;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.problem-card:hover .card-title {
+    color: #ffffff;
+    transform: translateX(1px);
+}
+
+.card-concept {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: #8fa1bb;
+    line-height: 1.5;
+}
+
+.card-concept i {
+    margin-top: 0.22rem;
+    color: #f4a261;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.card-concept span {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-skill-track {
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.16);
+    overflow: hidden;
+}
+
+.track-fill {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.track-easy {
+    width: 38%;
+    background: linear-gradient(90deg, rgba(34, 197, 94, 0.95), rgba(34, 197, 94, 0.48));
+}
+
+.track-medium {
+    width: 66%;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.95), rgba(245, 158, 11, 0.48));
+}
+
+.track-hard {
+    width: 92%;
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.95), rgba(239, 68, 68, 0.48));
+}
+
+.problem-card:hover .track-fill {
+    transform: scaleX(1.03);
 }
 
 /* Card footer */
@@ -422,35 +554,35 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.75rem;
-    color: #334155;
-    font-weight: 500;
+    font-size: 0.74rem;
+    color: #8ca0bc;
+    font-weight: 600;
 }
 
 .card-platform-hint i {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
 }
 
 .card-arrow {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.7rem;
-    color: #334155;
+    color: #8ca0bc;
     transition: all 0.2s;
     flex-shrink: 0;
 }
 
 .problem-card:hover .card-arrow {
     border-color: rgba(231, 111, 81, 0.4);
-    background: rgba(231, 111, 81, 0.1);
+    background: rgba(231, 111, 81, 0.22);
     color: var(--primary-color);
-    transform: translateX(2px);
+    transform: translateX(2px) rotate(-8deg);
 }
 
 /* ---- Status / Difficulty / Category badges ---- */
@@ -461,6 +593,7 @@
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.2px;
+    backdrop-filter: blur(2px);
 }
 
 .diff-easy {
@@ -490,6 +623,7 @@
     font-size: 0.72rem;
     font-weight: 600;
     border: 1px solid;
+    white-space: nowrap;
 }
 
 .cat-array {
@@ -544,12 +678,35 @@
 
 .status-dot.solved {
     background: #22c55e;
-    box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.55);
+    animation: solvedPulse 1.8s ease-in-out infinite;
 }
 
 .status-dot.unsolved {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(148, 163, 184, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.38);
+}
+
+@keyframes solvedPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.35);
+    }
+}
+
+@media (max-width: 700px) {
+    .card-top-row {
+        gap: 0.6rem;
+    }
+
+    .card-badges {
+        justify-content: flex-start;
+    }
 }
 
 /* ---- No Results ---- */
