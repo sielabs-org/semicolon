@@ -28,15 +28,15 @@
             </div>
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#method" class="nav-link">Method</a></li>
+                    <li><a href="#concept-map" class="nav-link">Concept Map</a></li>
                     <li><a href="pages/problems.html" class="nav-link">Problems</a></li>
-                    <li><a href="#demo" class="nav-link">Demo</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                 </ul>
                 <div class="nav-actions">
                     <a href="https://github.com/sielabs-org/semicolon" target="_blank" class="btn btn-secondary btn-icon"><i
                             class="fa-brands fa-github"></i> Star us <span id="github-stars"></span></a>
-                    <a href="#demo" class="btn btn-primary">Start Reading</a>
+                    <a href="pages/problems.html" class="btn btn-primary">Start Solving</a>
                 </div>
             </nav>
             <div class="hamburger" id="hamburger">
@@ -50,185 +50,124 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <h1 class="fade-in-up">A platform where<br> <span class="text-gradient">every leetcode problems gets a
-                        meaning!</span></h1>
+                <h1 class="fade-in-up">Every LeetCode Problem Should Teach <span class="text-gradient">Real
+                        Engineering</span></h1>
+                <p class="subtitle fade-in-up delay-1">Semicolon connects coding patterns to real systems problems, so
+                    students understand not only how to solve, but why the solution matters in production.</p>
+                <div class="hero-metrics fade-in-up delay-2">
+                    <span class="metric-pill"><i class="fa-solid fa-link"></i> Problem -> Concept -> System</span>
+                    <span class="metric-pill"><i class="fa-solid fa-compass-drafting"></i> Learn with mental models</span>
+                    <span class="metric-pill"><i class="fa-solid fa-code-branch"></i> Practice with live simulations</span>
+                </div>
                 <div class="cta-group fade-in-up delay-2">
-                    <a href="#demo" class="btn btn-primary pulse">Try Challenges</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                    <a href="#concept-map" class="btn btn-primary pulse">Explore Concept Map</a>
+                    <a href="pages/problems.html" class="btn btn-secondary">Browse Problems</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="method" class="method-section">
+            <div class="container">
+                <h2 class="section-title">How We Teach Each Problem</h2>
+                <p class="section-desc">Every lesson follows a fixed engineering-first flow so students build deep
+                    understanding, not just interview muscle memory.</p>
+                <div class="method-grid">
+                    <article class="method-step glass-card">
+                        <span class="method-index">01</span>
+                        <h3>Start with the LeetCode prompt</h3>
+                        <p>We begin with the exact problem statement and expected input-output behavior.</p>
+                    </article>
+                    <article class="method-step glass-card">
+                        <span class="method-index">02</span>
+                        <h3>Attach an engineering concept</h3>
+                        <p>Each problem is mapped to a real domain such as operating systems, databases, or backend
+                            traffic handling.</p>
+                    </article>
+                    <article class="method-step glass-card">
+                        <span class="method-index">03</span>
+                        <h3>Explain the algorithm as a system action</h3>
+                        <p>Two pointers, hashing, queues, or trees are explained as concrete production behaviors.</p>
+                    </article>
+                    <article class="method-step glass-card">
+                        <span class="method-index">04</span>
+                        <h3>Measure complexity and trade-offs</h3>
+                        <p>Students learn time-space complexity and when this solution is the right engineering choice.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="concept-map" class="concept-map-section">
+            <div class="container">
+                <h2 class="section-title">LeetCode to Engineering Concept Map</h2>
+                <p class="section-desc">This is the core promise of Semicolon: every algorithm pattern is tied to a
+                    practical engineering meaning.</p>
+                <div class="concept-map-grid">
+                    <article class="concept-card glass-card">
+                        <div class="concept-domain">Operating Systems</div>
+                        <h3>Move Zeroes</h3>
+                        <p>Use two pointers to compact active values, just like memory defragmentation compacts used
+                            blocks and pushes free slots to the end.</p>
+                        <a href="pages/problem.html?id=move-zeroes" class="concept-link">Open Problem <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="concept-card glass-card">
+                        <div class="concept-domain">Backend APIs</div>
+                        <h3>Rate Limiter Patterns</h3>
+                        <p>Think in windows and counters to control burst traffic, protect reliability, and prevent
+                            abuse in public APIs.</p>
+                        <a href="pages/problems.html" class="concept-link">View Problems <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="concept-card glass-card">
+                        <div class="concept-domain">Distributed Systems</div>
+                        <h3>Load Balancing</h3>
+                        <p>Round-robin request routing maps queue and scheduling ideas to real traffic distribution
+                            across servers.</p>
+                        <a href="pages/problems.html" class="concept-link">View Problems <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="concept-card glass-card">
+                        <div class="concept-domain">Database Engineering</div>
+                        <h3>Query Optimization</h3>
+                        <p>Indexing turns linear scans into targeted lookups, which is the same optimization mindset
+                            behind many search and tree problems.</p>
+                        <a href="pages/problems.html" class="concept-link">View Problems <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section id="features" class="features">
             <div class="container">
-                <h2 class="section-title">Beyond Standard DSA</h2>
+                <h2 class="section-title">What Students See on Each Problem Page</h2>
+                <p class="section-desc">The interface is designed to answer three questions quickly: what this
+                    problem means in engineering, how the algorithm works, and how to practice it outside the platform.</p>
                 <div class="feature-grid">
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-server"></i></div>
-                        <h3>System Design</h3>
-                        <p>Learn how to build scalable systems. Load balancers, rate limiters, and distributed caches.
-                        </p>
+                        <div class="icon-box"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h3>Engineering Context Banner</h3>
+                        <p>At the top of each problem, students see the real-world domain first, for example "Operating
+                            Systems -> Memory Defragmentation".</p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-bug"></i></div>
-                        <h3>Real-World Debugging</h3>
-                        <p>Fix production outages, memory leaks, and race conditions in a safe, simulated environment.
-                        </p>
+                        <div class="icon-box"><i class="fa-solid fa-book-open-reader"></i></div>
+                        <h3>Concept-First Explanation</h3>
+                        <p>Before code, students get the system story and analogy that explains why the algorithm is
+                            useful in real engineering.</p>
                     </div>
                     <div class="feature-card glass-card">
-                        <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
-                        <h3>Performance Engineering</h3>
-                        <p>Optimize database queries, reduce latency, and handle massive traffic spikes.</p>
+                        <div class="icon-box"><i class="fa-solid fa-film"></i></div>
+                        <h3>Step-by-Step Visual Walkthrough</h3>
+                        <p>Animated moves show pointers, swaps, and state transitions so students can trace the exact
+                            algorithm behavior.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="demo" class="demo-section">
-            <div class="container">
-                <h2 class="section-title">Engineering Challenges</h2>
-                <p class="section-desc">Solve real problems faced by engineering teams at scale.</p>
-
-                <div class="challenge-selector">
-                    <button class="challenge-btn active" data-scenario="rate-limiter">Rate Limiter</button>
-                    <button class="challenge-btn" data-scenario="load-balancer">Load Balancer</button>
-                    <button class="challenge-btn" data-scenario="db-optimize">DB Optimization</button>
-                    <button class="challenge-btn" data-scenario="disk-defrag">Disk Defrag</button>
-                </div>
-
-                <div class="interactive-demo glass-card">
-                    <!-- Rate Limiter Demo -->
-                    <div id="demo-rate-limiter" class="demo-scenario active">
-                        <h3>Scenario: API Abuse</h3>
-                        <p>Your API is getting hammered. Implement a rate limiter to block excess requests.</p>
-                        <div class="control-panel">
-                            <button id="rl-send-btn" class="btn btn-small">Send Request</button>
-                            <div class="status-indicator">Status: <span id="rl-status">OK</span></div>
-                        </div>
-                        <div class="visual-bucket" id="rl-bucket">
-                            <!-- Visual tokens/requests go here -->
-                        </div>
-                        <div class="stats-panel">
-                            <p>Requests: <span id="rl-count">0</span> / 5 per 10s</p>
-                        </div>
-                    </div>
-
-                    <!-- Load Balancer Demo -->
-                    <div id="demo-load-balancer" class="demo-scenario" style="display: none;">
-                        <h3>Scenario: Black Friday Traffic</h3>
-                        <p>Traffic is spiking. Visualize how a Round-Robin load balancer distributes requests.</p>
-                        <div class="control-panel">
-                            <button id="lb-t-spike-btn" class="btn btn-small">Simulate Spike</button>
-                        </div>
-                        <div class="lb-visual">
-                            <div class="load-balancer-icon"><i class="fa-solid fa-network-wired"></i> LB</div>
-                            <div class="servers-container" id="lb-servers">
-                                <div class="server" id="server-1"><i class="fa-solid fa-server"></i> <span>S1</span>
-                                </div>
-                                <div class="server" id="server-2"><i class="fa-solid fa-server"></i> <span>S2</span>
-                                </div>
-                                <div class="server" id="server-3"><i class="fa-solid fa-server"></i> <span>S3</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DB Optimization Demo -->
-                    <div id="demo-db-optimize" class="demo-scenario" style="display: none;">
-                        <h3>Scenario: The Slow Query</h3>
-                        <p>A query is taking 5 seconds. Add an index to speed it up.</p>
-                        <div class="control-panel">
-                            <button id="db-scan-btn" class="btn btn-small">Run Scan</button>
-                            <button id="db-index-btn" class="btn btn-small btn-secondary">Add Index & Run</button>
-                        </div>
-                        <div class="db-visual">
-                            <div class="db-table" id="db-table-visual">
-                                <!-- Squares representing rows -->
-                            </div>
-                        </div>
-                        <div class="stats-panel">
-                            <p>Time Taken: <span id="db-time">0ms</span></p>
-                        </div>
-                    </div>
-
-                    <!-- Disk Defragmentation Demo -->
-                    <div id="demo-disk-defrag" class="demo-scenario" style="display: none;">
-                        <h3>Scenario: Disk Fragmentation</h3>
-                        <p>Optimize storage by moving all data blocks (1s) to the beginning. Free blocks (0s) should be
-                            at the end.</p>
-                        <div class="defrag-theory glass-card">
-                            <h4>Fragmentation vs Defragmentation: Core Theory</h4>
-                            <p><strong>Fragmentation</strong> means related data is split into many scattered locations
-                                instead of one continuous region. This happens over time as files are created, resized,
-                                and deleted.</p>
-                            <p><strong>Defragmentation</strong> reorganizes storage so used blocks become contiguous
-                                and free space is grouped together. This reduces random seeks and improves access
-                                patterns.</p>
-                            <p><strong>Real Example:</strong> Suppose you have a 10GB hard disk. You delete two movies
-                                of 1GB each, so now you have two separate 1GB empty slots. Later, you download one 2GB
-                                movie. The OS may have to split that movie into two 1GB parts to fit both gaps. This is
-                                fragmentation. Defragmentation fixes it by moving used blocks so empty space becomes one
-                                single continuous region.</p>
-                            <div class="defrag-theory-grid">
-                                <div class="theory-block">
-                                    <h5>Why Fragmentation Hurts</h5>
-                                    <ul>
-                                        <li>Reads become slower because the disk head jumps across many positions.</li>
-                                        <li>Writes become less efficient due to broken free space.</li>
-                                        <li>Large files are harder to place continuously when free space is scattered.
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="theory-block">
-                                    <h5>How Defragmentation Works</h5>
-                                    <ul>
-                                        <li>Scan from left to right and track where the next used block should go.</li>
-                                        <li>When a used block is found, swap it into the earliest free slot.</li>
-                                        <li>After one pass, all 1s are on the left and all 0s move right.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="theory-example"><strong>Example:</strong> <code>[0, 1, 0, 1, 1, 0]</code> becomes
-                                <code>[1, 1, 1, 0, 0, 0]</code>.</p>
-                            <p class="theory-complexity"><strong>Complexity:</strong> single pass, <code>O(n)</code>
-                                time and <code>O(1)</code> extra space with the two-pointer method shown below.</p>
-                        </div>
-                        <div class="control-panel">
-                            <button id="defrag-run-btn" class="btn btn-small">Run Defrag</button>
-                            <button id="defrag-reset-btn" class="btn btn-small btn-secondary">Reset</button>
-                        </div>
-                        <div class="disk-visual" id="disk-visual">
-                            <!-- Disk blocks will be generated here -->
-                        </div>
-                        <div class="code-editor-container">
-                            <label for="defrag-code">Your Solution (JavaScript):</label>
-                            <textarea id="defrag-code" class="code-editor" spellcheck="false">
-function defrag(disk) {
-  // 'disk' is an array of 0s and 1s.
-  // Move all 1s to the left.
-  // Example: [0, 1, 0, 1] -> [1, 1, 0, 0]
-  
-  let writePtr = 0;
-  for (let readPtr = 0; readPtr < disk.length; readPtr++) {
-    if (disk[readPtr] === 1) {
-      // Swap using a temporary variable
-      let temp = disk[writePtr];
-      disk[writePtr] = disk[readPtr];
-      disk[readPtr] = temp;
-      writePtr++;
-    }
-  }
-}
-</textarea>
-                        </div>
-                        <div class="stats-panel">
-                            <p>Operations: <span id="defrag-ops">0</span></p>
-                            <p>Status: <span id="defrag-status">Ready</span></p>
-                        </div>
-                    </div>
-
-                    <div class="output-log" id="output-log">
-                        <p>> System initialized. Select a challenge.</p>
+                    <div class="feature-card glass-card">
+                        <div class="icon-box"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                        <h3>Direct Practice Link</h3>
+                        <p>Each page includes a direct link to solve the original problem on LeetCode after concept
+                            clarity is achieved.</p>
                     </div>
                 </div>
             </div>
@@ -237,37 +176,36 @@ function defrag(disk) {
         <section id="about" class="about-section">
             <div class="container">
                 <div class="about-content">
-                    <h2 class="section-title">How Semicolon Helps You</h2>
+                    <h2 class="section-title">Your Semicolon Learning Roadmap</h2>
                     <div class="about-grid">
                         <div class="about-text">
                             <div class="step-card">
-                                <h3><span class="highlight">01</span> Bridge the Gap</h3>
-                                <p>Traditional CS education jumps straight into syntax. We build the <strong>mental
-                                        model</strong> first. By turning abstract concepts into concrete characters, we
-                                    bridge the gap.</p>
+                                <h3><span class="highlight">01</span> Read the Problem Statement</h3>
+                                <p>Start with the exact prompt, constraints, and expected output so your solution is
+                                    grounded in the original problem definition.</p>
                             </div>
 
                             <div class="step-card">
-                                <h3><span class="highlight">02</span> Retain More</h3>
-                                <p>Humans are wired for stories. You might forget a pointer update, but you won't forget
-                                    "The Train that lost its carriage."</p>
+                                <h3><span class="highlight">02</span> Map It to Engineering Meaning</h3>
+                                <p>Connect each problem to a practical concept such as memory defragmentation, request
+                                    limiting, or indexing so the algorithm has real context.</p>
                             </div>
 
                             <div class="step-card">
-                                <h3><span class="highlight">03</span> Visualize the Invisible</h3>
-                                <p>Code runs in the background. Semicolon brings it to the foreground. See memory
-                                    allocation and garbage collection happen live.</p>
+                                <h3><span class="highlight">03</span> Solve with Clarity</h3>
+                                <p>Use the concept-first explanation, trace examples, and then solve the original
+                                    problem with a clear understanding of trade-offs.</p>
                             </div>
                         </div>
                         <div class="about-visual">
                             <div class="code-block-card glass-card">
-                                <pre><code>// The Old Way
-int[] arr = new int[5];
-arr[0] = 10;</code></pre>
+                                <pre><code>// Semicolon Flow
+1. Read prompt + constraints
+2. Understand engineering context
+3. Apply algorithm confidently</code></pre>
                                 <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
                                 <div class="story-snippet">
-                                    <p>"You approach the first house on Memory Lane. The resident, Mr. Ten, waves from
-                                        the window."</p>
+                                    <p>"From problem statement to production thinking, every solution now has a reason."</p>
                                 </div>
                             </div>
                         </div>
@@ -286,8 +224,8 @@ arr[0] = 10;</code></pre>
                         <li><a href="#features"><i class="fa-solid fa-book-open"></i> Courses</a></li>
                         <li><a href="pages/problems.html"><i class="fa-solid fa-list-check"></i> Subjects</a></li>
                         <li><a href="pages/problems.html"><i class="fa-solid fa-circle-question"></i> Quizzes</a></li>
-                        <li><a href="#demo"><i class="fa-solid fa-video"></i> Videos</a></li>
-                        <li><a href="#demo"><i class="fa-solid fa-trophy"></i> Challenges</a></li>
+                        <li><a href="pages/problems.html"><i class="fa-solid fa-video"></i> Problem Walkthroughs</a></li>
+                        <li><a href="pages/problems.html"><i class="fa-solid fa-trophy"></i> Challenges</a></li>
                     </ul>
                 </div>
 
@@ -306,7 +244,7 @@ arr[0] = 10;</code></pre>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-link-list">
-                        <li><a href="#demo"><i class="fa-solid fa-flask"></i> Virtual Lab</a></li>
+                        <li><a href="pages/problems.html"><i class="fa-solid fa-flask"></i> Practice Lab</a></li>
                         <li><a href="https://summerofcode.withgoogle.com/" target="_blank" rel="noopener noreferrer"><i
                                     class="fa-solid fa-code"></i> GSOC'26</a></li>
                         <li><a href="https://www.githubstatus.com/" target="_blank" rel="noopener noreferrer"><i
