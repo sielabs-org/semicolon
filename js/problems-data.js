@@ -102,6 +102,7 @@ const PROBLEMS = [
         ],
         "externalLink": "https://leetcode.com/problems/move-zeroes/",
         "externalPlatform": "leetcode",
+        "articleSlug": "memory-defragmentation",
         "slug": "move-zeroes"
     }
 ];

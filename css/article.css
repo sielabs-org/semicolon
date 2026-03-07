@@ -1,0 +1,122 @@
+.article-main {
+    padding-top: 105px;
+    padding-bottom: 4rem;
+}
+
+.article-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.article-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #93a8c2;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 1.1rem;
+}
+
+.article-back-link:hover {
+    color: #ffffff;
+}
+
+.article-shell.glass-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.62);
+}
+
+.article-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 0.85rem;
+}
+
+.article-domain {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8cc9ff;
+    font-weight: 700;
+}
+
+.article-time {
+    color: #93a7be;
+    font-size: 0.78rem;
+}
+
+.article-title {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    color: #f8fafc;
+}
+
+.article-body {
+    margin-top: 1.2rem;
+}
+
+.article-body p {
+    margin: 0 0 0.9rem;
+    color: #c9d8eb;
+    line-height: 1.72;
+}
+
+.article-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.3rem;
+}
+
+.article-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #f8fafc;
+    border-radius: 0.62rem;
+    padding: 0.58rem 0.95rem;
+    border: 1px solid rgba(231, 111, 81, 0.42);
+    background: rgba(231, 111, 81, 0.18);
+    transition: all 0.2s ease;
+}
+
+.article-link-btn:hover {
+    border-color: rgba(231, 111, 81, 0.65);
+    background: rgba(231, 111, 81, 0.28);
+}
+
+.article-not-found {
+    text-align: center;
+    padding: 3rem 1.2rem;
+}
+
+.article-not-found h2 {
+    margin-bottom: 0.5rem;
+}
+
+.article-not-found p {
+    color: #9cb0c8;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .article-main {
+        padding-top: 95px;
+    }
+
+    .article-shell.glass-card {
+        padding: 1.15rem;
+    }
+}

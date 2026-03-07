@@ -113,9 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const isSolved = solved.has(p.id);
             const diff = p.difficulty.charAt(0).toUpperCase() + p.difficulty.slice(1);
             const platformLabel = getPlatformLabel(p.externalPlatform);
+            const articleHref = p.articleSlug ? `../pages/article.html?id=${p.articleSlug}` : '../pages/read.html';
 
             return `
-            <a class="problem-card" href="../pages/problem.html?id=${p.slug}" style="animation-delay:${i * 0.03}s">
+            <article class="problem-card" style="animation-delay:${i * 0.03}s">
                 <div class="card-bg-pattern" aria-hidden="true"></div>
                 <div class="card-top-row">
                     <div class="card-meta-left">
@@ -141,16 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="track-fill track-${p.difficulty}"></span>
                 </div>
                 <div class="card-footer">
-                    <span class="card-platform-hint">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        ${platformLabel}
-                        ${p.codeforcesLink ? ' + Codeforces' : ''}
-                    </span>
-                    <div class="card-arrow" aria-hidden="true">
+                    <a class="card-action-btn card-action-read" href="${articleHref}">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        Read more
+                    </a>
+                    <a class="card-action-btn card-action-open" href="../pages/problem.html?id=${p.slug}">
+                        <span>
+                            ${platformLabel}
+                            ${p.codeforcesLink ? ' + Codeforces' : ''}
+                        </span>
                         <i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    </a>
                 </div>
-            </a>
+            </article>
             `;
         }).join('');
 

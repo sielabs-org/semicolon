@@ -319,7 +319,7 @@
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 1rem;
     padding: 1.35rem;
-    cursor: pointer;
+    cursor: default;
     transition: transform 0.24s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     text-decoration: none;
     display: flex;
@@ -545,44 +545,60 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.6rem;
     margin-top: auto;
     padding-top: 0.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.card-platform-hint {
+.card-action-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.74rem;
-    color: #8ca0bc;
-    font-weight: 600;
-}
-
-.card-platform-hint i {
-    font-size: 0.68rem;
-}
-
-.card-arrow {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.06);
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-    color: #8ca0bc;
-    transition: all 0.2s;
-    flex-shrink: 0;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    text-decoration: none;
+    border-radius: 0.55rem;
+    padding: 0.5rem 0.7rem;
+    font-weight: 600;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    flex: 1;
 }
 
-.problem-card:hover .card-arrow {
-    border-color: rgba(231, 111, 81, 0.4);
-    background: rgba(231, 111, 81, 0.22);
-    color: var(--primary-color);
-    transform: translateX(2px) rotate(-8deg);
+.card-action-read {
+    color: #d5e5f8;
+    border-color: rgba(148, 163, 184, 0.28);
+    background: rgba(148, 163, 184, 0.12);
+}
+
+.card-action-open {
+    color: #ffd7ca;
+    border-color: rgba(231, 111, 81, 0.35);
+    background: rgba(231, 111, 81, 0.15);
+}
+
+.card-action-btn:hover {
+    transform: translateY(-1px);
+}
+
+.card-action-read:hover {
+    color: #f8fafc;
+    border-color: rgba(148, 163, 184, 0.45);
+    background: rgba(148, 163, 184, 0.2);
+}
+
+.card-action-open:hover {
+    color: #ffffff;
+    border-color: rgba(231, 111, 81, 0.56);
+    background: rgba(231, 111, 81, 0.26);
+}
+
+@media (max-width: 520px) {
+    .card-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }
 
 /* ---- Status / Difficulty / Category badges ---- */
