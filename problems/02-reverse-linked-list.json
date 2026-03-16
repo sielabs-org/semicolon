@@ -1,0 +1,89 @@
+{
+  "id": 2,
+  "title": "Reverse Linked List",
+  "tagline": "Reverse pointer directions in a chain",
+  "category": "linked-list",
+  "difficulty": "easy",
+  "realWorld": "Linux kernel uses doubly-linked lists everywhere. When unlinking/removing nodes from task scheduler chains, pointers must be reversed.",
+  "icon": "fa-solid fa-link",
+  "description": "Reversing a linked list is core to pointer manipulation. Maintain three pointers (prev, current, next) to avoid losing nodes.",
+  "statement": "Reverse a singly linked list by changing pointer directions.",
+  "examples": [
+    {
+      "input": "head = [1,2,3,4,5]",
+      "output": "[5,4,3,2,1]"
+    },
+    {
+      "input": "head = [1,2]",
+      "output": "[2,1]"
+    },
+    {
+      "input": "head = []",
+      "output": "[]"
+    }
+  ],
+  "template": "function reverseList(head) {\\n  let prev = null;\\n  let current = head;\\n  while (current) {\\n    // Your code here\\n  }\\n  return prev;\\n}",
+  "animType": "linked-list",
+  "animData": {
+    "nodes": [
+      {
+        "id": 1,
+        "value": 1
+      },
+      {
+        "id": 2,
+        "value": 2
+      },
+      {
+        "id": 3,
+        "value": 3
+      },
+      {
+        "id": 4,
+        "value": 4
+      },
+      {
+        "id": 5,
+        "value": 5
+      }
+    ],
+    "links": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 2,
+        "to": 3
+      },
+      {
+        "from": 3,
+        "to": 4
+      },
+      {
+        "from": 4,
+        "to": 5
+      }
+    ]
+  },
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Reverse pointer directions using three pointers"
+    },
+    {
+      "type": "pointer",
+      "nodeId": 1,
+      "labels": [
+        "current"
+      ],
+      "msg": "Start at node 1"
+    },
+    {
+      "type": "msg",
+      "text": "Key: Save next node, reverse pointer, move forward"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
+  "externalPlatform": "leetcode"
+}
