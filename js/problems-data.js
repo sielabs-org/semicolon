@@ -194,5 +194,75 @@ const PROBLEMS = [
         "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
         "externalPlatform": "leetcode",
         "slug": "reverse-linked-list"
+    },
+    {
+        "id": 3,
+        "title": "Valid Parentheses",
+        "tagline": "Validate nested syntax with a parser stack",
+        "category": "stack-queue",
+        "difficulty": "easy",
+        "realWorld": "Compilers and linters use a stack to verify brackets are properly opened and closed during parsing.",
+        "icon": "fa-solid fa-layer-group",
+        "description": "When a compiler reads code like `if (a[2] > 0) { return x; }`, every opening symbol must be matched by the correct closing symbol in the right order. A stack models this perfectly: push openings, and when a closing symbol appears, it must match the most recent opening.",
+        "statement": "Given a string <strong>s</strong> containing just the characters <strong>()[]{}</strong>, determine if the input string is valid.",
+        "examples": [
+            {
+                "input": "s = \"()\"",
+                "output": "true"
+            },
+            {
+                "input": "s = \"()[]{}\"",
+                "output": "true"
+            },
+            {
+                "input": "s = \"(]\"",
+                "output": "false"
+            }
+        ],
+        "template": "function isValid(s) {\n  const stack = [];\n  const pairs = {\n    ')': '(',\n    ']': '[',\n    '}': '{'\n  };\n\n  for (const ch of s) {\n    // Your code here\n  }\n\n  return stack.length === 0;\n}",
+        "animType": "array",
+        "animData": [
+            "(",
+            "[",
+            "]",
+            ")"
+        ],
+        "animSteps": [
+            {
+                "type": "msg",
+                "text": "Use a stack: push opening brackets, match closing brackets"
+            },
+            {
+                "type": "highlight",
+                "indices": [
+                    0
+                ],
+                "msg": "Read '(' -> push to stack"
+            },
+            {
+                "type": "highlight",
+                "indices": [
+                    1
+                ],
+                "msg": "Read '[' -> push to stack"
+            },
+            {
+                "type": "highlight",
+                "indices": [
+                    2
+                ],
+                "msg": "Read ']' -> it matches the latest '['"
+            },
+            {
+                "type": "highlight",
+                "indices": [
+                    3
+                ],
+                "msg": "Read ')' -> it matches the latest '(' and stack becomes empty"
+            }
+        ],
+        "externalLink": "https://leetcode.com/problems/valid-parentheses/",
+        "externalPlatform": "leetcode",
+        "slug": "valid-parentheses"
     }
 ];
