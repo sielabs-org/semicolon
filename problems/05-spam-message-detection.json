@@ -1,0 +1,35 @@
+{
+  "id": 5,
+  "title": "Spam Message Detection",
+  "tagline": "Detect duplicate messages efficiently using hashing",
+  "category": "string",
+  "difficulty": "easy",
+  "realWorld": "Spam Detection in Messaging Applications\n\nUsed in messaging applications to detect spam by identifying repeated or duplicate messages quickly.",
+  "icon": "fa-solid fa-message",
+  "description": "Given a list of messages, determine if any message appears more than once. This can be efficiently solved using hashing or a set.",
+  "statement": "Given an array <strong>messages</strong>, return <strong>true</strong> if any value appears at least twice, otherwise return <strong>false</strong>.\n\nFor example:\n- [\"hi\", \"hello\", \"hi\"] -> true\n- [\"spam\", \"ham\", \"jam\"] -> false",
+  "examples": [
+    {
+      "input": "[\"hi\", \"hello\", \"hi\"]",
+      "output": "true"
+    },
+    {
+      "input": "[\"spam\", \"ham\", \"jam\"]",
+      "output": "false"
+    },
+    {
+      "input": "[\"offer\", \"deal\", \"offer\", \"deal\"]",
+      "output": "true"
+    },
+    {
+      "input": "[\"one\", \"two\", \"three\"]",
+      "output": "false"
+    }
+  ],
+  "template": "function containsDuplicate(messages) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": ["hi", "hello", "hi"],
+  "animSteps": [],
+  "externalLink": "https://leetcode.com/problems/contains-duplicate/",
+  "externalPlatform": "leetcode"
+}
