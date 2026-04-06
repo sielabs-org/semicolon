@@ -1,0 +1,49 @@
+{
+  "id": 5,
+  "title": "Detect Capital",
+  "tagline": "Validate word capitalization patterns",
+  "category": "string",
+  "difficulty": "easy",
+  "realWorld": "Microsoft Word & Grammarly — Validate and auto-correct capitalization of words while typing",
+  "icon": "fa-solid fa-font",
+  "description": "Microsoft Word and Grammarly use this logic to validate and auto-correct capitalization of words while the user is typing. When you type a word, these tools instantly check whether the capitalization follows correct English rules: All letters uppercase (e.g., \"USA\", \"HTML\"), All letters lowercase (e.g., \"leetcode\"), Only the first letter uppercase and rest lowercase (e.g., \"Google\", \"LeetCode\"). If the word does not follow any of these three valid patterns, the tool underlines it or automatically corrects it. The \"Detect Capital\" problem implements exactly the same logic that MS Word and Grammarly use to decide whether a word's capitalization is correct or not.",
+  "statement": "We define the usage of capitals in a word to be right when one of the following cases holds: <ul><li>All letters in this word are capitals, like \"USA\".</li><li>All letters in this word are not capitals, like \"leetcode\".</li><li>Only the first letter in this word is capital, like \"Google\".</li></ul> Given a string <code>word</code>, return <code>true</code> if the usage of capitals in it is right.",
+  "examples": [
+    {
+      "input": "word = \"USA\"",
+      "output": "true"
+    },
+    {
+      "input": "word = \"FlaG\"",
+      "output": "false"
+    },
+    {
+      "input": "word = \"leetcode\"",
+      "output": "true"
+    },
+    {
+      "input": "word = \"Google\"",
+      "output": "true"
+    }
+  ],
+  "template": "function detectCapitalUse(word) {\n  // Your code here\n}",
+  "animType": "string",
+  "animData": "USA",
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Check if all uppercase"
+    },
+    {
+      "type": "highlight",
+      "indices": [0, 1, 2],
+      "msg": "All letters are uppercase: true"
+    },
+    {
+      "type": "msg",
+      "text": "Valid capitalization pattern"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/detect-capital/",
+  "externalPlatform": "leetcode"
+}
