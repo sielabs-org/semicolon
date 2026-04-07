@@ -1,0 +1,45 @@
+{
+  "id": 3,
+  "title": "Longest Common Prefix",
+  "tagline": "Find the shared start of many strings",
+  "category": "string",
+  "difficulty": "easy",
+  "realWorld": "Search autocomplete and file-path completion rely on common prefix matching to suggest valid entries.",
+  "icon": "fa-solid fa-font",
+  "description": "Given a list of strings, find the longest prefix that is common to all of them.",
+  "statement": "Return the longest common prefix string among an array of strings. If there is no common prefix, return an empty string.",
+  "examples": [
+    {
+      "input": "[\"apple\", \"application\", \"appstore\", \"apply\"]",
+      "output": "\"app\""
+    },
+    {
+      "input": "[\"Docu\", \"Document\", \"Documentation\", \"Doctor\"]",
+      "output": "\"Doc\""
+    },
+    {
+      "input": "[]",
+      "output": "\"\""
+    }
+  ],
+  "template": "function longestCommonPrefix(strs) {\n  // Your code here\n}",
+  "animType": "string",
+  "animData": [
+    "apple",
+    "application",
+    "appstore",
+    "apply"
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Compare strings character-by-character to keep the common prefix"
+    },
+    {
+      "type": "msg",
+      "text": "Example: start with 'apple', reduce while mismatch occurs with next strings"
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/longest-common-prefix/",
+  "externalPlatform": "leetcode"
+}
