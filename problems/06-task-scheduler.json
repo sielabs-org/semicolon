@@ -1,5 +1,5 @@
 {
-  "id": 4,
+  "id": 6,
   "title": "Task Scheduler",
   "tagline": "Keep the CPU busy while respecting cooldowns",
   "category": "stack-queue",

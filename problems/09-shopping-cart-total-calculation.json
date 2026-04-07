@@ -1,5 +1,5 @@
 {
-  "id": 6,
+  "id": 9,
   "title": "Shopping Cart Total Calculation",
   "tagline": "Compute total price using cumulative sums",
   "category": "array",

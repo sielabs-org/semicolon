@@ -1,5 +1,5 @@
 {
-  "id": 3,
+  "id": 4,
   "title": "Valid Parentheses",
   "tagline": "Validate nested syntax with a parser stack",
   "category": "stack-queue",
