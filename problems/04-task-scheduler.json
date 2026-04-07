@@ -1,0 +1,57 @@
+{
+  "id": 4,
+  "title": "Task Scheduler",
+  "tagline": "Keep the CPU busy while respecting cooldowns",
+  "category": "stack-queue",
+  "difficulty": "medium",
+  "realWorld": "OS schedulers and runtime systems insert other tasks while waiting for cooldowns or I/O, minimizing idle CPU cycles.",
+  "icon": "fa-solid fa-microchip",
+  "description": "A scheduler must arrange tasks so the same task waits for a cooldown interval before running again. If no eligible task is available, the CPU idles briefly while preserving overall efficiency.",
+  "statement": "Given a list of tasks and a cooldown interval n, return the minimum number of time units the CPU needs to finish all tasks. Each task takes one unit of time, and the same task must be separated by at least n units.",
+  "examples": [
+    {
+      "input": "tasks = ['A','A','A','B','B','B'], n = 2",
+      "output": "8"
+    },
+    {
+      "input": "tasks = ['A','A','A','B','B','B'], n = 0",
+      "output": "6"
+    }
+  ],
+  "template": "function leastInterval(tasks, n) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": [
+    "A",
+    "A",
+    "A",
+    "B",
+    "B",
+    "B"
+  ],
+  "animSteps": [
+    {
+      "type": "msg",
+      "text": "Schedule the most frequent tasks first and insert cooldowns when needed."
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        0
+      ],
+      "msg": "Execute task A"
+    },
+    {
+      "type": "highlight",
+      "indices": [
+        3
+      ],
+      "msg": "Execute task B while A cools down"
+    },
+    {
+      "type": "msg",
+      "text": "Idle only when no other task can be scheduled."
+    }
+  ],
+  "externalLink": "https://leetcode.com/problems/task-scheduler/",
+  "externalPlatform": "leetcode"
+}

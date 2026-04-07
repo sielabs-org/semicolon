@@ -10,99 +10,10 @@ const PROBLEMS = [
         "difficulty": "easy",
         "realWorld": "Operating Systems — Memory defragmentation moves empty slots (0s) to the end",
         "icon": "fa-solid fa-memory",
-        "description": "Imagine a 10GB disk: you delete two 1GB movies, creating two separate 1GB gaps. Now you download one 2GB movie, so the OS may split it across both gaps. That split storage is fragmentation. Defragmentation compacts active data (non-zeros) to the front so free space is grouped together at the end.",
-        "statement": "Move all <strong>0s</strong> to the end of the array in-place, keeping the relative order of non-zero elements.",
-        "examples": [
-            {
-                "input": "[0,1,0,3,12]",
-                "output": "[1,3,12,0,0]"
-            }
-        ],
-        "template": "function moveZeroes(nums) {\n  // Your code here\n}",
-        "animType": "array",
-        "animData": [
-            0,
-            1,
-            0,
-            3,
-            12
-        ],
-        "animSteps": [
-            {
-                "type": "msg",
-                "text": "Two-pointer approach: writePtr=0"
-            },
-            {
-                "type": "pointer",
-                "indices": [
-                    0
-                ],
-                "labels": [
-                    "write"
-                ],
-                "msg": "writePtr at 0"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    1
-                ],
-                "msg": "Read 1 -> swap with pos 0"
-            },
-            {
-                "type": "swap",
-                "indices": [
-                    0,
-                    1
-                ],
-                "values": [
-                    1,
-                    0
-                ],
-                "msg": "Swap: [1,0,0,3,12]"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    3
-                ],
-                "msg": "Read 3 -> swap with pos 1"
-            },
-            {
-                "type": "swap",
-                "indices": [
-                    1,
-                    3
-                ],
-                "values": [
-                    3,
-                    0
-                ],
-                "msg": "Swap: [1,3,0,0,12]"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    4
-                ],
-                "msg": "Read 12 -> swap with pos 2"
-            },
-            {
-                "type": "swap",
-                "indices": [
-                    2,
-                    4
-                ],
-                "values": [
-                    12,
-                    0
-                ],
-                "msg": "Done: [1,3,12,0,0]"
-            }
-        ],
+        "description": "Imagine a 10GB disk: you delete two 1GB movies, creating two separate gaps. Defragmentation compacts data to group free space.",
+        "statement": "Move all 0s to the end of the array in-place, keeping order.",
         "externalLink": "https://leetcode.com/problems/move-zeroes/",
         "externalPlatform": "leetcode",
-        "articleSlug": "memory-defragmentation",
         "slug": "move-zeroes"
     },
     {
@@ -111,86 +22,10 @@ const PROBLEMS = [
         "tagline": "Reverse pointer directions in a chain",
         "category": "linked-list",
         "difficulty": "easy",
-        "realWorld": "Linux kernel uses doubly-linked lists everywhere. When unlinking/removing nodes from task scheduler chains, pointers must be reversed.",
+        "realWorld": "Linux kernel uses linked lists.",
         "icon": "fa-solid fa-link",
-        "description": "Reversing a linked list is core to pointer manipulation. Maintain three pointers (prev, current, next) to avoid losing nodes.",
-        "statement": "Reverse a singly linked list by changing pointer directions.",
-        "examples": [
-            {
-                "input": "head = [1,2,3,4,5]",
-                "output": "[5,4,3,2,1]"
-            },
-            {
-                "input": "head = [1,2]",
-                "output": "[2,1]"
-            },
-            {
-                "input": "head = []",
-                "output": "[]"
-            }
-        ],
-        "template": "function reverseList(head) {\\n  let prev = null;\\n  let current = head;\\n  while (current) {\\n    // Your code here\\n  }\\n  return prev;\\n}",
-        "animType": "linked-list",
-        "animData": {
-            "nodes": [
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                },
-                {
-                    "id": 4,
-                    "value": 4
-                },
-                {
-                    "id": 5,
-                    "value": 5
-                }
-            ],
-            "links": [
-                {
-                    "from": 1,
-                    "to": 2
-                },
-                {
-                    "from": 2,
-                    "to": 3
-                },
-                {
-                    "from": 3,
-                    "to": 4
-                },
-                {
-                    "from": 4,
-                    "to": 5
-                }
-            ]
-        },
-        "animSteps": [
-            {
-                "type": "msg",
-                "text": "Reverse pointer directions using three pointers"
-            },
-            {
-                "type": "pointer",
-                "nodeId": 1,
-                "labels": [
-                    "current"
-                ],
-                "msg": "Start at node 1"
-            },
-            {
-                "type": "msg",
-                "text": "Key: Save next node, reverse pointer, move forward"
-            }
-        ],
+        "description": "Reverse linked list using pointers.",
+        "statement": "Reverse a singly linked list.",
         "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
         "externalPlatform": "leetcode",
         "slug": "reverse-linked-list"
@@ -240,5 +75,44 @@ const PROBLEMS = [
         "externalLink": "https://leetcode.com/problems/longest-common-prefix/",
         "externalPlatform": "leetcode",
         "slug": "longest-common-prefix"
+        "title": "Valid Parentheses",
+        "tagline": "Validate nested syntax with a stack",
+        "category": "stack-queue",
+        "difficulty": "easy",
+        "realWorld": "Used in compilers for syntax checking.",
+        "icon": "fa-solid fa-layer-group",
+        "description": "Use stack to match brackets.",
+        "statement": "Check if parentheses are valid.",
+        "externalLink": "https://leetcode.com/problems/valid-parentheses/",
+        "externalPlatform": "leetcode",
+        "slug": "valid-parentheses"
+    },
+    {
+        "id": 4,
+        "title": "Task Scheduler",
+        "tagline": "Keep the CPU busy while respecting cooldowns",
+        "category": "stack-queue",
+        "difficulty": "medium",
+        "realWorld": "OS schedulers manage tasks with cooldowns.",
+        "icon": "fa-solid fa-microchip",
+        "description": "Arrange tasks to minimize idle time with cooldown constraints.",
+        "statement": "Find minimum time to finish all tasks with cooldown.",
+        "externalLink": "https://leetcode.com/problems/task-scheduler/",
+        "externalPlatform": "leetcode",
+        "slug": "task-scheduler"
+    },
+    {
+        "id": 5,
+        "title": "Excel Sheet Column Title",
+        "tagline": "Convert column numbers to Excel labels",
+        "category": "string",
+        "difficulty": "easy",
+        "realWorld": "Used in Excel column naming systems.",
+        "icon": "fa-solid fa-table",
+        "description": "Convert numbers to Excel column titles using base-26.",
+        "statement": "Return Excel column title.",
+        "externalLink": "https://leetcode.com/problems/excel-sheet-column-title/",
+        "externalPlatform": "leetcode",
+        "slug": "excel-sheet-column-title"
     }
 ];

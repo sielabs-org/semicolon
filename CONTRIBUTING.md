@@ -4,6 +4,25 @@ Thank you for contributing to Semicolon! We aim to provide real-world software e
 
 Our problem database is modular to make contributing as easy as possible. Instead of editing a massive JavaScript file, you simply create a JSON file for your problem and run a build script.
 
+## Before You Start
+
+1. **Fork the repository** to your own GitHub account.
+
+2. **Clone your fork locally**:
+   ```bash
+   git clone https://github.com/<your-username>/semicolon.git
+   cd semicolon
+   ```
+
+3. **Create a feature branch** using the LeetCode problem number:
+   ```bash
+   git checkout -b feature/leetcode-<problem_number>
+   ```
+   Example:
+   ```bash
+   git checkout -b feature/leetcode-200
+   ```
+
 ## How to Add a New Problem
 
 1. **Create a JSON file** inside `problems/`.
@@ -50,5 +69,12 @@ Our problem database is modular to make contributing as easy as possible. Instea
 4. **Verify Locally**
    Open `pages/problems.html` in your browser (or run a local server) to ensure your problem appears, the category filter works, and the 'Solve on Leetcode/Codeforces' button is rendering properly.
 
-5. **Submit a Pull Request**
-   Commit both your new JSON file and the rebuilt `js/problems-data.js` file, then open a PR!
+5. **Commit Your Changes**
+   Use sentence-case commit messages that clearly describe what you added.
+   Example:
+   ```bash
+   git commit -m "Added reverse linked list problem"
+   ```
+
+6. **Submit a Pull Request**
+   Commit both your new JSON file and the rebuilt `js/problems-data.js` file, then open a PR from your feature branch.
