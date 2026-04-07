@@ -10,99 +10,13 @@ const PROBLEMS = [
         "difficulty": "easy",
         "realWorld": "Operating Systems — Memory defragmentation moves empty slots (0s) to the end",
         "icon": "fa-solid fa-memory",
-        "description": "Imagine a 10GB disk: you delete two 1GB movies, creating two separate 1GB gaps. Now you download one 2GB movie, so the OS may split it across both gaps. That split storage is fragmentation. Defragmentation compacts active data (non-zeros) to the front so free space is grouped together at the end.",
-        "statement": "Move all <strong>0s</strong> to the end of the array in-place, keeping the relative order of non-zero elements.",
+        "description": "Imagine a 10GB disk: you delete two 1GB movies, creating two separate 1GB gaps. Now you download one 2GB movie, so the OS may split it across both gaps.",
+        "statement": "Move all 0s to the end of the array in-place, keeping the relative order of non-zero elements.",
         "examples": [
-            {
-                "input": "[0,1,0,3,12]",
-                "output": "[1,3,12,0,0]"
-            }
-        ],
-        "template": "function moveZeroes(nums) {\n  // Your code here\n}",
-        "animType": "array",
-        "animData": [
-            0,
-            1,
-            0,
-            3,
-            12
-        ],
-        "animSteps": [
-            {
-                "type": "msg",
-                "text": "Two-pointer approach: writePtr=0"
-            },
-            {
-                "type": "pointer",
-                "indices": [
-                    0
-                ],
-                "labels": [
-                    "write"
-                ],
-                "msg": "writePtr at 0"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    1
-                ],
-                "msg": "Read 1 -> swap with pos 0"
-            },
-            {
-                "type": "swap",
-                "indices": [
-                    0,
-                    1
-                ],
-                "values": [
-                    1,
-                    0
-                ],
-                "msg": "Swap: [1,0,0,3,12]"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    3
-                ],
-                "msg": "Read 3 -> swap with pos 1"
-            },
-            {
-                "type": "swap",
-                "indices": [
-                    1,
-                    3
-                ],
-                "values": [
-                    3,
-                    0
-                ],
-                "msg": "Swap: [1,3,0,0,12]"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    4
-                ],
-                "msg": "Read 12 -> swap with pos 2"
-            },
-            {
-                "type": "swap",
-                "indices": [
-                    2,
-                    4
-                ],
-                "values": [
-                    12,
-                    0
-                ],
-                "msg": "Done: [1,3,12,0,0]"
-            }
+            { "input": "[0,1,0,3,12]", "output": "[1,3,12,0,0]" }
         ],
         "externalLink": "https://leetcode.com/problems/move-zeroes/",
         "externalPlatform": "leetcode",
-        "articleSlug": "memory-defragmentation",
         "slug": "move-zeroes"
     },
     {
@@ -111,86 +25,10 @@ const PROBLEMS = [
         "tagline": "Reverse pointer directions in a chain",
         "category": "linked-list",
         "difficulty": "easy",
-        "realWorld": "Linux kernel uses doubly-linked lists everywhere. When unlinking/removing nodes from task scheduler chains, pointers must be reversed.",
+        "realWorld": "Linux kernel uses doubly-linked lists everywhere.",
         "icon": "fa-solid fa-link",
-        "description": "Reversing a linked list is core to pointer manipulation. Maintain three pointers (prev, current, next) to avoid losing nodes.",
-        "statement": "Reverse a singly linked list by changing pointer directions.",
-        "examples": [
-            {
-                "input": "head = [1,2,3,4,5]",
-                "output": "[5,4,3,2,1]"
-            },
-            {
-                "input": "head = [1,2]",
-                "output": "[2,1]"
-            },
-            {
-                "input": "head = []",
-                "output": "[]"
-            }
-        ],
-        "template": "function reverseList(head) {\\n  let prev = null;\\n  let current = head;\\n  while (current) {\\n    // Your code here\\n  }\\n  return prev;\\n}",
-        "animType": "linked-list",
-        "animData": {
-            "nodes": [
-                {
-                    "id": 1,
-                    "value": 1
-                },
-                {
-                    "id": 2,
-                    "value": 2
-                },
-                {
-                    "id": 3,
-                    "value": 3
-                },
-                {
-                    "id": 4,
-                    "value": 4
-                },
-                {
-                    "id": 5,
-                    "value": 5
-                }
-            ],
-            "links": [
-                {
-                    "from": 1,
-                    "to": 2
-                },
-                {
-                    "from": 2,
-                    "to": 3
-                },
-                {
-                    "from": 3,
-                    "to": 4
-                },
-                {
-                    "from": 4,
-                    "to": 5
-                }
-            ]
-        },
-        "animSteps": [
-            {
-                "type": "msg",
-                "text": "Reverse pointer directions using three pointers"
-            },
-            {
-                "type": "pointer",
-                "nodeId": 1,
-                "labels": [
-                    "current"
-                ],
-                "msg": "Start at node 1"
-            },
-            {
-                "type": "msg",
-                "text": "Key: Save next node, reverse pointer, move forward"
-            }
-        ],
+        "description": "Reversing a linked list requires changing pointer directions carefully.",
+        "statement": "Reverse a singly linked list.",
         "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
         "externalPlatform": "leetcode",
         "slug": "reverse-linked-list"
@@ -201,106 +39,52 @@ const PROBLEMS = [
         "tagline": "Validate nested syntax with a parser stack",
         "category": "stack-queue",
         "difficulty": "easy",
-        "realWorld": "Compilers and linters use a stack to verify brackets are properly opened and closed during parsing.",
+        "realWorld": "Compilers use stack to validate brackets.",
         "icon": "fa-solid fa-layer-group",
-        "description": "When a compiler reads code like `if (a[2] > 0) { return x; }`, every opening symbol must be matched by the correct closing symbol in the right order. A stack models this perfectly: push openings, and when a closing symbol appears, it must match the most recent opening.",
-        "statement": "Given a string <strong>s</strong> containing just the characters <strong>()[]{}</strong>, determine if the input string is valid.",
-        "examples": [
-            {
-                "input": "s = \"()\"",
-                "output": "true"
-            },
-            {
-                "input": "s = \"()[]{}\"",
-                "output": "true"
-            },
-            {
-                "input": "s = \"(]\"",
-                "output": "false"
-            }
-        ],
-        "template": "function isValid(s) {\n  const stack = [];\n  const pairs = {\n    ')': '(',\n    ']': '[',\n    '}': '{'\n  };\n\n  for (const ch of s) {\n    // Your code here\n  }\n\n  return stack.length === 0;\n}",
-        "animType": "array",
-        "animData": [
-            "(",
-            "[",
-            "]",
-            ")"
-        ],
-        "animSteps": [
-            {
-                "type": "msg",
-                "text": "Use a stack: push opening brackets, match closing brackets"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    0
-                ],
-                "msg": "Read '(' -> push to stack"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    1
-                ],
-                "msg": "Read '[' -> push to stack"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    2
-                ],
-                "msg": "Read ']' -> it matches the latest '['"
-            },
-            {
-                "type": "highlight",
-                "indices": [
-                    3
-                ],
-                "msg": "Read ')' -> it matches the latest '(' and stack becomes empty"
-            }
-        ],
+        "description": "Use stack to match opening and closing brackets.",
+        "statement": "Check if brackets are valid.",
         "externalLink": "https://leetcode.com/problems/valid-parentheses/",
         "externalPlatform": "leetcode",
         "slug": "valid-parentheses"
     },
     {
         "id": 4,
-        "title": "Excel Sheet Column Title",
-        "tagline": "Convert column numbers to Excel-style alphabetical labels",
+        "title": "Task Scheduler",
+        "tagline": "Keep the CPU busy while respecting cooldowns",
+        "category": "stack-queue",
+        "difficulty": "medium",
+        "realWorld": "OS schedulers manage tasks with cooldowns.",
+        "icon": "fa-solid fa-microchip",
+        "description": "Arrange tasks with cooldown intervals to minimize idle time.",
+        "statement": "Find minimum time to finish tasks with cooldown.",
+        "externalLink": "https://leetcode.com/problems/task-scheduler/",
+        "externalPlatform": "leetcode",
+        "slug": "task-scheduler"
+    },
+    {
+        "id": 5,
+        "title": "Detect Capital",
+        "tagline": "Validate word capitalization patterns",
         "category": "string",
         "difficulty": "easy",
-        "realWorld": "Column Label Generation During Database Export to Excel\n\nWhen a database runs a SQL query and the user exports the result to Excel (.xlsx) or CSV with headers, the system must assign proper column titles to each column in the output file.\n\nInternally, databases store columns as numbers (Column 1, Column 2, Column 3, …). However, when exporting to Excel, they convert these numbers into Excel-style alphabetical column titles such as A, B, C, ..., Z, AA, AB, ..., ZZ, AAA, etc.",
+        "realWorld": "Microsoft Word & Grammarly validate capitalization.",
+        "icon": "fa-solid fa-font",
+        "description": "Check if a word follows valid capitalization rules.",
+        "statement": "Return true if capitalization is correct.",
+        "externalLink": "https://leetcode.com/problems/detect-capital/",
+        "externalPlatform": "leetcode",
+        "slug": "detect-capital"
+    },
+    {
+        "id": 6,
+        "title": "Excel Sheet Column Title",
+        "tagline": "Convert numbers to Excel column labels",
+        "category": "string",
+        "difficulty": "easy",
+        "realWorld": "Used in Excel column naming systems.",
         "icon": "fa-solid fa-table",
-        "description": "Excel columns are labeled A to Z, then AA to AZ, BA to BZ, and so on. This is essentially base-26 numbering where A=1, B=2, ..., Z=26. The challenge is to convert a given integer (column number) to its corresponding Excel column title string.",
-        "statement": "Given an integer <strong>columnNumber</strong>, return its corresponding column title as it appears in an Excel sheet.\n\nFor example:\n- 1 -> A\n- 26 -> Z\n- 27 -> AA\n- 28 -> AB",
-        "examples": [
-            {
-                "input": "1",
-                "output": "\"A\""
-            },
-            {
-                "input": "26",
-                "output": "\"Z\""
-            },
-            {
-                "input": "27",
-                "output": "\"AA\""
-            },
-            {
-                "input": "28",
-                "output": "\"AB\""
-            },
-            {
-                "input": "701",
-                "output": "\"ZY\""
-            }
-        ],
-        "template": "function convertToTitle(columnNumber) {\n  // Your code here\n}",
-        "animType": "array",
-        "animData": [1],
-        "animSteps": [],
+        "description": "Convert number to Excel column title using base-26 logic.",
+        "statement": "Return Excel column title from number.",
         "externalLink": "https://leetcode.com/problems/excel-sheet-column-title/",
         "externalPlatform": "leetcode",
         "slug": "excel-sheet-column-title"
