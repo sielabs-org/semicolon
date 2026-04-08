@@ -1,0 +1,35 @@
+{
+  "id": 11,
+  "title": "Most Used App",
+  "tagline": "Find the most frequently used app using counting",
+  "category": "array",
+  "difficulty": "easy",
+  "realWorld": "App Usage Analytics\n\nUsed in analytics systems to determine the most frequently used application by users for insights and recommendations.",
+  "icon": "fa-solid fa-mobile-screen",
+  "description": "Given a list of app names, determine which app is used the most. This can be solved by counting the frequency of each app.",
+  "statement": "Given an array <strong>apps</strong>, return the app that appears more than ⌊n/2⌋ times. You may assume that the majority element always exists in the array.\n\nFor example:\n- [\"chat\", \"music\", \"chat\"] -> \"chat\"\n- [\"video\", \"video\", \"music\", \"video\"] -> \"video\"",
+  "examples": [
+    {
+      "input": "[\"chat\", \"music\", \"chat\"]",
+      "output": "\"chat\""
+    },
+    {
+      "input": "[\"video\", \"video\", \"music\", \"video\"]",
+      "output": "\"video\""
+    },
+    {
+      "input": "[\"app1\", \"app2\", \"app1\", \"app1\"]",
+      "output": "\"app1\""
+    },
+    {
+      "input": "[\"x\", \"x\", \"y\"]",
+      "output": "\"x\""
+    }
+  ],
+  "template": "function mostUsedApp(apps) {\n  // Your code here\n}",
+  "animType": "array",
+  "animData": ["chat", "music", "chat"],
+  "animSteps": [],
+  "externalLink": "https://leetcode.com/problems/majority-element/",
+  "externalPlatform": "leetcode"
+}
