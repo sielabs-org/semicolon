@@ -545,5 +545,40 @@ const PROBLEMS = [
         "externalLink": "https://leetcode.com/problems/running-sum-of-1d-array/",
         "externalPlatform": "leetcode",
         "slug": "shopping-cart-total-calculation"
+    },
+    {
+        "id": 10,
+        "title": "Add Binary",
+        "tagline": "Add two binary strings bit by bit",
+        "category": "string",
+        "difficulty": "easy",
+        "realWorld": "Binary Adder in Digital Circuits / Calculators\n\nIn every computer, mobile phone, and calculator, when you perform any addition (even 5 + 7), the processor actually adds numbers in binary (0s and 1s) internally.\n\nPractical Example:\nImagine you are designing a simple calculator app.\nA user wants to add two binary numbers:\nFirst number: 1011 (which is 11 in decimal)\nSecond number: 1101 (which is 13 in decimal)\nThe app must return the correct binary sum: \"11000\"\nThis is exactly what LeetCode 67 asks you to implement — simulating how a computer’s Arithmetic Logic Unit (ALU) adds two binary numbers bit by bit.\n\nAnother Everyday Example:\nWhen your phone’s battery percentage is calculated\nWhen data packets are transmitted over network (error checking uses binary addition)\nIn digital clocks or electronic devices that perform internal calculations using binary",
+        "icon": "fa-solid fa-plus",
+        "description": "Given two binary strings a and b, return their sum as a binary string.",
+        "statement": "Given two binary strings <strong>a</strong> and <strong>b</strong>, return their sum as a binary string.\n\nFor example:\n- a = \"11\", b = \"1\" -> \"100\"\n- a = \"1010\", b = \"1011\" -> \"10101\"",
+        "examples": [
+            {
+                "input": "a = \"11\", b = \"1\"",
+                "output": "\"100\""
+            },
+            {
+                "input": "a = \"1010\", b = \"1011\"",
+                "output": "\"10101\""
+            },
+            {
+                "input": "a = \"0\", b = \"0\"",
+                "output": "\"0\""
+            }
+        ],
+        "template": "function addBinary(a, b) {\n  // Your code here\n}",
+        "animType": "string",
+        "animData": [
+            "11",
+            "1"
+        ],
+        "animSteps": [],
+        "externalLink": "https://leetcode.com/problems/add-binary/",
+        "externalPlatform": "leetcode",
+        "slug": "add-binary"
     }
 ];
